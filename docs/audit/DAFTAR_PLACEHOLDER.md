@@ -1,0 +1,18 @@
+# Daftar Placeholder SIAP MALUT
+
+Semua hal yang masih berupa **placeholder/data contoh** dicatat di sini (lihat `docs/standar/STANDAR_DATA_CONTOH.md`). Diperbarui setiap tahap. Diganti pada **Tahap P** (penggantian data contoh dengan data asli) sebelum peluncuran.
+
+| ID | Placeholder | Lokasi | Pengganti (nyata) | Tahap pengganti | Status |
+|---|---|---|---|---|---|
+| PH-01 | Nama pimpinan dan pejabat (Gubernur, Wagub, Sekda, Asisten, Kepala OPD) | `data/contoh/` | Struktur pejabat asli | P | Direncanakan |
+| PH-02 | Nama staf (Protokol, Materi, ajudan) | `data/contoh/` | Daftar staf asli | P | Direncanakan |
+| PH-03 | Akun pengguna (`demo.*`) | `data/contoh/` | Akun asli lewat impor admin | P | Direncanakan |
+| PH-04 | Akun admin (`admin.owner`, dipegang owner) | Aplikasi | Administrator resmi | P | Aktif (sementara) |
+| PH-05 | Matriks hak akses berbasis jabatan contoh | `docs/rekayasa/MATRIKS_HAK_AKSES.md` | Disahkan dengan pemegang jabatan asli | P | Direncanakan |
+| PH-06 | SK kelompok kerja/tim/peran (TG-05) | `docs/audit/arsip/` | SK asli | P | Placeholder |
+| PH-07 | Agenda contoh (bentuk mengikuti agenda Protokol, difiktifkan) | `data/contoh/` | Agenda nyata (input petugas) | P | Direncanakan |
+| PH-08 | Aturan kewenangan mewakili (nilai awal) | `data/contoh/`, `docs/standar/ATURAN_KEWENANGAN_MEWAKILI_DRAF.md` | Disahkan Sekda | P | Draf |
+| PH-09 | Tabel waktu tempuh antarlokasi/pulau (nilai awal) | `data/contoh/` | Diisi Protokol | P | Direncanakan |
+| PH-10 | Nomor telepon, nomor surat contoh | `data/contoh/` | Data asli | P | Direncanakan |
+| PH-11 | Dasbor pejabat dan dasbor staf (tampilan dengan data contoh) | `apps/web/` | Tampilan yang sama dengan data asli | P | Direncanakan |
+| PH-12 | Penandatangan dokumen audit | `docs/audit/` | Pejabat berwenang | P | Direncanakan |

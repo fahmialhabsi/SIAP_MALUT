@@ -39,3 +39,10 @@
 | KB-028 | Audit; Paket serah terima | Cadangan dan pemulihan dapat diuji | Operasi | 2 | - | Direncanakan |
 | KB-029 | Audit; Daftar dokumen RK-05 | Hak akses sesuai matriks hak akses; diuji otomatis | Semua | 1.3 | - | Direncanakan |
 | KB-030 | Paket serah terima 2 | Aplikasi berjalan dalam kontainer dengan konfigurasi lingkungan | Semua | 1.1 | - | Direncanakan |
+| KB-031 | KP-006; Standar data contoh | Semua data awal berlabel CONTOH dan berpenanda `is_contoh`; berasal dari `data/contoh/` | Semua | 1.3 | - | Direncanakan |
+| KB-032 | KP-007 | Mode `demo`: admin dapat pindah tampilan ke persona peran; tercatat di log audit | Semua | 1.4 | - | Direncanakan |
+| KB-033 | KP-007 | Spanduk "DATA CONTOH" pada semua halaman dan ekspor selama mode demo | Semua | 1.4 | - | Direncanakan |
+| KB-034 | KP-007 | Penjaga produksi: menolak mulai bila ada data contoh; menonaktifkan pindah peran | Semua | 1.3 | - | Direncanakan |
+| KB-035 | KP-006; Tahap P | Impor data asli lewat admin (templat CSV) dan penghapusan data contoh | Admin | P | - | Direncanakan |
+| KB-036 | KP-010 | Hal yang rawan berubah (nama, jabatan, hak akses, aturan, tenggat, jenis kegiatan, label status, istilah) disimpan sebagai data/konfigurasi | Semua | 1.3 | - | Direncanakan |
+| KB-037 | KP-006 | Dasbor per peran: pejabat (pimpinan, pengganti) dan staf (protokol), plus admin | Semua | 1.4 | - | Direncanakan |

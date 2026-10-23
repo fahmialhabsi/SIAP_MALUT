@@ -637,10 +637,14 @@ Pengaruh pada bab sebelumnya: kemitraan dengan Diskominfosan sejak perencanaan (
 Syarat teknis yang dibangun sejak Tahap 1.1: pemasangan berbasis kontainer, konfigurasi lingkungan, migrasi dan data awal, titik kesehatan, log terstruktur, log audit append-only, cadangan dan pemulihan, SBOM dan laporan uji, antarmuka penyimpanan dan notifikasi yang dapat diganti, serta ekspor data format terbuka. Daftar periksa paket serah terima: `docs/audit/PAKET_SERAH_TERIMA.md`.
 
 ### 12.3 Kesiapan Audit (Diskominfosan, Inspektorat, BPK)
-Disiapkan **dokumen hidup** yang dijaga selaras dengan aplikasi (Aturan 9 di `CLAUDE.md`): daftar induk 65 dokumen (tata kelola, rekayasa, mutu, keamanan dan PDP, operasi, pengguna, aset dan keuangan, peluncuran, pemantauan), matriks keterlusuran kebutuhan, register risiko, dan skrip pemeriksa `scripts/audit-check.ps1` pada gate. Daftar dan peta tahapnya: `docs/audit/DAFTAR_DOKUMEN_AUDIT.md`.
+Disiapkan **dokumen hidup** yang dijaga selaras dengan aplikasi (Aturan 9 di `CLAUDE.md`): daftar induk 71 dokumen (tata kelola, rekayasa, mutu, keamanan dan PDP, operasi, pengguna, aset dan keuangan, peluncuran, pemantauan), matriks keterlusuran kebutuhan, register risiko, dan skrip pemeriksa `scripts/audit-check.ps1` pada gate. Daftar dan peta tahapnya: `docs/audit/DAFTAR_DOKUMEN_AUDIT.md`.
 
 ### 12.4 Pengaruh pada Peta Jalan
 Peta jalan Bab VII tidak berubah urutannya. Perubahan: (a) Tahap 0 tidak lagi memuat konsultasi/pendaftaran SPBE; (b) Tahap 4 (peluncuran) menjadi saat **serah terima ke Diskominfosan** dan pendaftaran Arsitektur SPBE; (c) tiap tahap memuat keluaran dokumen audit sesuai peta di daftar induk.
+
+
+### 12.5 Cara Kerja, Data Contoh, dan Tahap P (v1.3)
+Atas permintaan Kabag Protokol dan keputusan owner (KP-005 s.d. KP-011): pembangunan dan evaluasi dilakukan mandiri; SK, nama pejabat dan staf, admin, hak akses, serta dasbor memakai **data contoh berlabel**; owner bertindak sebagai admin; tersedia **mode demo** dengan pindah tampilan peran. Ditambahkan **Tahap P (penggantian data contoh dengan data asli)** sebelum peluncuran (setelah Kabag meninjau). Pedoman: `docs/standar/CARA_KERJA.md`, `docs/standar/STANDAR_DATA_CONTOH.md`, `docs/standar/FOLDER_STRUKTUR.md`.
 
 ---
 

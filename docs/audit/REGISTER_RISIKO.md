@@ -25,3 +25,6 @@
 | RS-18 | Dokumen melenceng dari aplikasi | S | T | Tinggi | Pembangun | Dokumen dihasilkan dari kode; RTM; `audit-check`; DoD per tahap | Terbuka |
 | RS-19 | Data nyata dipakai di lingkungan tak terkendali selama uji | S | T | Tinggi | Owner | Data fiktif hingga UAT; data nyata hanya di lingkungan UAT terkendali dengan persetujuan | Terbuka |
 | RS-20 | Notifikasi WhatsApp resmi tertunda/berbiaya | S | S | Sedang | Owner | Web Push dan teks siap tempel; antarmuka `Notifier` | Terbuka |
+| RS-21 | **Data contoh/placeholder lolos ke produksi atau dianggap nyata** | S | T | Tinggi | Pembangun | Label CONTOH, `is_contoh`, spanduk, penjaga produksi, Daftar Placeholder, Tahap P | Terbuka |
+| RS-22 | **Kabag baru melihat di akhir: revisi besar** (KP-011) | S | S | Sedang | Owner | Uji dengan bentuk agenda nyata (difiktifkan); koreksi sebagai data/konfigurasi; struktur dibekukan; KP-010 | Diterima owner |
+| RS-23 | Koreksi mengacaukan struktur folder dan rujukan | S | S | Sedang | Pembangun | Folder dibekukan; Register Koreksi; `audit-check` memeriksa struktur | Terbuka |

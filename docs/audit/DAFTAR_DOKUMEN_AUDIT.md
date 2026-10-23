@@ -35,7 +35,7 @@ Kode peminta pada tabel: **D** = Diskominfosan, **I** = Inspektorat, **B** = BPK
 
 ## 3. Daftar Dokumen
 
-Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. Status: **Ada** / **Draf** / **Belum**.
+Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. Status: **Ada** / **Draf** / **Belum** / **Placeholder** (berisi data contoh; diganti pada Tahap P, lihat `DAFTAR_PLACEHOLDER.md`).
 
 ### A. Tata Kelola dan Perencanaan
 
@@ -45,7 +45,7 @@ Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. 
 | TG-02 | Aturan kerja proyek dan pembagian peran | I | 0 | `CLAUDE.md` diperbarui bila aturan berubah | Ada | `CLAUDE.md` |
 | TG-03 | Keputusan arsitektur/teknologi (ADR) | D | 0 | ADR baru tiap keputusan penting | Ada | `docs/standar/KEPUTUSAN_TEKNOLOGI_PURWARUPA.md` |
 | TG-04 | Standar desain antarmuka | D I | 0 | Token CSS satu sumber | Ada | `docs/standar/STANDAR_DESAIN.md` |
-| TG-05 | Surat keputusan kelompok kerja, tim, dan peran (pemilik sistem, pemilik proses, administrator) | I B | 0 | Salinan SK ditaruh di arsip | Belum | `docs/audit/arsip/` |
+| TG-05 | Surat keputusan kelompok kerja, tim, dan peran (pemilik sistem, pemilik proses, administrator); sementara berisi placeholder | I B | 0 | Salinan SK ditaruh di arsip; diganti SK asli pada Tahap P | Placeholder | `docs/audit/arsip/` |
 | TG-06 | Matriks keterlusuran kebutuhan (RTM) | D I B | 0 | Diperbarui tiap tahap; skrip memeriksa | Ada | `docs/audit/MATRIKS_KETERLUSURAN.md` |
 | TG-07 | Register risiko proyek dan sistem | D I B | 0 | Ditinjau tiap tahap | Ada | `docs/audit/REGISTER_RISIKO.md` |
 | TG-08 | Rencana kerja, jadwal tahap, dan laporan kemajuan | I B | 0 | Handoff per tahap | Ada | `docs/handoff/` |
@@ -54,6 +54,12 @@ Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. 
 | TG-11 | Aturan kewenangan mewakili pimpinan | I | 0 | Data aturan di aplikasi = isi dokumen | Draf | `docs/standar/ATURAN_KEWENANGAN_MEWAKILI_DRAF.md` |
 | TG-12 | Bahan Arsitektur SPBE (proses bisnis, data, aplikasi, infrastruktur, keamanan) | D | 3 | Diturunkan dari TG-01, RK-01..04 | Belum | `docs/audit/spbe/` |
 | TG-13 | Analisis manfaat dan indikator kinerja (baseline dan target) | I B | 1.0 | Indikator Rancangan 8.1; dihitung dari data sistem | Belum | `docs/audit/indikator/` |
+| TG-14 | Standar cara kerja (siklus tahap, perintah, penanganan koreksi) | I | 0 | `CLAUDE.md` merujuknya | Ada | `docs/standar/CARA_KERJA.md` |
+| TG-15 | Log keputusan owner | I B | 0 | Entri tiap keputusan | Ada | `docs/keputusan/KEPUTUSAN.md` |
+| TG-16 | Struktur folder baku | I | 0 | Diperiksa `audit-check` | Ada | `docs/standar/FOLDER_STRUKTUR.md` |
+| TG-17 | Register koreksi (owner dan Kabag) | I | 0 | Setiap koreksi tercatat | Ada | `docs/perubahan/REGISTER_KOREKSI.md` |
+| TG-18 | Standar data contoh dan placeholder | I B | 0 | Penjaga produksi di aplikasi | Ada | `docs/standar/STANDAR_DATA_CONTOH.md` |
+| TG-19 | Daftar placeholder dan rencana penggantian | I B | 0 | Diperbarui tiap tahap | Ada | `docs/audit/DAFTAR_PLACEHOLDER.md` |
 
 ### B. Rekayasa dan Desain
 
@@ -151,7 +157,8 @@ Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. 
 
 | Tahap | Dokumen yang harus ada atau diperbarui saat tahap selesai |
 |---|---|
-| 0 | TG-01..08, TG-10, TG-11, MU-01, AK-01 (keputusan), AK-03 (mulai catat) |
+| 0 | TG-01..08, TG-10, TG-11, TG-14..19, MU-01, AK-01 (keputusan), AK-03 (mulai catat) |
+| P (penggantian data contoh) | TG-05 (SK asli), PH-01..12 diganti; matriks hak akses RK-05 dengan pemegang jabatan asli; uji ulang hak akses dan dasbor |
 | 1.1 | RK-01, MU-02..04, MU-09, OP-01, OP-02, OP-06, AK-02 |
 | 1.2 | RK-06, RK-07, TG-09 (SRS awal) |
 | 1.3 | RK-02..05, KM-01, KM-02, KM-05, KM-09 |

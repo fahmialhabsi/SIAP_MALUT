@@ -3,20 +3,17 @@
 Proyek: Sistem Informasi Administrasi Pimpinan Maluku Utara (Biro Adpim Setda Prov. Maluku Utara).
 Repo: `fahmialhabsi/SIAP_MALUT`. Bahasa dokumen dan antarmuka: Bahasa Indonesia baku.
 
+## Mulai di sini (setiap sesi baru atau konteks panjang)
+
+1. Baca `CLAUDE.md` ini, lalu **`STATUS.md`** (kondisi terkini, langkah berikutnya, keputusan terbuka).
+2. Pedoman lengkap: `docs/standar/CARA_KERJA.md`. Log keputusan owner: `docs/keputusan/KEPUTUSAN.md`.
+3. Urutan pedoman bila bertabrakan: **keputusan owner > CLAUDE.md > standar > rancangan/SOP > handoff/STATUS**.
+4. Perintah owner yang dikenali: `STATUS`, `LANJUT`, `TAHAP <n>`, `SETUJU`, `EVALUASI`, `KEPUTUSAN: ...`, `KOREKSI: ...`, `UBAH: ...` (arti: `CARA_KERJA.md` bagian 4).
+5. Bila perintah owner bertabrakan dengan pedoman: jangan diikuti diam-diam; sebut aturan yang terlanggar dan tawarkan (a) ubah pedoman resmi lewat `KEPUTUSAN:` atau (b) catat pengecualian.
+
 ## Peta folder
 
-| Folder | Isi |
-|---|---|
-| `docs/rancangan/` | Rancangan awal (PDF asli dan `.md` yang dipelihara) |
-| `docs/standar/` | Standar wajib (desain, dan standar lain yang menyusul) |
-| `docs/sop/` | Draf dan SOP layanan biro |
-| `scripts/` | `gate.ps1` (gate npm) dan `scripts/patch/tahap-<nomor>.ps1` (patch per tahap) |
-| `docs/audit/` | Daftar dokumen audit, RTM, register risiko, paket serah terima (siap audit Diskominfosan, Inspektorat, BPK) |
-| `docs/handoff/` | Catatan serah terima per tahap (`HANDOFF_TAHAP-<nomor>_<judul>.md`) |
-| `src/styles/` | `design-tokens.css`: sumber tunggal token desain |
-| `src/` | Kode aplikasi (menyusul pada Tahap 1) |
-
-Berkas ditaruh di folder yang sesuai dengan peta ini. Folder baru dicatat di tabel ini pada tahap yang sama.
+Struktur folder **dibekukan** dan dirinci di `docs/standar/FOLDER_STRUKTUR.md`. Tambah, jangan pindah. Dilarang membuat folder tingkat atas baru tanpa keputusan owner. Ringkasan: `docs/` (rancangan, standar, sop, keputusan, perubahan, handoff, audit, rekayasa, mutu, keamanan, operasi, pengguna), `apps/` (web, api), `packages/` (domain, shared), `data/contoh/`, `src/styles/`, `scripts/` (gate, audit-check, patch).
 
 ## Aturan 1: Standar desain wajib
 
@@ -71,7 +68,7 @@ Aturan kewenangan mewakili, siapa yang memegang akun, dan kegiatan yang tayang p
 Konsekuensi yang wajib diikuti:
 - Semua hal teknis (kontainer, konfigurasi, migrasi, cadangan/pemulihan, log, kesehatan sistem, keamanan) **kita siapkan dari awal**, mengikuti `docs/audit/PAKET_SERAH_TERIMA.md` bagian 2, agar pada serah terima tinggal dilampirkan.
 - Jangan menulis rencana kerja yang bergantung pada persetujuan, data, atau server Diskominfosan sebelum peluncuran. Pertanyaan untuk Diskominfosan dicatat di handoff sebagai bahan serah terima, tidak diajukan sekarang.
-- Jangan memakai data nyata di lingkungan produksi sebelum serah terima. Data fiktif sampai UAT; data nyata hanya di lingkungan UAT terkendali dengan persetujuan owner.
+- Tidak ada data nyata sampai Tahap P (penggantian data contoh); lihat Aturan 11.
 - Risiko strategi ini sudah dicatat di `docs/audit/REGISTER_RISIKO.md` (RS-14, RS-15, RS-16).
 
 ## Aturan 9: Dokumen audit adalah dokumen hidup
@@ -85,3 +82,19 @@ Sistem harus **siap diaudit Diskominfosan, Inspektorat, dan BPK**. Daftar indukn
 6. **Jujur tentang status** dokumen: Ada, Draf, atau Belum. Dilarang menandai Ada bila berkasnya belum ada atau belum sesuai aplikasi.
 7. Jangan menyimpan rahasia atau data pribadi nyata di dokumen audit; cukup letak dan prosedurnya.
 8. Rujukan regulasi dalam dokumen wajib diverifikasi di JDIH sebelum dikutip sebagai dasar resmi.
+
+## Aturan 10: Siklus tahap dan dasar kerja
+
+Setiap tahap besar mengikuti: **Lembar Tahap → SETUJU → Bangun → Evaluasi → Patch → Handoff + STATUS** (`CARA_KERJA.md`). Jangan membangun sebelum Lembar Tahap disetujui owner. Kerjakan hanya yang ada di Lembar Tahap; hal lain masuk Register Koreksi. `STATUS.md` diperbarui di setiap patch.
+
+## Aturan 11: Data contoh dan placeholder (keputusan KP-005 s.d. KP-007)
+
+Kabag Protokol meminta pembangunan mandiri dengan placeholder. Karena itu: **tidak ada data orang nyata** (nama, telepon, NIP, ID rapat, sandi) di repo; semua data berlabel "CONTOH" di `data/contoh/`; peran berdasarkan jabatan; owner = admin (`admin.owner`); mode `demo` dengan pindah tampilan peran hanya di demo; produksi menolak data contoh. Rincian: `docs/standar/STANDAR_DATA_CONTOH.md`. Daftar placeholder: `docs/audit/DAFTAR_PLACEHOLDER.md` (diperbarui tiap tahap). Dokumen berbasis placeholder berstatus **Placeholder**, bukan Ada.
+
+## Aturan 12: Antisipasi koreksi, struktur tidak boleh rusak (KP-010)
+
+Koreksi dari owner atau Kabag Protokol **dicatat dahulu** di `docs/perubahan/REGISTER_KOREKSI.md`, diklasifikasi A (teks), B (data/aturan), C (fitur baru), D (struktur/arsitektur), lalu dikerjakan di tempat yang sesuai tanpa mengubah struktur (`CARA_KERJA.md` bagian 5). Jenis D wajib `KEPUTUSAN:` dan ADR baru. Sejak rancangan, hal yang rawan berubah (nama, jabatan, hak akses, aturan kewenangan, tenggat, jenis kegiatan, label status, istilah antarmuka) disimpan sebagai **data/konfigurasi**, bukan tertanam di kode. Memindah atau mengganti nama berkas yang dirujuk hanya lewat jenis D, dengan semua rujukan diperbarui dalam satu patch dan `audit-check` lolos.
+
+## Aturan 13: Kontinuitas
+
+Handoff di akhir tahap dan otomatis tiap lebih dari 5 chat (Aturan 5); `STATUS.md` di setiap patch; keputusan owner dicatat di `KEPUTUSAN.md` begitu diucapkan. Informasi penting tidak boleh hanya hidup di percakapan.
