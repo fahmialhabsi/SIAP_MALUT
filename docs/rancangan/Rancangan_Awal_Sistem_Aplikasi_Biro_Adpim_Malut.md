@@ -552,6 +552,8 @@ Melengkapi tabel 5.5:
 
 Inilah bagian yang paling menentukan kualitas rekomendasi "yang benar-benar sesuai tugas". Aturan **tidak ditulis sendiri oleh pengembang**, melainkan ditetapkan Biro bersama Sekda dan dapat diubah oleh admin Protokol tanpa mengubah kode.
 
+Draf lengkap aturan (tingkat acara, matriks pengganti, algoritma, contoh) ada di `docs/standar/ATURAN_KEWENANGAN_MEWAKILI_DRAF.md`; draf SOP layanan di `docs/sop/SOP_LAYANAN_DRAF.md`.
+
 Contoh tabel aturan (isi awal ilustratif; **harus divalidasi**):
 
 | Bidang / jenis kegiatan | Pengganti utama | Pengganti berikutnya |
