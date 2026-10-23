@@ -41,6 +41,7 @@ Setiap kali menyelesaikan tahap, Claude **langsung** memberi owner: (a) nama skr
 - Dilarang memasukkan rahasia (kata sandi, token, kunci API, `.env`), data pribadi nyata, atau meeting ID/sandi rapat ke repo. Contoh data memakai data fiktif.
 - Dilarang `--force`, `--no-verify`, dan menimpa riwayat tanpa izin eksplisit owner.
 - Claude hanya menjalankan commit/push sendiri bila owner memintanya secara eksplisit pada tahap itu.
+- **Pra-verifikasi gate lokal** (tanpa commit/push) oleh Claude diperbolehkan bila disetujui owner di Lembar Tahap (KP-012); Claude hanya melaporkan ringkasan hasil, dan owner tetap menjalankan patch.
 - Skrip patch sendiri harus lolos pemeriksaan sintaks sebelum diserahkan; Claude melaporkan bila belum diuji berjalan.
 
 ## Aturan 4: Prinsip dari rancangan

@@ -16,3 +16,4 @@ Semua hal yang masih berupa **placeholder/data contoh** dicatat di sini (lihat `
 | PH-10 | Nomor telepon, nomor surat contoh | `data/contoh/` | Data asli | P | Direncanakan |
 | PH-11 | Dasbor pejabat dan dasbor staf (tampilan dengan data contoh) | `apps/web/` | Tampilan yang sama dengan data asli | P | Direncanakan |
 | PH-12 | Penandatangan dokumen audit | `docs/audit/` | Pejabat berwenang | P | Direncanakan |
+| PH-13 | Ikon aplikasi sementara (tulisan SIAP di atas biru) | `apps/web/public/icon.svg` | Logo resmi Pemprov/Biro | P | Sementara |

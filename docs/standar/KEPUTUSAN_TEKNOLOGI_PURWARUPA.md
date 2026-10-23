@@ -10,7 +10,7 @@ Purwarupa dibangun sebagai **aplikasi web progresif (PWA) berbasis kerangka sumb
 | Lapisan | Pilihan | Alasan singkat |
 |---|---|---|
 | Bahasa | **TypeScript** di seluruh tumpukan | Satu bahasa, tipe data aman, mudah diuji |
-| Runtime | **Node.js 20 LTS** (sudah terpasang di komputer owner: v20.20.0) | Selaras dengan gate `npm` yang diwajibkan |
+| Runtime | **Node.js 22 LTS** di kontainer; pengembangan lokal Node 20.19+ atau 22 (diverifikasi di 20.20.0 dan 22.22.0; Node 22 disarankan) | Revisi Tahap 1.1: Node 20 sudah melewati akhir dukungan dan satu dependensi Fastify meminta Node 22 |
 | Antarmuka | **React + Vite**, PWA lewat `vite-plugin-pwa` (service worker) | Arus utama, komunitas luas, mendukung luring |
 | Peladen API | **Fastify** (REST/JSON) | Ringan, cepat, skema tervalidasi |
 | Basis data | **PostgreSQL** (dev lewat Docker, sudah terpasang) | Waktu/zona, JSON, pencarian; mudah dipindah ke pusat data |
@@ -99,3 +99,6 @@ Keputusan ditinjau bila: (a) saat serah terima Diskominfosan mewajibkan tumpukan
 ## 9. Syarat Teknis Serah Terima yang Dibangun Sejak Tahap 1.1
 
 Karena Diskominfosan baru terlibat saat peluncuran, semua hal berikut **wajib ada sejak kerangka repo (Tahap 1.1)**: kontainer (`Dockerfile`, `docker-compose`), konfigurasi lewat variabel lingkungan dan `.env.example`, migrasi dan data awal fiktif, `/health` dan `/ready`, log JSON, tabel log audit append-only, skrip cadangan dan pemulihan, SBOM dan laporan uji tiap rilis, antarmuka `FileStore` dan `Notifier`, serta ekspor data format terbuka. Rincian: `docs/audit/PAKET_SERAH_TERIMA.md` bagian 2.
+
+## 10. Revisi 1 (Tahap 1.1): Versi yang Dikunci
+Versi dikunci di `package-lock.json` (rilis stabil terbaru yang kompatibel saat Oktober 2026): TypeScript ~5.9 (**bukan 7.x**: `typescript-eslint` 8.72 mendukung TypeScript <6.1), Vite 8, `@vitejs/plugin-react` 6, `vite-plugin-pwa` 2, Vitest **4** (Vitest 5 meminta Node 22+), jsdom 27 (jsdom 30 meminta Node 22+), React 19, Fastify 5, Zod 4, ESLint 10, Prettier 3. Naik ke Vitest 5/jsdom 30 menunggu keputusan mengganti Node lokal ke 22 atau 24. Font: Inter variabel (OFL) disimpan di `src/assets/fonts/` beserta lisensinya.

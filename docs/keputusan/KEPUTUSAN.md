@@ -16,6 +16,7 @@ Format: ID, tanggal, keputusan, dasar/alasan, dampak pada pedoman. Sebagian entr
 | KP-009 | 2026-10-23 | Perintah singkat owner (`STATUS`, `LANJUT`, `TAHAP`, `SETUJU`, `EVALUASI`, `KEPUTUSAN:`, `KOREKSI:`, `UBAH:`); `STATUS.md` memori antar sesi | Kontinuitas tanpa kehilangan konteks | `CARA_KERJA.md`, `STATUS.md` |
 | KP-010 | 2026-10-23 | **Antisipasi koreksi tambahan** dari owner/Kabag agar struktur folder tidak rusak: struktur dibekukan, koreksi lewat Register Koreksi dan klasifikasi A–D, data/aturan sebagai data bukan kode | Menjaga struktur proyek | `FOLDER_STRUKTUR.md`, `CARA_KERJA.md` bagian 5 |
 | KP-011 | 2026-10-23 | Risiko diterima: Kabag baru melihat di akhir, sehingga mungkin revisi besar | Permintaan Kabag | `REGISTER_RISIKO.md` RS-22 |
+| KP-012 | 2026-10-23 | Tahap 1.1 SETUJU. Asisten **boleh menjalankan gate lokal sekali sebagai pra-verifikasi** (hanya melaporkan ringkasan); `docker compose build` dicoba; dokumen audit ringkas dibuat sekarang | Kerangka pertama rawan gagal instalasi | `CLAUDE.md` Aturan 3 (pengecualian terbatas bila disetujui di Lembar Tahap) |
 
 ## Keputusan Terbuka (belum diputuskan)
 

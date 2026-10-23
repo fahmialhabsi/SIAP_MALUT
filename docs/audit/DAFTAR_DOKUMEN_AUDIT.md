@@ -65,7 +65,7 @@ Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. 
 
 | ID | Dokumen | Diminta | Dibuat | Sinkron lewat | Status | Berkas |
 |---|---|---|---|---|---|---|
-| RK-01 | Dokumen arsitektur perangkat lunak (konteks, komponen, deployment) | D | 1.1 | Diagram dari kode/konfigurasi; ditinjau tiap tahap | Belum | `docs/rekayasa/ARSITEKTUR.md` |
+| RK-01 | Dokumen arsitektur perangkat lunak (konteks, komponen, deployment) | D | 1.1 | Diagram dari kode/konfigurasi; ditinjau tiap tahap | Ada | `docs/rekayasa/ARSITEKTUR.md` |
 | RK-02 | Model dan kamus data (ERD, tipe, makna, sensitivitas) | D I B | 1.3 | **Dihasilkan dari skema Drizzle** | Belum | `docs/rekayasa/KAMUS_DATA.md` |
 | RK-03 | Spesifikasi API | D | 1.3 | **Dihasilkan dari skema Fastify/Zod (OpenAPI)** | Belum | `docs/rekayasa/openapi.json` |
 | RK-04 | Desain keamanan (autentikasi, otorisasi, enkripsi, log) | D I B | 1.3 | Diuji oleh kasus uji keamanan | Belum | `docs/rekayasa/DESAIN_KEAMANAN.md` |
@@ -79,14 +79,14 @@ Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. 
 | ID | Dokumen | Diminta | Dibuat | Sinkron lewat | Status | Berkas |
 |---|---|---|---|---|---|---|
 | MU-01 | Riwayat perubahan (commit per tahap, tag rilis, CHANGELOG) | I B | 0 | Git; patch per tahap | Ada | `docs/handoff/` |
-| MU-02 | Standar pengodean dan tinjauan kode | D | 1.1 | ESLint/Prettier di gate | Belum | `docs/rekayasa/STANDAR_KODE.md` |
-| MU-03 | Bukti gate (lint, test, build) per rilis | D I | 1.1 | Keluaran skrip patch disimpan | Belum | `docs/audit/bukti-gate/` |
-| MU-04 | Rencana uji dan strategi pengujian | D I | 1.1 | RTM | Belum | `docs/mutu/RENCANA_UJI.md` |
+| MU-02 | Standar pengodean dan tinjauan kode | D | 1.1 | ESLint/Prettier di gate | Ada | `docs/rekayasa/STANDAR_KODE.md` |
+| MU-03 | Bukti gate (lint, test, build) per rilis | D I | 1.1 | Keluaran skrip patch disimpan | Ada | `docs/audit/bukti-gate/` |
+| MU-04 | Rencana uji dan strategi pengujian | D I | 1.1 | RTM | Ada | `docs/mutu/RENCANA_UJI.md` |
 | MU-05 | Kasus uji dan laporan uji (unit, integrasi, E2E, ponsel 360 px) | D I B | 1.x | **Laporan dari Vitest/Playwright** | Belum | `docs/mutu/laporan-uji/` |
 | MU-06 | Uji penerimaan pengguna (UAT) dan berita acara | D I B | 1.6 | Skenario dari SOP dan RTM | Belum | `docs/mutu/UAT/` |
 | MU-07 | Uji kinerja dan ketahanan jaringan lemah/luring | D | 3 | Hasil uji beban | Belum | `docs/mutu/UJI_KINERJA.md` |
 | MU-08 | Uji aksesibilitas dan kepatuhan standar desain | I | 1.4 | Daftar periksa standar bagian 8 | Belum | `docs/mutu/UJI_AKSESIBILITAS.md` |
-| MU-09 | Daftar komponen perangkat lunak (SBOM) dan lisensi | D B | 1.1 | **Dihasilkan `npm sbom` tiap rilis** | Belum | `docs/audit/sbom/` |
+| MU-09 | Daftar komponen perangkat lunak (SBOM) dan lisensi | D B | 1.1 | **Dihasilkan `npm sbom` tiap rilis** | Ada | `docs/audit/sbom/` |
 | MU-10 | Daftar cacat, status perbaikan, dan pengecualian yang diterima | D I | 1.x | Isu di repo | Belum | `docs/mutu/DAFTAR_CACAT.md` |
 
 ### D. Keamanan dan Pelindungan Data Pribadi
@@ -107,12 +107,12 @@ Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. 
 
 | ID | Dokumen | Diminta | Dibuat | Sinkron lewat | Status | Berkas |
 |---|---|---|---|---|---|---|
-| OP-01 | Panduan pemasangan, konfigurasi, dan penerapan (deployment) | D | 1.1 | Dicoba ulang dari nol tiap rilis | Belum | `docs/operasi/PEMASANGAN.md` |
-| OP-02 | Spesifikasi kebutuhan infrastruktur (CPU, memori, penyimpanan, jaringan, domain) | D | 1.1 | Dari berkas kontainer | Belum | `docs/operasi/KEBUTUHAN_INFRASTRUKTUR.md` |
+| OP-01 | Panduan pemasangan, konfigurasi, dan penerapan (deployment) | D | 1.1 | Dicoba ulang dari nol tiap rilis | Ada | `docs/operasi/PEMASANGAN.md` |
+| OP-02 | Spesifikasi kebutuhan infrastruktur (CPU, memori, penyimpanan, jaringan, domain) | D | 1.1 | Dari berkas kontainer | Ada | `docs/operasi/KEBUTUHAN_INFRASTRUKTUR.md` |
 | OP-03 | SOP pencadangan dan pemulihan, beserta bukti uji pemulihan | D I B | 2 | Skrip cadangan dan uji pemulihan terjadwal | Belum | `docs/operasi/CADANGAN_PEMULIHAN.md` |
 | OP-04 | Rencana keberlangsungan layanan dan pemulihan bencana (BCP/DRP) | D I | 3 | Latihan dan catatan | Belum | `docs/operasi/BCP_DRP.md` |
 | OP-05 | Pemantauan, peringatan, dan runbook insiden | D | 2 | Titik kesehatan (*health check*) di aplikasi | Belum | `docs/operasi/RUNBOOK.md` |
-| OP-06 | Manajemen perubahan (formulir, persetujuan, rilis, pembatalan) | I B | 1.1 | Selaras patch dan handoff | Belum | `docs/operasi/MANAJEMEN_PERUBAHAN.md` |
+| OP-06 | Manajemen perubahan (formulir, persetujuan, rilis, pembatalan) | I B | 1.1 | Selaras patch dan handoff | Ada | `docs/operasi/MANAJEMEN_PERUBAHAN.md` |
 | OP-07 | Perjanjian tingkat layanan dan pemeliharaan (usulan) | D I B | 3 | Metrik dari pemantauan | Belum | `docs/operasi/SLA_PEMELIHARAAN.md` |
 | OP-08 | Manajemen insiden dan masalah (daftar dan pelaporan) | I | 2 | Log | Belum | `docs/operasi/INSIDEN_MASALAH.md` |
 
@@ -130,7 +130,7 @@ Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. 
 | ID | Dokumen | Diminta | Dibuat | Sinkron lewat | Status | Berkas |
 |---|---|---|---|---|---|---|
 | AK-01 | Pernyataan kepemilikan kode sumber dan hak kekayaan intelektual (penyerahan ke Pemprov) | B D | 0 | **Keputusan owner (lihat 5)** | Belum | `docs/audit/kepemilikan/` |
-| AK-02 | Daftar lisensi pihak ketiga dan kepatuhan lisensi | B D | 1.1 | Dari SBOM | Belum | `docs/audit/sbom/` |
+| AK-02 | Daftar lisensi pihak ketiga dan kepatuhan lisensi | B D | 1.1 | Dari SBOM | Ada | `docs/audit/sbom/` |
 | AK-03 | Rincian biaya pengembangan dan sumber pendanaan (bila ada anggaran) | B I | 0 | Dicatat per tahap | Belum | `docs/audit/keuangan/` |
 | AK-04 | Dokumen pengadaan, kontrak, dan berita acara (bila ada pihak ketiga) | B I | 0 | Arsip | Belum | `docs/audit/pengadaan/` |
 | AK-05 | Pencatatan aplikasi sebagai aset (aset tak berwujud) dan nilai perolehan | B I | 4 | Mengikuti BAST | Belum | `docs/audit/aset/` |

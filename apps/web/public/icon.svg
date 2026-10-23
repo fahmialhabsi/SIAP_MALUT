@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="SIAP MALUT (ikon sementara)">
+  <rect width="512" height="512" rx="96" fill="#0b4a6f"/>
+  <path d="M96 352c64-48 128-48 192 0s96 24 128 0" fill="none" stroke="#c8962e" stroke-width="28" stroke-linecap="round"/>
+  <text x="256" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="150" font-weight="700" fill="#ffffff">SIAP</text>
+</svg>

@@ -28,3 +28,5 @@
 | RS-21 | **Data contoh/placeholder lolos ke produksi atau dianggap nyata** | S | T | Tinggi | Pembangun | Label CONTOH, `is_contoh`, spanduk, penjaga produksi, Daftar Placeholder, Tahap P | Terbuka |
 | RS-22 | **Kabag baru melihat di akhir: revisi besar** (KP-011) | S | S | Sedang | Owner | Uji dengan bentuk agenda nyata (difiktifkan); koreksi sebagai data/konfigurasi; struktur dibekukan; KP-010 | Diterima owner |
 | RS-23 | Koreksi mengacaukan struktur folder dan rujukan | S | S | Sedang | Pembangun | Folder dibekukan; Register Koreksi; `audit-check` memeriksa struktur | Terbuka |
+| RS-24 | **Node 20 sudah melewati akhir dukungan; dependensi Fastify (cookie@2) meminta Node 22** | S | S | Sedang | Pembangun | Kontainer memakai Node 22; dev disarankan Node 22 (nvm 22.22.0 terpasang); gate diverifikasi di Node 20.20 dan 22.22; rencana naik ke Node 24 sebelum peluncuran | Terbuka |
+| RS-25 | Build kontainer belum diverifikasi (Docker Desktop tidak aktif saat uji) | S | S | Sedang | Owner | Owner menjalankan `docker compose build` dan melaporkan; `docker compose config` sudah valid | Terbuka |
