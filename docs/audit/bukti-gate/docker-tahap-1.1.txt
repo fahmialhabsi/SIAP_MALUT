@@ -1,0 +1,13 @@
+Bukti verifikasi kontainer Tahap 1.1 (dijalankan asisten, 23 Oktober 2026, Docker Desktop 28.3.3, Compose v2.39.2)
+Dasar: KP-012 (docker compose build dicoba). Dijalankan setelah patch 1.1 di-push (commit 7deb345).
+------------------------------------------
+docker compose build  -> berhasil (exit 0); gambar: siap_malut-api 283MB, siap_malut-web 74.2MB
+docker compose up -d (APP_MODE=demo, API_PORT=3100, WEB_PORT=8180)
+  api  GET /health  -> {"status":"ok"}
+  api  GET /ready   -> {"status":"ready","mode":"demo","checks":{}}
+  web  GET /               -> 200
+  web  GET /sw.js          -> 200
+  web  GET /manifest.webmanifest -> 200
+  log api: JSON dengan reqId (req dan res tercatat)
+docker compose down -> jaringan dihapus
+Catatan: status healthcheck "starting" saat diperiksa 3 detik setelah start (belum diamati hingga "healthy").

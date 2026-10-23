@@ -50,7 +50,7 @@ Basis data dan migrasi (1.3), akun/peran/autentikasi (1.3), logika bentrok (1.2)
 - [x] Pemeriksa token gagal pada pelanggaran (5 uji) dan lolos pada kode sebenarnya.
 - [x] Spanduk DATA CONTOH tampil hanya saat `APP_MODE=demo` (diuji; dicek di peramban pada build demo).
 - [x] Build web menghasilkan `manifest.webmanifest` dan `sw.js` (precache 6 berkas).
-- [ ] `docker compose build` berhasil: **BELUM DIVERIFIKASI** (Docker Desktop tidak aktif; `docker compose config` valid). Owner diminta menjalankannya.
+- [x] `docker compose build` berhasil dan kontainer berjalan (diverifikasi 23 Okt setelah Docker Desktop aktif; bukti di `docs/audit/bukti-gate/docker-tahap-1.1.txt`).
 - [x] `audit-check` lolos; SBOM dan ringkasan lisensi terbuat; keluaran gate tersimpan.
 - [x] Tidak ada folder tingkat atas baru (kecuali `node_modules`, `dist`).
 

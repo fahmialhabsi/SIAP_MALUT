@@ -34,7 +34,7 @@ Kerangka proyek yang dapat dipasang, diuji, dibangun, dikemas, dengan gate nyata
 | Peramban 360 px (build demo) | Tanpa gulir horizontal (scrollWidth 360), font 16 px, target 48 px, Inter termuat, spanduk dan manifest ada; tangkapan layar gagal (waktu habis), tidak ditinjau visual |
 | `gate.ps1` (PowerShell) | Lolos; keluaran di `docs/audit/bukti-gate/gate-tahap-1.1-asisten.txt` |
 | `docker compose config` | Valid |
-| **`docker compose build`** | **BELUM DIVERIFIKASI**: Docker Desktop tidak aktif di mesin ini |
+| `docker compose build` | **Diverifikasi kemudian (23 Okt, Docker aktif): berhasil**; kontainer jalan, `/health` `/ready` web `sw.js` `manifest` OK; lihat `docs/audit/bukti-gate/docker-tahap-1.1.txt` |
 | Service worker terdaftar di peramban | Belum teramati (0 pendaftaran saat dicek); berkas `sw.js` dibangun |
 | `patch/tahap-1.1.ps1` dijalankan | Belum (dijalankan owner) |
 

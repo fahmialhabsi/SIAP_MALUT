@@ -18,7 +18,7 @@ Integrasi eksternal (SRIKANDI, e-Office, BSrE, WhatsApp) berstatus **rencana** (
 | Antarmuka | `apps/web` | React 19 + Vite + PWA (manifest, service worker Workbox); memakai token desain; teks UI di `teks-ui.ts` | Ada: halaman awal, spanduk DATA CONTOH |
 | Peladen API | `apps/api` | Fastify 5; `/health`, `/ready`; log JSON dengan ID permintaan; penjaga produksi | Ada |
 | Konfigurasi bersama | `packages/shared` | Skema Zod: `APP_MODE`, port, host, tingkat log; satu sumber untuk web dan api | Ada |
-| Logika domain | `packages/domain` | Logika murni tanpa basis data/jaringan; saat ini definisi status agenda | Ada (awal) |
+| Logika domain | `packages/domain` | Logika murni tanpa basis data/jaringan: model kegiatan, waktu (ISO 8601 + zona), deteksi bentrok, aturan status dan peristiwa | Ada (Tahap 1.2); aturan: `ATURAN_BISNIS.md`, diagram: `ALUR_PROSES.md` |
 | Token desain | `src/styles/design-tokens.css` | Sumber tunggal warna, font, jarak (terang/gelap) | Ada |
 | Basis data | (rencana) | PostgreSQL + Drizzle, migrasi | Tahap 1.3 |
 
@@ -28,6 +28,9 @@ Integrasi eksternal (SRIKANDI, e-Office, BSrE, WhatsApp) berstatus **rencana** (
 - `packages/domain` tidak boleh mengimpor basis data, jaringan, atau kerangka web.
 - `apps/web` dan `apps/api` hanya saling berkomunikasi lewat HTTP (bukan impor langsung).
 - Urutan build: shared, domain, api, web (urutan `workspaces` di `package.json`).
+
+## 3a. Pengembangan Lokal
+`npm run dev` menjalankan API (`tsx watch`) dan web (Vite) sekaligus. Paket `@siap/shared` dan `@siap/domain` memiliki kondisi ekspor `development` yang menunjuk ke sumber (`src/index.ts`); build produksi memakai `dist`. Detail: `docs/operasi/PEMASANGAN.md` bagian 2.
 
 ## 4. Mode Aplikasi
 

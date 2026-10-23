@@ -12,19 +12,19 @@
 | KB-001 | Kabag Protokol; Rancangan 11.2 | Mencatat undangan masuk sebagai kegiatan dengan jenis, waktu, lokasi, dan penyelenggara | M1+ | 1.3 | - | Direncanakan |
 | KB-002 | Kabag Protokol | Melampirkan file undangan (PDF/foto) pada kegiatan | M1+ | 1.3 | - | Direncanakan |
 | KB-003 | Kabag Protokol | Setiap kegiatan memiliki PIC (protokol dan pengundang/OPD) | M1+ | 1.3 | - | Direncanakan |
-| KB-004 | Kabag Protokol | Alur status: Baru, Menunggu Arahan, Ditetapkan, Terkonfirmasi | M1+ | 1.3 | `KB-004` domain (3 uji: alur 4 langkah, label, penjaga tipe); web (urutan empat langkah) | Dibangun (definisi status); alur penuh di 1.3 |
+| KB-004 | Kabag Protokol | Alur status: Baru, Menunggu Arahan, Ditetapkan, Terkonfirmasi | M1+ | 1.3 | `KB-004` domain: tabel 16 perpindahan sah dan semua pasangan lain ditolak; syarat tiap tujuan; web: urutan empat langkah | Teruji (domain); penyimpanan dan antarmuka di 1.3 dan 1.4 |
 | KB-005 | Kabag Protokol | Pimpinan menetapkan hadir sendiri, diwakilkan, tidak hadir, atau tunda | M1+ | 1.4 | - | Direncanakan |
 | KB-006 | Kabag Protokol | Menyajikan agenda yang sudah memuat pejabat yang menghadiri | M1+ | 1.4 | - | Direncanakan |
 | KB-007 | Kabag Protokol | Dapat diakses dan nyaman dipakai dari ponsel | Semua | 1.4 | - | Direncanakan |
-| KB-008 | Kabag Protokol | Mendeteksi bentrok jam antar kegiatan pada pimpinan yang sama | M1+ | 1.2 | - | Direncanakan |
+| KB-008 | Kabag Protokol | Mendeteksi bentrok jam antar kegiatan pada pimpinan yang sama | M1+ | 1.2 | `KB-008` domain (22 uji: irisan, bersinggungan, zona waktu, status, agenda 22/24/26 Okt fiktif) | Teruji (domain); API dan antarmuka di 1.3 dan 1.4 |
 | KB-009 | Rancangan 4.2; contoh 26 Okt | Mendeteksi bentrok perjalanan antarlokasi/pulau (waktu tempuh tidak cukup) | M1+ | 2 | - | Direncanakan |
-| KB-010 | Rancangan 11.5 B | Mendeteksi bentrok sumber daya (pejabat/petugas ganda) | M1+ | 1.2 | - | Direncanakan |
+| KB-010 | Rancangan 11.5 B | Mendeteksi bentrok sumber daya (pejabat/petugas ganda) | M1+ | 1.2 | `KB-010` domain (petugas ganda pasti/potensi; 26 Okt) | Teruji (domain) |
 | KB-011 | Kabag Protokol; Aturan kewenangan | Menyarankan pengganti sesuai bidang dan tingkat acara, hanya sebagai saran | M1+ | 2 | - | Direncanakan |
 | KB-012 | Aturan kewenangan 7 | Aturan kewenangan disimpan sebagai data yang dapat diubah admin dengan persetujuan | M1+ | 2 | - | Direncanakan |
 | KB-013 | Rancangan 11.5 C | Pejabat pengganti menerima penugasan dan mengonfirmasi terima/tidak bisa | M1+ | 2 | - | Direncanakan |
 | KB-014 | Rancangan 11.5 E; 5.7 | Notifikasi ke pimpinan, pengganti, dan PIC (pengingat H-1, perubahan, pembatalan) | M1+ | 1.5 | - | Direncanakan |
 | KB-015 | Rancangan 11.5 F | Ekspor agenda ke teks siap tempel WhatsApp dan PDF | M1+ | 1.5 | - | Direncanakan |
-| KB-016 | Rancangan 11.5 G | Setiap perubahan agenda dan penetapan tercatat (siapa, kapan, apa) | M1+ | 1.3 | - | Direncanakan |
+| KB-016 | Rancangan 11.5 G | Setiap perubahan agenda dan penetapan tercatat (siapa, kapan, apa) | M1+ | 1.3 | `KB-016` domain: peristiwa lengkap, data asli tidak berubah, alasan tercatat | Dibangun (nilai kembalian murni); penyimpanan log audit di 1.3 |
 | KB-017 | Rancangan 11.5 H | Agenda publik tayang otomatis ke situs; kegiatan tertutup tidak tayang | M1+ | 2 | - | Direncanakan |
 | KB-018 | Rancangan 4.3 | Tahan jaringan lemah; baca agenda dan kontak secara luring | Semua | 1.5 | - | Direncanakan |
 | KB-019 | Rancangan 4.3; UU 27/2022 | Pelindungan data pribadi; ID rapat daring hanya terlihat oleh yang ditugaskan | Semua | 1.3 | - | Direncanakan |
@@ -38,11 +38,14 @@
 | KB-027 | Rancangan 5.7 | Integrasi SRIKANDI, e-Office, BSrE | Integrasi | 2 | - | Direncanakan |
 | KB-028 | Audit; Paket serah terima | Cadangan dan pemulihan dapat diuji | Operasi | 2 | - | Direncanakan |
 | KB-029 | Audit; Daftar dokumen RK-05 | Hak akses sesuai matriks hak akses; diuji otomatis | Semua | 1.3 | - | Direncanakan |
-| KB-030 | Paket serah terima 2 | Aplikasi berjalan dalam kontainer dengan konfigurasi lingkungan | Semua | 1.1 | `KB-030` shared (konfigurasi) dan api (health, ready, ID permintaan, 404) | Teruji; build kontainer belum diverifikasi |
-| KB-031 | KP-006; Standar data contoh | Semua data awal berlabel CONTOH dan berpenanda `is_contoh`; berasal dari `data/contoh/` | Semua | 1.3 | - | Direncanakan |
+| KB-030 | Paket serah terima 2 | Aplikasi berjalan dalam kontainer dengan konfigurasi lingkungan | Semua | 1.1 | `KB-030` shared (konfigurasi) dan api (health, ready, ID permintaan, 404) | Teruji; kontainer terverifikasi (build dan jalan, 23 Okt) |
+| KB-031 | KP-006; Standar data contoh | Semua data awal berlabel CONTOH dan berpenanda `is_contoh`; berasal dari `data/contoh/` | Semua | 1.3 | `KB-031` domain: data contoh tanpa pola ID rapat/telepon/sandi; semua nama berlabel (CONTOH) | Dibangun (berkas data contoh); seed ke basis data di 1.3 |
 | KB-032 | KP-007 | Mode `demo`: admin dapat pindah tampilan ke persona peran; tercatat di log audit | Semua | 1.4 | - | Direncanakan |
 | KB-033 | KP-007 | Spanduk "DATA CONTOH" pada semua halaman dan ekspor selama mode demo | Semua | 1.4 | `KB-033` web (spanduk tampil di demo, tidak di production) | Teruji |
 | KB-034 | KP-007 | Penjaga produksi: menolak mulai bila ada data contoh; menonaktifkan pindah peran | Semua | 1.3 | `KB-034` shared (APP_MODE) dan api (penjaga produksi) | Dibangun (rangka); sambungan basis data di 1.3 |
 | KB-035 | KP-006; Tahap P | Impor data asli lewat admin (templat CSV) dan penghapusan data contoh | Admin | P | - | Direncanakan |
 | KB-036 | KP-010 | Hal yang rawan berubah (nama, jabatan, hak akses, aturan, tenggat, jenis kegiatan, label status, istilah) disimpan sebagai data/konfigurasi | Semua | 1.3 | `KB-036` web (teks dari berkas teks UI); konfigurasi dari lingkungan | Dibangun (fondasi) |
 | KB-037 | KP-006 | Dasbor per peran: pejabat (pimpinan, pengganti) dan staf (protokol), plus admin | Semua | 1.4 | - | Direncanakan |
+| KB-038 | Keputusan owner 23 Okt 2026 | Bentrok bersifat peringatan, bukan pemblokiran; penetapan meski ada bentrok pasti wajib beralasan dan tercatat | M1+ | 1.2 | `KB-038` domain (potensi tidak memblokir; pasti butuh alasan; alasan dan bentrok masuk peristiwa) | Teruji (domain) |
+| KB-039 | Keputusan owner 23 Okt 2026 | Durasi bawaan bila jam selesai kosong berasal dari konfigurasi (nilai awal 120 menit), bukan angka di kode | M1+ | 1.2 | `KB-039` domain (parameter wajib positif; 2 jam tanpa bentrok, 3 jam bentrok pada 22 Okt) | Teruji (domain); pengelolaan oleh admin di 1.3 |
+| KB-040 | KOR-002 (owner) | Pengembang menjalankan API dan web sekaligus dengan satu perintah `npm run dev` (tanpa build lebih dulu; `dev:lan` untuk ponsel) | Semua | 1.2 | Diverifikasi manual: kedua server hidup dari keadaan tanpa `dist`; tidak ada uji otomatis | Dibangun |

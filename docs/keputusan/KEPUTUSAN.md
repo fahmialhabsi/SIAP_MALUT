@@ -17,6 +17,8 @@ Format: ID, tanggal, keputusan, dasar/alasan, dampak pada pedoman. Sebagian entr
 | KP-010 | 2026-10-23 | **Antisipasi koreksi tambahan** dari owner/Kabag agar struktur folder tidak rusak: struktur dibekukan, koreksi lewat Register Koreksi dan klasifikasi A–D, data/aturan sebagai data bukan kode | Menjaga struktur proyek | `FOLDER_STRUKTUR.md`, `CARA_KERJA.md` bagian 5 |
 | KP-011 | 2026-10-23 | Risiko diterima: Kabag baru melihat di akhir, sehingga mungkin revisi besar | Permintaan Kabag | `REGISTER_RISIKO.md` RS-22 |
 | KP-012 | 2026-10-23 | Tahap 1.1 SETUJU. Asisten **boleh menjalankan gate lokal sekali sebagai pra-verifikasi** (hanya melaporkan ringkasan); `docker compose build` dicoba; dokumen audit ringkas dibuat sekarang | Kerangka pertama rawan gagal instalasi | `CLAUDE.md` Aturan 3 (pengecualian terbatas bila disetujui di Lembar Tahap) |
+| KP-013 | 2026-10-23 | Tahap 1.2 SETUJU: **durasi bawaan 2 jam**; **bentrok = peringatan, bukan pemblokiran** (override beralasan, tercatat); **aturan status dikerjakan sekarang**; pra-verifikasi gate lokal oleh asisten diperbolehkan | Jawaban owner atas Lembar Tahap 1.2 | `ATURAN_BISNIS.md`, RTM KB-038, KB-039 |
+| KP-014 | 2026-10-23 | `npm run dev` menjalankan server backend dan frontend Vite sekaligus (KOR-002) | Kemudahan pengembangan | `package.json`, `scripts/dev.mjs`, `PEMASANGAN.md` |
 
 ## Keputusan Terbuka (belum diputuskan)
 

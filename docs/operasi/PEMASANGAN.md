@@ -7,14 +7,24 @@
 - Opsional untuk kontainer: Docker dan Docker Compose v2.
 - Tidak ada rahasia yang dibutuhkan pada tahap ini.
 
-## 2. Pengembangan/evaluasi tanpa kontainer
+## 2. Pengembangan/evaluasi tanpa kontainer: satu perintah
 ```powershell
-npm ci
-npm run build
-# API (terminal 1):  $env:APP_MODE="demo"; npm start -w apps/api
-# Web (terminal 2):  npm run preview -w apps/web
+npm ci          # sekali saja
+npm run dev     # API + web sekaligus, mode demo, tanpa build lebih dulu
 ```
-API di `http://localhost:3000` (`/health`, `/ready`). Web di `http://localhost:4173` (preview). Untuk mode demo pada web, bangun dengan `$env:VITE_APP_MODE="demo"; npm run build -w apps/web`.
+- API: `http://localhost:3180` (`/health`, `/ready`); web (Vite): `http://localhost:5180`. Port khusus agar tidak bentrok dengan proyek lain (3000 dan 5173 sering terpakai); ubah dengan `SIAP_API_PORT` / `SIAP_WEB_PORT`. Port yang sudah terpakai menggagalkan start dengan pesan jelas.
+- Kode paket bersama dibaca langsung dari sumber, dan API dimulai ulang otomatis saat kode berubah; Vite memuat ulang halaman.
+- Dari ponsel (satu jaringan Wi-Fi): `npm run dev:lan`, lalu buka `http://<IP-komputer>:5180`. Hanya untuk pengembangan; jangan dipakai di jaringan tidak tepercaya.
+- Mode: `demo` secara bawaan; paksa `production` dengan `$env:APP_MODE="production"; npm run dev`.
+- Hentikan dengan Ctrl+C (keduanya berhenti).
+
+Menjalankan hasil build (seperti produksi):
+```powershell
+npm run build
+# API:  $env:APP_MODE="demo"; npm start -w apps/api     (port 3000)
+# Web:  npm run preview -w apps/web                     (port 4173)
+```
+Untuk mode demo pada web hasil build: `$env:VITE_APP_MODE="demo"; npm run build -w apps/web`.
 
 ## 3. Dengan kontainer
 ```powershell
@@ -52,4 +62,4 @@ powershell -ExecutionPolicy Bypass -File scripts\gate.ps1
 | Port terpakai | Ubah `API_PORT`/`WEB_PORT` di `.env` |
 
 ## 7. Batasan Tahap 1.1
-Belum ada basis data, akun, dan data; cadangan/pemulihan (OP-03) menyusul. Pemasangan dengan kontainer **belum diverifikasi di mesin pembangun** (Docker Desktop tidak aktif saat pengujian); verifikasi dicatat pada handoff.
+Belum ada basis data, akun, dan data; cadangan/pemulihan (OP-03) menyusul. Pemasangan dengan kontainer **diverifikasi 23 Okt 2026** (build, jalan, health, web) pada Docker Desktop 28.3.3; bukti: `docs/audit/bukti-gate/docker-tahap-1.1.txt`. Pemasangan dari nol oleh pihak ketiga belum dicoba.

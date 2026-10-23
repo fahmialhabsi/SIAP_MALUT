@@ -9,7 +9,8 @@ Repo: `fahmialhabsi/SIAP_MALUT`. Bahasa dokumen dan antarmuka: Bahasa Indonesia 
 2. Pedoman lengkap: `docs/standar/CARA_KERJA.md`. Log keputusan owner: `docs/keputusan/KEPUTUSAN.md`.
 3. Urutan pedoman bila bertabrakan: **keputusan owner > CLAUDE.md > standar > rancangan/SOP > handoff/STATUS**.
 4. Perintah owner yang dikenali: `STATUS`, `LANJUT`, `TAHAP <n>`, `SETUJU`, `EVALUASI`, `KEPUTUSAN: ...`, `KOREKSI: ...`, `UBAH: ...` (arti: `CARA_KERJA.md` bagian 4).
-5. Bila perintah owner bertabrakan dengan pedoman: jangan diikuti diam-diam; sebut aturan yang terlanggar dan tawarkan (a) ubah pedoman resmi lewat `KEPUTUSAN:` atau (b) catat pengecualian.
+5. Pengembangan lokal: `npm run dev` (API + web sekaligus, mode demo; port 3180/5180); `npm run dev:lan` untuk ponsel. Gate: `scripts/gate.ps1`.
+6. Bila perintah owner bertabrakan dengan pedoman: jangan diikuti diam-diam; sebut aturan yang terlanggar dan tawarkan (a) ubah pedoman resmi lewat `KEPUTUSAN:` atau (b) catat pengecualian.
 
 ## Peta folder
 

@@ -1,0 +1,159 @@
+{
+  "_catatan": "DATA CONTOH (fiktif): bentuk mengikuti agenda Protokol 22 dan 24-26 Oktober 2026, tanpa nama orang nyata, ID rapat, kata sandi, atau nomor telepon. Dipakai untuk uji domain (Tahap 1.2) dan seed demo.",
+  "pihak": {
+    "gubernur": { "nama": "Gubernur (CONTOH)", "golongan": "pimpinan" },
+    "wagub": { "nama": "Wakil Gubernur (CONTOH)", "golongan": "pimpinan" },
+    "sekda": { "nama": "Sekda (CONTOH)", "golongan": "pimpinan" },
+    "kadis-pendidikan": { "nama": "Kepala Dinas Pendidikan (CONTOH)", "golongan": "pejabat" },
+    "karo-kesra": { "nama": "Kepala Biro Kesra (CONTOH)", "golongan": "pejabat" },
+    "kadis-perpustakaan": { "nama": "Kepala Dinas Perpustakaan (CONTOH)", "golongan": "pejabat" },
+    "kadis-pangan": { "nama": "Kepala Dinas Pangan (CONTOH)", "golongan": "pejabat" },
+    "inspektur": { "nama": "Inspektur (CONTOH)", "golongan": "pejabat" },
+    "kadis-keuangan": { "nama": "Kepala Dinas Keuangan (CONTOH)", "golongan": "pejabat" },
+    "kepala-bpkad": { "nama": "Kepala BPKAD (CONTOH)", "golongan": "pejabat" },
+    "petugas-protokol-01": { "nama": "Petugas Protokol 01 (CONTOH)", "golongan": "petugas" }
+  },
+  "kegiatan": [
+    {
+      "id": "K22-01",
+      "judul": "Upacara Hari Santri (Halmahera Barat) CONTOH",
+      "mulai": "2026-10-22T08:00:00+09:00",
+      "lokasi": { "nama": "Lokasi Contoh A", "pulau": "Halmahera" },
+      "status": "terkonfirmasi",
+      "pihak": [{ "id": "wagub", "kedudukan": "diterima" }]
+    },
+    {
+      "id": "K22-02",
+      "judul": "Upacara Hari Santri (Sofifi) CONTOH",
+      "mulai": "2026-10-22T08:00:00+09:00",
+      "lokasi": { "nama": "Lokasi Contoh B", "pulau": "Halmahera" },
+      "status": "terkonfirmasi",
+      "pihak": [{ "id": "kadis-pendidikan", "kedudukan": "diterima" }]
+    },
+    {
+      "id": "K22-03",
+      "judul": "Peletakan Batu Pertama Rumah Ibadah CONTOH",
+      "mulai": "2026-10-22T09:00:00+09:00",
+      "lokasi": { "nama": "Lokasi Contoh C", "pulau": "Halmahera" },
+      "status": "terkonfirmasi",
+      "pihak": [{ "id": "karo-kesra", "kedudukan": "diterima" }]
+    },
+    {
+      "id": "K22-04",
+      "judul": "Sosialisasi Perpustakaan Khusus (daring) CONTOH",
+      "mulai": "2026-10-22T10:00:00+09:00",
+      "lokasi": { "nama": "Daring" },
+      "status": "terkonfirmasi",
+      "pihak": [{ "id": "kadis-perpustakaan", "kedudukan": "diterima" }]
+    },
+    {
+      "id": "K22-05",
+      "judul": "Gerakan Pangan Murah Serentak CONTOH",
+      "mulai": "2026-10-22T10:30:00+09:00",
+      "lokasi": { "nama": "Lokasi Contoh A", "pulau": "Halmahera" },
+      "status": "terkonfirmasi",
+      "pihak": [
+        { "id": "wagub", "kedudukan": "diterima" },
+        { "id": "kadis-pangan", "kedudukan": "diterima" }
+      ]
+    },
+    {
+      "id": "K22-06",
+      "judul": "Sosialisasi Penyelesaian Kerugian Negara (daring) CONTOH",
+      "mulai": "2026-10-22T11:00:00+09:00",
+      "lokasi": { "nama": "Daring" },
+      "status": "terkonfirmasi",
+      "pihak": [
+        { "id": "inspektur", "kedudukan": "diterima" },
+        { "id": "kadis-keuangan", "kedudukan": "diterima" }
+      ]
+    },
+    {
+      "id": "K22-07",
+      "judul": "Rapat Evaluasi Pembayaran Gaji CONTOH",
+      "mulai": "2026-10-22T15:30:00+09:00",
+      "lokasi": { "nama": "Lokasi Contoh D", "pulau": "Ternate" },
+      "status": "terkonfirmasi",
+      "pihak": [{ "id": "kepala-bpkad", "kedudukan": "diterima" }]
+    },
+    {
+      "id": "K24-01",
+      "judul": "Makan Malam Bersama Tamu Contoh",
+      "mulai": "2026-10-24T19:00:00+09:00",
+      "selesai": "2026-10-24T20:00:00+09:00",
+      "lokasi": { "nama": "Lokasi Contoh D", "pulau": "Ternate" },
+      "status": "menunggu_arahan",
+      "pihak": [{ "id": "gubernur", "kedudukan": "diundang" }]
+    },
+    {
+      "id": "K24-02",
+      "judul": "Penutupan Acara Adat CONTOH",
+      "mulai": "2026-10-24T20:00:00+09:00",
+      "lokasi": { "nama": "Lokasi Contoh E", "pulau": "Ternate" },
+      "status": "menunggu_arahan",
+      "pihak": [
+        { "id": "gubernur", "kedudukan": "diundang" },
+        { "id": "wagub", "kedudukan": "diundang" },
+        { "id": "sekda", "kedudukan": "diundang" }
+      ]
+    },
+    {
+      "id": "K24-03",
+      "judul": "Hari Puncak Peringatan Nasional CONTOH (kabupaten)",
+      "mulai": "2026-10-24T20:00:00+09:00",
+      "lokasi": { "nama": "Lokasi Contoh F", "pulau": "Halmahera" },
+      "status": "ditetapkan",
+      "pihak": [{ "id": "wagub", "kedudukan": "ditugaskan", "peran": "utama" }]
+    },
+    {
+      "id": "K26-01",
+      "judul": "Penjemputan Tamu Pusat di Bandara CONTOH",
+      "mulai": "2026-10-26T07:00:00+09:00",
+      "lokasi": { "nama": "Bandara Contoh", "pulau": "Ternate" },
+      "status": "menunggu_arahan",
+      "pihak": [
+        { "id": "gubernur", "kedudukan": "diundang" },
+        { "id": "wagub", "kedudukan": "diundang" },
+        { "id": "sekda", "kedudukan": "diundang" }
+      ]
+    },
+    {
+      "id": "K26-02",
+      "judul": "Pembukaan Festival CONTOH (pulau lain)",
+      "mulai": "2026-10-26T08:00:00+09:00",
+      "lokasi": { "nama": "Lokasi Contoh G", "pulau": "Morotai" },
+      "status": "menunggu_arahan",
+      "pihak": [
+        { "id": "gubernur", "kedudukan": "diundang" },
+        { "id": "wagub", "kedudukan": "diundang" },
+        { "id": "sekda", "kedudukan": "diundang" },
+        { "id": "petugas-protokol-01", "kedudukan": "ditugaskan" }
+      ]
+    },
+    {
+      "id": "K26-03",
+      "judul": "Rangkaian Kegiatan Bersama Tamu Pusat CONTOH",
+      "mulai": "2026-10-26T09:00:00+09:00",
+      "lokasi": { "nama": "Lokasi Contoh H", "pulau": "Ternate" },
+      "status": "menunggu_arahan",
+      "pihak": [
+        { "id": "gubernur", "kedudukan": "diundang" },
+        { "id": "wagub", "kedudukan": "diundang" },
+        { "id": "sekda", "kedudukan": "diundang" },
+        { "id": "petugas-protokol-01", "kedudukan": "ditugaskan" }
+      ]
+    },
+    {
+      "id": "K26-04",
+      "judul": "Kunjungan Pameran Produk CONTOH",
+      "mulai": "2026-10-26T09:30:00+09:00",
+      "lokasi": { "nama": "Lokasi Contoh H", "pulau": "Ternate" },
+      "status": "menunggu_arahan",
+      "pihak": [
+        { "id": "gubernur", "kedudukan": "diundang" },
+        { "id": "wagub", "kedudukan": "diundang" },
+        { "id": "sekda", "kedudukan": "diundang" }
+      ]
+    }
+  ]
+}

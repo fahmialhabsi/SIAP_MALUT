@@ -45,7 +45,7 @@ SIAP_MALUT/
 |   |-- styles/               design-tokens.css (sumber token bersama; tidak dipindah)
 |   |-- assets/fonts/
 |-- scripts/
-|   |-- gate.ps1  audit-check.ps1
+|   |-- gate.ps1  audit-check.ps1  dev.mjs  buat-sbom.mjs  buat-diagram-status.mjs  cek-token.mjs
 |   |-- patch/                tahap-<nomor>.ps1
 ```
 

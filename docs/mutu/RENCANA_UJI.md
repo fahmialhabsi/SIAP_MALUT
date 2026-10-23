@@ -21,7 +21,7 @@
 | Kinerja/luring | Uji beban, simulasi jaringan lemah | Seluruh | 3 |
 | Penerimaan (UAT) | Skenario dari SOP dan RTM | Seluruh fitur | 1.6 |
 
-## 3. Kondisi Tahap 1.1
+## 3. Kondisi Tahap 1.1 (dilanjutkan di bawah untuk 1.2)
 
 26 uji otomatis lulus pada Node 20.20.0 dan 22.22.0: konfigurasi/`APP_MODE` (shared), status agenda (domain), `/health` `/ready` ID permintaan penjaga produksi (api), spanduk dan alur status (web), pemeriksa token (skrip). Pengukuran manual di peramban pada lebar 360 px (tanpa gulir horizontal, font 16 px, target sentuh 48 px, font Inter termuat). Uji otomatis ponsel menyusul di Tahap 1.4.
 
@@ -30,3 +30,7 @@ Seluruh gate lolos (lint, test, build, audit-check); tidak ada kebutuhan tahap b
 
 ## 5. Pelaporan
 Keluaran gate tiap tahap disimpan di `docs/audit/bukti-gate/`. Laporan uji rinci per rilis menyusul pada Tahap 1.x (`docs/mutu/laporan-uji/`).
+
+### Kondisi Tahap 1.2
+**76 uji otomatis** lulus (Node 20.20.0): shared 8, **domain 51** (waktu, bentrok dengan agenda fiktif 22/24/26 Okt, tabel status lengkap, syarat, peristiwa, kesesuaian `ALUR_PROSES.md` dengan kode, data contoh tanpa data nyata), api 8, web 4, skrip 5. Uji domain memakai `data/contoh/` sebagai data uji tunggal.
+

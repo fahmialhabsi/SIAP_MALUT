@@ -49,7 +49,7 @@ Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. 
 | TG-06 | Matriks keterlusuran kebutuhan (RTM) | D I B | 0 | Diperbarui tiap tahap; skrip memeriksa | Ada | `docs/audit/MATRIKS_KETERLUSURAN.md` |
 | TG-07 | Register risiko proyek dan sistem | D I B | 0 | Ditinjau tiap tahap | Ada | `docs/audit/REGISTER_RISIKO.md` |
 | TG-08 | Rencana kerja, jadwal tahap, dan laporan kemajuan | I B | 0 | Handoff per tahap | Ada | `docs/handoff/` |
-| TG-09 | Spesifikasi kebutuhan perangkat lunak (SRS) | D I B | 1.0 | Diturunkan dari RTM | Belum | `docs/rekayasa/SRS.md` |
+| TG-09 | Spesifikasi kebutuhan perangkat lunak (SRS) | D I B | 1.0 | Diturunkan dari RTM | Ada | `docs/rekayasa/SRS.md` |
 | TG-10 | Draf SOP layanan Biro | I | 0 | Aturan tenggat di aplikasi dibaca dari SOP | Draf | `docs/sop/SOP_LAYANAN_DRAF.md` |
 | TG-11 | Aturan kewenangan mewakili pimpinan | I | 0 | Data aturan di aplikasi = isi dokumen | Draf | `docs/standar/ATURAN_KEWENANGAN_MEWAKILI_DRAF.md` |
 | TG-12 | Bahan Arsitektur SPBE (proses bisnis, data, aplikasi, infrastruktur, keamanan) | D | 3 | Diturunkan dari TG-01, RK-01..04 | Belum | `docs/audit/spbe/` |
@@ -70,8 +70,8 @@ Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. 
 | RK-03 | Spesifikasi API | D | 1.3 | **Dihasilkan dari skema Fastify/Zod (OpenAPI)** | Belum | `docs/rekayasa/openapi.json` |
 | RK-04 | Desain keamanan (autentikasi, otorisasi, enkripsi, log) | D I B | 1.3 | Diuji oleh kasus uji keamanan | Belum | `docs/rekayasa/DESAIN_KEAMANAN.md` |
 | RK-05 | Matriks hak akses (peran × fitur × data) | I B | 1.3 | **Uji otomatis membaca matriks yang sama dengan aplikasi** | Belum | `docs/rekayasa/MATRIKS_HAK_AKSES.md` |
-| RK-06 | Desain alur proses dan status (diagram status tiket/agenda) | I | 1.2 | Status di kode = diagram | Belum | `docs/rekayasa/ALUR_PROSES.md` |
-| RK-07 | Aturan bisnis (bentrok, pengganti, tenggat) | I | 1.2 | Uji unit memakai contoh di dokumen | Belum | `docs/rekayasa/ATURAN_BISNIS.md` |
+| RK-06 | Desain alur proses dan status (diagram status tiket/agenda) | I | 1.2 | Status di kode = diagram | Ada | `docs/rekayasa/ALUR_PROSES.md` |
+| RK-07 | Aturan bisnis (bentrok, pengganti, tenggat) | I | 1.2 | Uji unit memakai contoh di dokumen | Ada | `docs/rekayasa/ATURAN_BISNIS.md` |
 | RK-08 | Desain integrasi (SRIKANDI, e-Office, notifikasi, BSrE) | D | 2 | Kontrak integrasi diuji | Belum | `docs/rekayasa/INTEGRASI.md` |
 
 ### C. Pembangunan dan Mutu

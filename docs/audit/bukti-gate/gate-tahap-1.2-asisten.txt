@@ -1,0 +1,149 @@
+Bukti gate Tahap 1.2 (dijalankan asisten, pra-verifikasi lokal, KP-013)
+Waktu: 2026-10-23 14:05:33 +09:00
+Node: v20.20.0  npm: 10.8.2
+Catatan: dijalankan SEBELUM commit; patch owner menyimpan bukti sendiri (gate-tahap-1.2-owner.txt).
+------------------------------------------
+[audit] Dokumen: Ada=27, Draf=2, Placeholder=1, Belum=41
+[audit] LOLOS: dokumen berstatus Ada ditemukan dan struktur folder sesuai.
+[gate] npm run lint ...
+
+> siap-malut@0.1.0 lint
+> eslint . && prettier --check . && node scripts/cek-token.mjs
+
+Checking formatting...
+All matched files use Prettier code style!
+[token] LOLOS: tidak ada warna yang ditulis langsung pada apps/web/src.
+[gate] npm run test ...
+
+> siap-malut@0.1.0 test
+> npm run test --workspaces --if-present && node --test scripts/cek-token.test.mjs
+
+
+> @siap/shared@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/packages/shared
+
+
+ Test Files  1 passed (1)
+      Tests  8 passed (8)
+   Start at  14:05:46
+   Duration  595ms (transform 56ms, setup 0ms, import 200ms, tests 20ms, environment 0ms)
+
+
+> @siap/domain@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/packages/domain
+
+
+ Test Files  4 passed (4)
+      Tests  51 passed (51)
+   Start at  14:05:47
+   Duration  895ms (transform 341ms, setup 0ms, import 866ms, tests 182ms, environment 1ms)
+
+
+> @siap/api@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/apps/api
+
+
+ Test Files  1 passed (1)
+      Tests  8 passed (8)
+   Start at  14:05:49
+   Duration  1.42s (transform 93ms, setup 0ms, import 523ms, tests 340ms, environment 0ms)
+
+
+> @siap/web@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/apps/web
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  14:05:51
+   Duration  2.54s (transform 159ms, setup 0ms, import 641ms, tests 300ms, environment 1.17s)
+
+TAP version 13
+# Subtest: KB-020: warna heksadesimal ditolak
+ok 1 - KB-020: warna heksadesimal ditolak
+  ---
+  duration_ms: 2.0502
+  ...
+# Subtest: KB-020: rgb() dan hsl() ditolak
+ok 2 - KB-020: rgb() dan hsl() ditolak
+  ---
+  duration_ms: 1.5404
+  ...
+# Subtest: KB-020: var(--token) diterima
+ok 3 - KB-020: var(--token) diterima
+  ---
+  duration_ms: 0.4898
+  ...
+# Subtest: KB-020: nomor baris dilaporkan
+ok 4 - KB-020: nomor baris dilaporkan
+  ---
+  duration_ms: 0.39
+  ...
+# Subtest: KB-020: pemeriksa folder menemukan pelanggaran dan mengabaikan berkas uji
+ok 5 - KB-020: pemeriksa folder menemukan pelanggaran dan mengabaikan berkas uji
+  ---
+  duration_ms: 24.6412
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 197.9468
+[gate] npm run build ...
+
+> siap-malut@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @siap/shared@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/domain@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/api@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/web@0.1.0 build
+> tsc -p tsconfig.json --noEmit && vite build
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 119 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/registerSW.js                           0.13 kB
+dist/manifest.webmanifest                    0.31 kB
+dist/index.html                              0.63 kB │ gzip:  0.36 kB
+dist/assets/Inter-Variable-Dx4kXJAl.woff2   48.25 kB
+dist/assets/index-Cqy7OTVr.css               4.86 kB │ gzip:  1.56 kB
+dist/assets/index-j-QjZM8c.js              305.50 kB │ gzip: 93.13 kB
+
+✓ built in 401ms
+
+PWA v2.0.0
+mode      generateSW
+precache  6 entries (303.84 KiB)
+files generated
+  dist/sw.js
+  dist/workbox-9c191d2f.js
+[gate] LOLOS: lint, test, build.
