@@ -9,7 +9,7 @@
 | Versi | 1.0 (Dokumen Rancangan Awal / Initial Design Document) |
 | Konversi ke Markdown dan penambahan Bab XI | Oktober 2026 (versi 1.1, berdasarkan permintaan tambahan Kabag Protokol) |
 
-> **Catatan konversi.** Dokumen ini adalah konversi dari PDF asli ke Markdown. Isi Bab I–X dipertahankan. Beberapa tabel pada PDF asli terekstrak rusak (teks bertumpuk); tabel tersebut disusun ulang berdasarkan narasi di sekitarnya. Tabel hasil penyusunan ulang diberi tanda **[disusun ulang]** dan perlu dicek terhadap PDF asli. Hal baru dari permintaan Kabag Protokol dikumpulkan di **Bab XI** dan dirujuk silang di Bab V dan VII.
+> **Catatan konversi.** Dokumen ini adalah konversi dari PDF asli ke Markdown. Isi Bab I–X dipertahankan. Beberapa tabel pada PDF asli terekstrak rusak (teks bertumpuk); tabel tersebut disusun ulang berdasarkan narasi di sekitarnya. Tabel yang rusak pada ekstraksi telah dicocokkan ulang dengan PDF asli pada Tahap 0.4. Hal baru dari permintaan Kabag Protokol dikumpulkan di **Bab XI** dan dirujuk silang di Bab V dan VII.
 
 ---
 
@@ -80,7 +80,7 @@ Dua kata kunci sering terlewat, yaitu *penyiapan pelaksanaan kebijakan* dan *pem
 
 ### 2.3 Susunan Organisasi
 
-Pasal 96 menetapkan bahwa Biro Administrasi Pimpinan terdiri atas tiga bagian. Rincian tugas masing-masing diatur dalam Pasal 97 sampai dengan Pasal 107. **[disusun ulang]**
+Pasal 96 menetapkan bahwa Biro Administrasi Pimpinan terdiri atas tiga bagian. Rincian tugas masing-masing diatur dalam Pasal 97 sampai dengan Pasal 107.
 
 | Bagian | Bidang Urusan | Fungsi Pokok (Pergub 36/2021) | Susunan di Bawahnya |
 |---|---|---|---|
@@ -94,13 +94,13 @@ Pergub Nomor 20 Tahun 2023 menempatkan Biro Administrasi Pimpinan pada model org
 
 ### 2.4 Kondisi Kematangan Digital Saat Ini
 
-Pemeriksaan langsung terhadap situs resmi Biro Adpim Malut pada awal Agustus 2026 menunjukkan bahwa situs tersedia dan aktif, dengan halaman Tugas Pokok dan Fungsi terisi lengkap dan identik dengan Pasal 94–95, serta aliran rilis pers yang rutin (tiga rilis dalam satu hari kerja). Namun di luar fungsi publikasi, hampir semuanya kosong. **[disusun ulang]**
+Pemeriksaan langsung terhadap situs resmi Biro Adpim Malut pada awal Agustus 2026 menunjukkan bahwa situs tersedia dan aktif, dengan halaman Tugas Pokok dan Fungsi terisi lengkap dan identik dengan Pasal 94–95, serta aliran rilis pers yang rutin (tiga rilis dalam satu hari kerja). Namun di luar fungsi publikasi, hampir semuanya kosong.
 
 | Elemen Situs | Kondisi (Agustus 2026) | Implikasi |
 |---|---|---|
 | Tugas Pokok dan Fungsi | Terisi, sesuai Pergub 36/2021 | Baik |
 | Struktur Organisasi | Kosong; hanya penunjuk ke Bank Data | Publik tidak dapat mengetahui susunan organisasi |
-| Berkas struktur organisasi TA 2026 pada Bank Data | Tidak dapat diakses (File Not Found / Exception) | Tata kelola aset digital lemah |
+| Berkas struktur organisasi TA 2026 pada Bank Data | Tidak dapat diakses (*FileNotFoundException*) | Tata kelola aset digital lemah |
 | Daftar Layanan | Kosong ("Belum ada data Layanan") | Standar layanan tidak terpublikasi, berbeda dengan Jawa Timur |
 | Daftar Pegawai | Kosong | Tidak ada direktori kontak, berbeda dengan praktik Jambi |
 | Jadwal dan Agenda | Kosong ("Belum ada data Jadwal & Agenda") | Padahal agenda pimpinan adalah proses bisnis inti biro |
@@ -133,22 +133,21 @@ Benchmarking dilakukan terhadap dua belas provinsi yang dipilih dengan mempertim
 
 ### 3.2 Ikhtisar Hasil Benchmarking
 
-> **Peringatan:** tabel ini paling rusak pada ekstraksi PDF. Isi di bawah disusun ulang dari teks tabel dan narasi bab; kolom "pelajaran" bersifat ringkasan dan perlu dicocokkan dengan PDF asli. **[disusun ulang]**
 
 | Provinsi | Aplikasi Utama | Fungsi yang Didigitalkan | Pelajaran untuk Malut |
 |---|---|---|---|
-| Kalimantan Tengah | SIPeT, BERAKSI, SAMFO, e-CIS, Absensi Online | Agenda pimpinan, permohonan sambutan, bank data sambutan dan foto | Rujukan paling lengkap dan paling mudah ditiru; modul dapat dibangun bertahap dan berbiaya rendah |
-| Jawa Timur | PASTI MAPAN, SINOMEN, SISTRADA | Materi, komunikasi, publikasi, dokumentasi, penomoran naskah | Konsep pusat data terpadu; standar layanan dipublikasikan terbuka |
-| Kalimantan Selatan | DALAPAN, SIPMATPIM | Permintaan pidato dan materi pimpinan, termasuk video ucapan | Permohonan video ucapan layak menjadi jenis layanan resmi |
-| Jambi | SIKOKPLAN, LOKDON | Perencanaan dan pelaporan Setda; layanan kepegawaian | Direktori pejabat dan kontak sebagai layanan; keterbukaan struktur |
-| Sumatera Utara | SIMANTAP | Notifikasi dan penugasan kepada pimpinan | Notifikasi langsung kepada pimpinan adalah fitur yang paling dirasakan manfaatnya |
-| Bali | SITU OK, Portal Layanan, e-Office | Tata administrasi persuratan, dokumentasi kegiatan | Platform tunggal multimodul dapat diterapkan pada unit Setda |
-| Jawa Tengah | Portal Layanan Biro Umum (enam aplikasi) | Peminjaman gedung, kendaraan, ruang rapat, administrasi perkantoran | Layanan satu pintu internal Setda; enam aplikasi terpisah menimbulkan beban integrasi |
-| Sulawesi Selatan | SIMPATI | Persuratan, tanda tangan elektronik, pelayanan publik | Penerapan tanda tangan elektronik internal |
-| Sulawesi Utara | OK Setda, Manjo Ka Sulut | Administrasi Setda berbasis perangkat bergerak | Pentingnya perangkat bergerak |
-| Lampung | (aplikasi Setda) | Fasilitas pendukung acara | Pelajaran negatif: aplikasi tidak lagi dapat diakses karena pemeliharaan |
-| Nusa Tenggara Barat | NTB DIGIHub, E-Office | Portal layanan terpadu | Ekosistem provinsi dan aplikasi biro perlu dirancang agar dapat menyatu |
-| Jawa Barat | E-Office Biro Adpim (pengembangan) | Pengelolaan dokumen dan arsip biro | Integrasi layanan |
+| Kalimantan Tengah | SIPeT, BERAKSI, SAMFO, e-CIS, Absensi Online | Agenda pimpinan, penugasan protokol, permohonan sambutan, bank naskah dan foto, kepegawaian Setda | Rujukan paling lengkap dan paling dekat dengan kebutuhan Malut; menunjukkan bahwa modul dapat dibangun bertahap dan berbiaya rendah |
+| Jawa Timur | PASTI MAPAN, SINOMEN, SISTRADA | Pusat data terpadu materi, komunikasi, publikasi, dan dokumentasi pimpinan; penomoran dokumen | Konsep pusat data terpadu lintas subfungsi; publikasi standar prosedur layanan secara terbuka |
+| Kalimantan Selatan | DALAPAN, SIPMATPIM | Permintaan pidato pimpinan; penyiapan materi termasuk video ucapan dan testimoni | Permohonan video ucapan pimpinan adalah kebutuhan nyata era media sosial dan layak menjadi jenis layanan resmi |
+| Jambi | SIKOKPLAN, LOKDON, publikasi naskah sambutan | Kolaborasi perencanaan dan pelaporan Setda; layanan kepegawaian nirtemu | Direktori kontak pejabat sebagai bagian dari layanan; keterbukaan naskah sambutan kepada publik |
+| Sumatera Utara | SIMANTAP SUMUT, Berkah APP | Tata administrasi persuratan dengan notifikasi langsung kepada pimpinan; pelaporan pelayanan publik | Pentingnya notifikasi real-time kepada pimpinan dan keterhubungan dengan kanal nasional seperti SP4N-LAPOR |
+| Bali | SITU OK | Dokumentasi pimpinan, ketatausahaan, kepegawaian, keuangan, aset, peminjaman gedung dan kendaraan dalam satu platform | Bukti bahwa pendekatan platform tunggal multimodul layak diterapkan pada unit Setda |
+| Jawa Tengah | Portal Layanan Biro Umum, SIKENDI, e-Office | Peminjaman gedung, ruang rapat, dan kendaraan; administrasi perkantoran elektronik | Konsep layanan satu pintu untuk kebutuhan internal Setda |
+| Sulawesi Selatan | SIMPATI | Bus operasional, pemesanan ruang rapat, fasilitasi konsumsi, fasilitasi pembawa acara dan dirigen | Fasilitas pendukung acara dapat didigitalkan dan memerlukan integrasi lintas biro |
+| Sulawesi Utara | OK Setda, Manjo Ka Sulut | Kenaikan pangkat, gaji berkala, pensiun ASN | Setda berbasis Android dengan notifikasi kelengkapan berkas; pendekatan mengutamakan perangkat bergerak untuk layanan kepegawaian |
+| Lampung | e-Sughat, SI-AWAS, Lampung-In | Persuratan dengan tanda tangan elektronik; pengawasan internal; portal layanan terpadu | Penerapan tanda tangan elektronik dan pendekatan portal induk |
+| Nusa Tenggara Barat | E-Office Biro Adpim (pengembangan), NTB DIGIHub | Pengelolaan dokumen dan arsip biro; integrasi layanan | Pelajaran negatif sekaligus positif: sebagian aplikasi tidak dapat diakses, menunjukkan pentingnya keberlanjutan pemeliharaan |
+| Jawa Barat | Sapawarga (tingkat provinsi) | Layanan publik terpadu | Ekosistem provinsi dapat didominasi aplikasi super, sehingga aplikasi biro perlu dirancang agar dapat menyatu |
 
 ### 3.3 Studi Kasus Utama: Ekosistem Kalimantan Tengah
 
@@ -183,7 +182,7 @@ Klaster 1 dan sebagian klaster 3 bersesuaian dengan Bagian Protokol; klaster 2 d
 
 ## Bab IV. Analisis Kesenjangan dan Kebutuhan
 
-### 4.1 Kesenjangan antara Mandat dan Dukungan Sistem **[disusun ulang]**
+### 4.1 Kesenjangan antara Mandat dan Dukungan Sistem
 
 | Urusan Sesuai Pergub 36/2021 | Kondisi Dukungan Sistem di Malut | Praktik Pembanding | Tingkat Kebutuhan |
 |---|---|---|---|
@@ -195,7 +194,7 @@ Klaster 1 dan sebagian klaster 3 bersesuaian dengan Bagian Protokol; klaster 2 d
 | Dokumentasi pimpinan | Sebagian berupa galeri video dan infografis, belum terstruktur | SAMFO (Kalteng), SITU OK (Bali) | Tinggi |
 | Perencanaan Setda | Tidak ada | SIKOKPLAN (Jambi) | Sedang |
 | Kepegawaian Setda | Tidak ada; daftar pegawai kosong | LOKDON (Jambi), OK Setda (Sulut), e-CIS (Kalteng) | Sedang |
-| Ketatausahaan | Sebagian melalui e-Office provinsi | SINOMEN (Jatim), e-Office Lampung | Rendah (cukup integrasi) |
+| Ketatausahaan | Sebagian melalui e-Office dan SRIKANDI tingkat provinsi | SINOMEN (Jatim), e-Sughat (Lampung) | Rendah, cukup integrasi |
 | Pemantauan dan evaluasi (Pasal 95 huruf b) | Tidak ada instrumen pengukuran sama sekali | Dasbor pada SIPeT dan PASTI MAPAN | Sangat tinggi |
 
 Kebutuhan mendesak terkonsentrasi pada tiga hal: pengelolaan agenda dan acara, penyiapan materi serta naskah pimpinan, dan kemampuan pemantauan. Urusan ketatausahaan berprioritas paling rendah untuk dibangun sendiri karena aplikasi umum nasional dan aplikasi provinsi sudah memadai.
@@ -252,17 +251,17 @@ Pembedaan ini menjawab kesalahan umum aplikasi pemerintahan, yaitu antarmuka yan
 
 ### 5.3 Rincian Tujuh Modul Fungsional
 
-Ketujuh modul dipetakan dari tiga bagian organisasi agar tiap modul punya pemilik proses yang jelas. Modul tanpa pemilik berakhir menjadi menu kosong seperti halaman agenda di situs saat ini. **[disusun ulang]**
+Ketujuh modul dipetakan dari tiga bagian organisasi agar tiap modul punya pemilik proses yang jelas. Modul tanpa pemilik berakhir menjadi menu kosong seperti halaman agenda di situs saat ini.
 
 | Kode | Nama Modul | Pemilik Proses | Fungsi Utama |
 |---|---|---|---|
-| M1 | Agenda dan Acara Pimpinan | Bagian Protokol | Kalender Gubernur, Wakil Gubernur, dan Sekda; jadwal otomatis; penyusunan rundown; penetapan tempat, tata upacara, dan penghormatan; catatan kebutuhan perjalanan antarpulau. **Diperluas menjadi M1+ (lihat Bab XI)** |
-| M2 | Layanan Permohonan Pimpinan | Bagian Protokol dan Bagian Materi | Kanal pengajuan permohonan sambutan, narasumber, video ucapan, dan fasilitasi keprotokolan; nomor tiket dan pelacakan status; validasi tenggat minimal; unggah surat resmi dan kerangka acuan |
-| M3 | Naskah dan Materi Pimpinan | Bagian Materi dan Komunikasi Pimpinan | Bank naskah sambutan berdasarkan tema, acara, dan tanggal; template naskah dinas; alur reviu dan persetujuan berjenjang; buku pengarahan digital berisi ringkasan, data pendukung, dan poin penting |
-| M4 | Dokumentasi dan Publikasi | Bagian Materi dan Komunikasi Pimpinan | Manajemen aset foto dan video dengan penandaan metadata; pengelolaan rilis pers; penjadwalan unggahan kanal media sosial |
-| M5 | Tamu dan Keprotokolan | Bagian Protokol | Basis data tamu penting beserta riwayat kunjungan; kebutuhan akomodasi dan transportasi; direktori pejabat dengan nomor kontak; repositori lagu kebangsaan, foto resmi, dan atribut pimpinan |
-| M6 | Perencanaan, Kinerja, dan Kepegawaian Setda | Bagian Perencanaan dan Kepegawaian | Penyusunan dan pemantauan Rencana Kerja, Rencana Kerja dan Anggaran, serta laporan kinerja; penugasan dan penilaian kinerja pejabat fungsional; administrasi kepegawaian Setda; penerbitan surat tugas |
-| M7 | Dasbor Pimpinan dan Analitik | Kepala Biro | Statistik beban acara per pimpinan dan per wilayah; capaian tingkat layanan tiap jenis permohonan; pemantauan ketepatan waktu; kinerja biro; laporan untuk Sekda |
+| M1 | Agenda dan Acara Pimpinan | Bagian Protokol | Kalender terpadu Gubernur, Wakil Gubernur, dan Sekretaris Daerah; deteksi bentrok jadwal otomatis; penyusunan rundown; penugasan petugas protokol; daftar periksa tata tempat, tata upacara, dan tata penghormatan; catatan kebutuhan perjalanan antarpulau. **Diperluas menjadi M1+ (lihat Bab XI)** |
+| M2 | Layanan Permohonan Pimpinan | Bagian Protokol dan Bagian Materi | Kanal tunggal permohonan berupa undangan kehadiran, naskah sambutan, piagam penghargaan, video ucapan, fasilitasi keprotokolan, dan pembawa acara; sistem tiket dengan nomor unik; pelacakan status; validasi tenggat minimal; unggah surat resmi dan kerangka acuan |
+| M3 | Naskah dan Materi Pimpinan | Bagian Materi dan Komunikasi Pimpinan | Bank naskah sambutan yang dapat ditelusuri menurut tema, acara, dan tanggal; pustaka templat sesuai tata naskah dinas; penyusunan kolaboratif dengan riwayat versi; alur reviu dan persetujuan berjenjang; buku pengarahan digital berisi ringkasan substansi, data pendukung, dan poin bicara |
+| M4 | Dokumentasi dan Publikasi | Bagian Materi dan Komunikasi Pimpinan | Manajemen aset digital foto dan video dengan penandaan metadata; alur produksi rilis pers; pengelolaan infografis; kliping dan pemantauan pemberitaan; jadwal unggahan kanal media sosial |
+| M5 | Tamu dan Keprotokolan | Bagian Protokol | Basis data tamu kehormatan dan tamu penting beserta riwayat kunjungan; buku tamu digital; koordinasi akomodasi dan transportasi antarpulau; direktori pejabat lengkap dengan nomor kontak; repositori lagu kebangsaan, mars daerah, dan foto resmi pimpinan |
+| M6 | Perencanaan, Kinerja, dan Kepegawaian Setda | Bagian Perencanaan dan Kepegawaian Setda | Penyusunan dan pemantauan Rencana Kerja, Rencana Kerja dan Anggaran, serta Laporan Kinerja; pembentukan tim kerja dan penugasan pejabat fungsional; administrasi kepegawaian Sekretariat Daerah; penomoran dan penelusuran surat internal biro |
+| M7 | Dasbor Pimpinan dan Analitik | Kepala Biro | Statistik beban acara per pimpinan dan per wilayah; capaian tingkat layanan setiap jenis permohonan; ringkasan sentimen pemberitaan; capaian kinerja biro; laporan periodik otomatis untuk Sekretaris Daerah |
 
 Modul M1 dan M2 merupakan inti sistem sehingga ditempatkan pada tahap pertama. M3 dan M4 menguatkan nilai dengan mengubah keluaran kerja harian menjadi aset pengetahuan. M5 dan M6 memperluas cakupan ke seluruh mandat biro. M7 adalah buah dari keenam modul sebelumnya dan hanya bermakna jika data pada modul-modul itu terisi konsisten.
 
@@ -278,50 +277,52 @@ Modul M1 dan M2 merupakan inti sistem sehingga ditempatkan pada tahap pertama. M
 
 ### 5.5 Entitas Data Pokok
 
-Pada tahap ini basis data dinyatakan pada tingkat entitas dan relasi utama. Sepuluh entitas pokok: **[disusun ulang]**
+Pada tahap ini basis data dinyatakan pada tingkat entitas dan relasi utama. Sepuluh entitas pokok:
 
 | Entitas | Isi Pokok | Relasi Utama |
 |---|---|---|
-| Pimpinan | Data Gubernur, Wakil Gubernur, Sekda, dan pejabat yang mewakili | Agenda, Naskah |
-| Agenda Kegiatan | Judul, jenis, tanggal, waktu, tempat, status, tema | Poros: Permohonan, Naskah, Dokumentasi, Tamu, Penugasan |
-| Permohonan | Nomor tiket, jenis layanan, pemohon, tanggal masuk, tenggat, status | Agenda, Naskah, Pengguna |
-| Naskah | Judul, jenis, isi, nomor versi, penyusun, penyetuju, status, tema | Agenda |
-| Aset Dokumentasi | Berkas foto/video, metadata (lokasi, tanggal, kegiatan), hak publikasi | Agenda |
-| Tamu | Nama, jabatan, instansi, klasifikasi kehormatan, riwayat kunjungan, kebutuhan khusus | Agenda |
-| Pegawai dan Peran | Data pegawai, jabatan, bagian, peran dalam sistem | Penugasan, Pengguna |
-| Penugasan | Petugas, peran dalam kegiatan, tenggat, status penyelesaian | Agenda, Permohonan, Pegawai |
-| Direktori Pejabat | Nama, jabatan, instansi, nomor kontak | Agenda, Tamu |
-| Indikator Kinerja | Jenis indikator, target, realisasi, periode | Permohonan, Penugasan, Agenda |
+| Pimpinan | Data Gubernur, Wakil Gubernur, Sekretaris Daerah, dan pejabat yang mewakili | Terhubung ke Agenda dan Naskah |
+| Agenda Kegiatan | Judul, jenis, tanggal, waktu, lokasi, pulau atau kabupaten, status, tingkat prioritas | Terhubung ke Pimpinan, Permohonan, Penugasan, Dokumentasi |
+| Permohonan | Nomor tiket, jenis layanan, pemohon, tanggal masuk, tenggat, status, riwayat perubahan status | Terhubung ke Agenda, Naskah, Pengguna |
+| Naskah | Judul, jenis, isi, nomor versi, penyusun, penyetuju, status, tema | Terhubung ke Permohonan, Agenda, Pengguna |
+| Aset Dokumentasi | Berkas foto atau video, metadata kegiatan, penanda kata kunci, hak penggunaan | Terhubung ke Agenda |
+| Tamu | Nama, jabatan, instansi, klasifikasi kehormatan, riwayat kunjungan, kebutuhan khusus | Terhubung ke Agenda |
+| Pegawai dan Peran | Data pegawai Sekretariat Daerah, jabatan, bagian, peran dalam sistem | Terhubung ke Penugasan dan Persetujuan |
+| Penugasan | Petugas, peran dalam kegiatan, tenggat, status penyelesaian | Terhubung ke Agenda, Permohonan, Pegawai |
+| Direktori Pejabat | Nama, jabatan, instansi, nomor kontak, urutan tata tempat | Terhubung ke Agenda dan Tamu |
+| Indikator Kinerja | Jenis indikator, target, realisasi, periode | Terhubung ke Permohonan, Penugasan, Agenda |
 
 Keputusan desain: entitas **Agenda Kegiatan** berfungsi sebagai poros. Setiap naskah, dokumentasi, penugasan, dan kehadiran tamu melekat pada satu kegiatan, yang menyederhanakan pengembangan dan memudahkan penelusuran riwayat. *(Entitas tambahan untuk Bab XI: Undangan/Lampiran, Penugasan Kehadiran, Aturan Kewenangan Mewakili, dan Notifikasi; lihat 11.6.)*
 
-### 5.6 Pilihan Teknologi dan Pola Pengadaan **[disusun ulang]**
+### 5.6 Pilihan Teknologi dan Pola Pengadaan
 
-| Pendekatan | Keunggulan | Kelemahan | Kesesuaian |
+| Pendekatan | Keunggulan | Kelemahan | Kesesuaian untuk Malut |
 |---|---|---|---|
-| Platform low-code (misalnya AppSheet, atau alternatif sumber terbuka seperti Budibase dan NocoDB) | Sangat cepat diwujudkan, biaya awal rendah, dapat dikelola internal setelah pelatihan singkat | Keterbatasan kustomisasi, ketergantungan pada penyedia, data bisa berada di luar pusat data pemerintah | Sesuai untuk purwarupa tahap pertama |
-| Pengembangan kustom oleh penyedia | Fleksibel penuh, dapat diintegrasikan secara mendalam, kode jelas | Biaya tinggi, proses pengadaan panjang, berisiko bergantung pada penyedia tunggal | Sesuai untuk tahap kedua dan seterusnya |
-| Pengembangan internal bersama Diskominfosan | Biaya paling rendah dalam jangka panjang, selaras dengan Arsitektur SPBE | Bergantung pada ketersediaan tenaga pengembang | Sesuai sebagai pola jangka panjang dan pemeliharaan |
+| Platform low-code (seperti SIPeT Kalteng, atau alternatif sumber terbuka seperti Budibase dan NocoDB) | Sangat cepat diwujudkan, biaya awal rendah, dapat dikelola pegawai internal setelah pelatihan singkat | Keterbatasan kustomisasi, ketergantungan pada penyedia, kendala kepatuhan bila data berada di luar pusat data pemerintah | Sesuai untuk purwarupa dan uji coba tahap awal |
+| Pengembangan kustom oleh penyedia | Fleksibel penuh, dapat diintegrasikan secara mendalam, kepemilikan kode jelas | Biaya lebih tinggi, memerlukan proses pengadaan, berisiko bergantung pada penyedia bila alih pengetahuan lemah | Sesuai untuk tahap kedua dan seterusnya |
+| Pengembangan internal bersama Diskominfosan | Biaya paling rendah dalam jangka panjang, kemandirian tinggi, selaras dengan Arsitektur SPBE | Bergantung pada ketersediaan pengembang internal, berpotensi lambat | Sesuai sebagai pola jangka panjang dan pemeliharaan |
+
+> **Keputusan Tahap 0.4.** Dari dua opsi purwarupa (low-code atau kerangka sumber terbuka), dipilih **PWA berbasis kerangka sumber terbuka** (TypeScript, React + Vite, Fastify, PostgreSQL). Alasan, daftar sub-tahap, dan kriteria tinjauan ulang: `docs/standar/KEPUTUSAN_TEKNOLOGI_PURWARUPA.md`.
 
 Rekomendasi: **pendekatan bertingkat.** Tahap pertama, purwarupa M1 dan M2 dengan platform low-code atau kerangka sumber terbuka sederhana untuk memvalidasi proses bisnis dan membangun kebiasaan pengguna secepat mungkin. Setelah stabil, versi definitif dikembangkan lewat pengadaan penyedia atau pengembangan internal bersama Diskominfosan, dengan penguasaan kode sumber oleh pemda dan alih pengetahuan dalam kontrak.
 
 Tumpukan teknologi: kerangka kerja arus utama dengan komunitas luas. Aplikasi berbentuk **aplikasi web progresif (PWA)** agar dapat dipasang di ponsel tanpa toko aplikasi sekaligus mendukung kerja luring terbatas. Data ditempatkan pada pusat data atau komputasi awan Pemprov Maluku Utara dengan domain resmi berakhiran **go.id**.
 
-### 5.7 Titik Integrasi Wajib **[disusun ulang]**
+### 5.7 Titik Integrasi Wajib
 
 Tujuh titik integrasi dengan prioritas berbeda:
 
 | Sistem Tujuan | Bentuk Integrasi | Prioritas |
 |---|---|---|
-| SRIKANDI dan e-Office provinsi | Pengiriman dan penerimaan surat resmi, termasuk surat undangan dan disposisi; naskah dinas sebagai arsip dinamis | Tinggi |
-| Sistem kepegawaian daerah | Sinkronisasi data pegawai | Sedang |
-| Sistem Biro Umum | Pemesanan kendaraan, ruang rapat, dan fasilitas | Sedang |
-| Sistem informasi perencanaan dan kinerja | Penarikan data perencanaan dan anggaran serta pengiriman capaian kinerja | Sedang |
-| Portal Satu Data dan situs resmi Maluku Utara (go.id) | Publikasi otomatis agenda dan naskah sambutan | Sedang |
-| Balai Sertifikasi Elektronik | Tanda tangan elektronik untuk naskah dan surat tugas | Tinggi |
-| Kanal notifikasi (WhatsApp / aplikasi pesan) | Pemberitahuan otomatis dan pengingat kepada pimpinan | **Sangat tinggi** |
+| SRIKANDI | Penarikan data surat masuk sebagai pemicu permohonan dan pengiriman naskah final sebagai arsip dinamis | Tinggi |
+| Sistem kepegawaian daerah dan e-Office | Sinkronisasi data pegawai Sekretariat Daerah untuk pengelolaan peran dan penugasan | Tinggi |
+| Sistem Biro Umum | Pemesanan kendaraan, ruang rapat, gedung, dan fasilitasi konsumsi acara, mengikuti pola SIMPATI Sulawesi Selatan | Sedang |
+| Sistem Informasi Pemerintahan Daerah dan aplikasi kinerja | Penarikan data perencanaan dan anggaran serta pengiriman capaian kinerja | Sedang |
+| Portal Satu Data Maluku Utara dan situs malutprov.go.id | Publikasi otomatis agenda kegiatan, rilis pers, dan naskah sambutan | Tinggi |
+| Balai Sertifikasi Elektronik | Tanda tangan elektronik tersertifikasi untuk naskah dan surat tugas | Tinggi |
+| Kanal notifikasi WhatsApp dan surel serta kalender digital | Pemberitahuan otomatis dan sinkronisasi agenda ke perangkat pimpinan | Sangat tinggi |
 
-> **Penyeragaman (v1.1).** Hasil ekstraksi PDF sempat memuat delapan baris. SRIKANDI dan e-Office digabung menjadi satu titik integrasi (sama-sama jalur persuratan), sehingga tetap **tujuh titik** sesuai teks asli. Tabel ini tetap perlu dicocokkan dengan PDF asli.
+> **Koreksi (Tahap 0.4).** Tabel ini sebelumnya salah direkonstruksi dan sempat menggabungkan SRIKANDI dengan e-Office. Setelah dicocokkan dengan PDF, tujuh titik integrasi yang benar adalah seperti di bawah (e-Office berpasangan dengan sistem kepegawaian daerah).
 
 Integrasi kanal notifikasi berprioritas tertinggi karena paling menentukan adopsi. Pengalaman SIMANTAP di Sumatera Utara memperlihatkan bahwa notifikasi langsung kepada pimpinan adalah fitur yang paling dirasakan manfaatnya; aplikasi yang menuntut pengguna membuka peramban untuk mengetahui tugas baru hampir selalu terabaikan.
 
@@ -331,15 +332,15 @@ Integrasi kanal notifikasi berprioritas tertinggi karena paling menentukan adops
 
 ### 6.1 Struktur Tata Kelola
 
-Kegagalan sistem informasi pemerintahan lebih sering disebabkan tata kelola daripada teknis. Sebelum kode pertama ditulis, struktur tanggung jawab perlu ditetapkan melalui keputusan resmi. **[disusun ulang]**
+Kegagalan sistem informasi pemerintahan lebih sering disebabkan tata kelola daripada teknis. Sebelum kode pertama ditulis, struktur tanggung jawab perlu ditetapkan melalui keputusan resmi.
 
 | Peran | Pengisi | Tanggung Jawab |
 |---|---|---|
 | Pengarah | Sekretaris Daerah | Menetapkan arah kebijakan, menyelesaikan hambatan lintas biro, mengesahkan tahapan |
 | Pemilik Sistem | Kepala Biro Administrasi Pimpinan | Bertanggung jawab atas sistem, menetapkan prioritas fitur, memimpin evaluasi |
 | Pemilik Proses per Modul | Kepala Bagian terkait | Memastikan proses kerja yang benar, menjamin kelengkapan data, melatih pengguna |
-| Mitra Teknis | Diskominfosan | Menyediakan infrastruktur, integrasi, keamanan, serta pendaftaran dalam Arsitektur SPBE |
-| Administrator dan Operator | Pejabat fungsional atau pelaksana yang ditunjuk pada setiap bagian | Mengelola data induk, mendampingi pengguna, melaporkan gangguan |
+| Mitra Teknis | Diskominfosan | Menyediakan infrastruktur, keamanan, nama domain, integrasi, serta memastikan pendaftaran dalam Arsitektur SPBE |
+| Administrator dan Operator | Pejabat fungsional atau pelaksana yang ditunjuk pada setiap bagian | Mengelola data induk, mendampingi pengguna, menjadi penghubung pelaporan gangguan |
 
 Dua ketentuan khusus: (1) penunjukan administrator tiap bagian dituangkan dalam surat keputusan dan diperhitungkan dalam sasaran kinerja pegawai; (2) kemitraan dengan Diskominfosan dibangun sejak perencanaan, bukan saat sistem hendak dipasang.
 
@@ -372,11 +373,11 @@ Peta jalan disusun dalam **lima tahap (Tahap 0–4)** dengan rentang sekitar del
 
 | Tahap | Rentang Waktu | Keluaran Utama | Tolok Ukur Keberhasilan |
 |---|---|---|---|
-| Tahap 0. Persiapan | Triwulan IV 2026 | Surat keputusan kelompok kerja; pemetaan proses bisnis dan standar prosedur layanan; kerangka acuan kerja dan perencanaan anggaran; pendaftaran dalam Arsitektur SPBE | Seluruh proses bisnis dan standar layanan terdokumentasi dan disahkan |
-| Tahap 1. Purwarupa Berjalan | Desember 2026 sampai Maret 2027 | Modul M1 Agenda dan Acara serta M2 Layanan Permohonan; uji coba terbatas; bimbingan teknis operator | Seluruh agenda pimpinan di lingkungan Sekretariat Daerah tercatat dan seluruh permohonan masuk melalui sistem |
-| Tahap 2. Penguatan Inti | Maret sampai Juli 2027 | Modul M3 Naskah dan Materi serta M4 Dokumentasi dan Publikasi; integrasi SRIKANDI dan tanda tangan elektronik; peluncuran resmi tingkat daerah | Bank naskah terisi; alur naskah berjalan sepenuhnya digital |
-| Tahap 3. Perluasan | Juli sampai Desember 2027 | Modul M5 Tamu dan Keprotokolan serta M6 Perencanaan dan Kepegawaian; aplikasi bergerak untuk pimpinan | Pimpinan menggunakan ringkasan agenda dan pengarahan di perangkat bergerak |
-| Tahap 4. Kematangan | Desember 2027 sampai April 2028 | Modul M7 Dasbor dan Analitik; integrasi Satu Data dan portal publik; audit dan evaluasi | Laporan kinerja biro dihasilkan dari sistem; agenda publik tampil otomatis di situs |
+| Tahap 0. Persiapan | Triwulan IV 2026 | Surat keputusan kelompok kerja; pemetaan proses bisnis dan standar prosedur layanan; dokumen spesifikasi kebutuhan; kerangka acuan kerja dan rencana anggaran; pendaftaran dalam Arsitektur SPBE | Seluruh proses bisnis inti terdokumentasi dan standar layanan disahkan |
+| Tahap 1. Purwarupa Berjalan | Desember 2026 sampai Maret 2027 | Modul M1 Agenda dan Acara serta M2 Layanan Permohonan; uji coba terbatas; bimbingan teknis operator | Seluruh agenda pimpinan tercatat dalam sistem; permohonan dari lingkungan Sekretariat Daerah masuk melalui kanal digital |
+| Tahap 2. Penguatan Inti | Maret sampai Juli 2027 | Modul M3 Naskah dan Materi serta M4 Dokumentasi dan Publikasi; integrasi SRIKANDI dan tanda tangan elektronik; peluncuran resmi bagi seluruh perangkat daerah | Bank naskah terisi; alur persetujuan naskah berjalan sepenuhnya digital |
+| Tahap 3. Perluasan | Juli sampai Desember 2027 | Modul M5 Tamu dan Keprotokolan serta M6 Perencanaan dan Kepegawaian; aplikasi bergerak untuk pimpinan | Pimpinan mengakses agenda dan buku pengarahan melalui perangkat bergerak |
+| Tahap 4. Kematangan | Desember 2027 sampai April 2028 | Modul M7 Dasbor dan Analitik; integrasi Satu Data dan portal publik; audit keamanan dan evaluasi manfaat | Laporan kinerja biro dihasilkan otomatis dari sistem; agenda publik tampil di situs biro |
 
 Alasan memilih M1 dan M2 pada Tahap 1: keduanya menyentuh titik nyeri yang paling dirasakan (bentrok agenda dan permohonan terlambat), relatif sederhana secara teknis dan belum menuntut integrasi rumit, serta menghasilkan data dasar bagi seluruh modul berikutnya.
 
@@ -388,32 +389,32 @@ Alasan memilih M1 dan M2 pada Tahap 1: keduanya menyentuh titik nyeri yang palin
 
 ### 8.1 Indikator Keberhasilan
 
-Seluruh indikator dapat diukur langsung dari data sistem. **[disusun ulang]**
+Seluruh indikator dapat diukur langsung dari data sistem.
 
 | Kategori | Indikator | Target Tahun Pertama |
 |---|---|---|
 | Cakupan | Persentase agenda pimpinan yang tercatat dalam sistem | Sekurang-kurangnya 90 persen |
 | Cakupan | Persentase permohonan yang masuk melalui kanal digital | Sekurang-kurangnya 70 persen |
-| Ketepatan waktu | Persentase permohonan yang diselesaikan sebelum tenggat | Sekurang-kurangnya 85 persen |
+| Ketepatan waktu | Persentase naskah sambutan yang selesai sebelum tenggat internal | Sekurang-kurangnya 85 persen |
 | Ketepatan waktu | Rata-rata waktu penyelesaian permohonan naskah sambutan | Berkurang sekurang-kurangnya 30 persen dibanding kondisi awal |
-| Mutu koordinasi | Jumlah bentrok agenda yang terdeteksi lebih awal oleh sistem | Tercatat dan menurun dari triwulan ke triwulan |
-| Kearsipan | Persentase kegiatan pimpinan yang memiliki dokumentasi dan naskah lengkap | Sekurang-kurangnya 80 persen |
-| Kepuasan | Nilai kepuasan pengguna layanan permohonan | Sekurang-kurangnya 3,2 dari skala 4 |
-| Keterbukaan | Jumlah naskah sambutan dan agenda yang dipublikasikan | Meningkat setiap triwulan |
+| Mutu koordinasi | Jumlah kejadian bentrok agenda yang terdeteksi lebih awal oleh sistem | Tercatat dan menurun dari triwulan ke triwulan |
+| Kearsipan | Persentase kegiatan pimpinan yang memiliki dokumentasi terarsip dengan metadata lengkap | Sekurang-kurangnya 80 persen |
+| Kepuasan | Nilai kepuasan pengguna eksternal atas layanan permohonan | Sekurang-kurangnya 3,2 dari skala 4 |
+| Keterbukaan | Jumlah naskah sambutan dan agenda yang terpublikasi kepada publik | Meningkat setiap triwulan |
 | SPBE | Kenaikan nilai domain Layanan dan Manajemen SPBE provinsi | Berkontribusi pada pencapaian indeks di atas 2,60 |
 
-### 8.2 Analisis Risiko dan Mitigasi **[disusun ulang]**
+### 8.2 Analisis Risiko dan Mitigasi
 
 | Risiko | Tingkat | Dampak | Langkah Mitigasi |
 |---|---|---|---|
-| Kenyamanan petugas dengan grup pesan instan | Tinggi | Sistem sepi, seperti halaman agenda saat ini | Penetapan kewajiban melalui surat edaran; integrasi notifikasi ke WhatsApp agar sistem tidak terasa sebagai beban tambahan |
-| Keterbatasan jaringan kepulauan | Tinggi | Petugas lapangan tidak dapat memperbarui data | Aplikasi web progresif dengan kemampuan luring dan sinkronisasi tertunda |
-| Ketergantungan pada penyedia tunggal | Sedang | Pengembangan terhenti | Penguasaan kode sumber oleh pemda; alih pengetahuan wajib; teknologi arus utama |
-| Tidak tersedianya pemeliharaan | Sedang | Aplikasi berhenti berfungsi setelah satu-dua tahun | Alokasi pemeliharaan sebagai pos tetap anggaran biro |
-| Kebocoran data pribadi dan sensitif | Sedang | Pelanggaran UU 27/2022 dan risiko reputasi | Pembatasan akses berbasis peran; penyandian data sensitif; catatan audit; uji keamanan bersama Diskominfosan |
-| Perubahan struktur organisasi akibat regulasi baru | Rendah | Modul tidak lagi sesuai dengan pemilik proses | Rancangan berbasis peran, bukan jabatan struktural, sehingga penyesuaian cukup pada konfigurasi |
-| Cakupan membengkak (*scope creep*) | Sedang | Tahap awal tidak selesai | Penetapan batas cakupan tiap tahap; fitur tambahan dijadwalkan ke tahap berikutnya |
-| Tumpang tindih dengan aplikasi yang telah ada | Sedang | Pemborosan anggaran, penolakan Diskominfosan | Kajian pendahuluan atas aplikasi eksisting; prinsip integrasi alih-alih duplikasi |
+| Rendahnya adopsi karena pengguna nyaman dengan grup pesan instan | Tinggi | Sistem menjadi kosong seperti halaman agenda saat ini | Penetapan kewajiban melalui surat edaran Sekretaris Daerah; integrasi notifikasi WhatsApp agar kebiasaan lama tetap terakomodasi; masa transisi berdampingan |
+| Keterbatasan jaringan di wilayah kepulauan | Tinggi | Petugas lapangan tidak dapat memperbarui data | Rancangan aplikasi web progresif dengan kemampuan luring terbatas dan sinkronisasi tertunda |
+| Ketergantungan pada penyedia tunggal | Sedang | Biaya pemeliharaan membengkak dan pengembangan terhenti | Penguasaan kode sumber oleh pemerintah daerah dalam kontrak; alih pengetahuan wajib; penggunaan teknologi arus utama |
+| Tidak tersedianya anggaran pemeliharaan | Sedang | Aplikasi berhenti berfungsi setelah satu hingga dua tahun | Alokasi pemeliharaan sebagai pos tetap dalam Rencana Kerja dan Anggaran biro sejak tahun pertama |
+| Kebocoran data pribadi tamu dan pejabat | Sedang | Pelanggaran Undang-Undang Nomor 27 Tahun 2022 dan risiko reputasi | Pengendalian akses berbasis peran; penyandian data sensitif; catatan audit; audit keamanan bersama Diskominfosan |
+| Perubahan struktur organisasi akibat regulasi baru | Rendah | Modul tidak lagi sesuai dengan pemilik proses | Rancangan berbasis peran dan bukan berbasis kotak struktural, sehingga penyesuaian dilakukan pada konfigurasi |
+| Cakupan pengembangan meluas tanpa kendali | Sedang | Tahap pertama tidak pernah selesai | Penetapan batas cakupan tahap secara tegas; usulan fitur baru ditampung untuk tahap berikutnya |
+| Duplikasi dengan aplikasi provinsi yang telah ada | Sedang | Pemborosan anggaran dan penolakan Diskominfosan | Kajian pendahuluan atas aplikasi yang tersedia; penegasan prinsip integrasi alih-alih duplikasi |
 
 ---
 

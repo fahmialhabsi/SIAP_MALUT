@@ -47,6 +47,8 @@ Setiap kali menyelesaikan tahap, Claude **langsung** memberi owner: (a) nama skr
 
 ## Aturan 4: Prinsip dari rancangan
 
+Tumpukan teknologi purwarupa (TypeScript, React + Vite PWA, Fastify, PostgreSQL, Vitest, ESLint) diputuskan di `docs/standar/KEPUTUSAN_TEKNOLOGI_PURWARUPA.md`; jangan mengganti tanpa ADR baru.
+
 Satu platform, tiga bagian, tujuh modul, satu basis data. Aplikasi pendukung, bukan pengganti surat resmi. Integrasi (SRIKANDI, e-Office, BSrE) alih-alih duplikasi. Rancangan utuh: `docs/rancangan/Rancangan_Awal_Sistem_Aplikasi_Biro_Adpim_Malut.md` (Bab XI memuat modul M1+ agenda dan penugasan pengganti).
 
 ## Aturan 5: Perbarui handoff otomatis setelah 5 chat
