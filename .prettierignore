@@ -11,3 +11,4 @@ src/assets
 apps/web/public
 .claude
 .git
+apps/api/drizzle

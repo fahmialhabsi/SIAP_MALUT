@@ -51,7 +51,7 @@ Semua hal yang masih placeholder dicatat di `docs/audit/DAFTAR_PLACEHOLDER.md` (
 Tahap tersendiri sebelum peluncuran (setelah Kabag meninjau):
 1. Kabag/owner memberikan data asli (struktur pejabat, staf, akun) lewat saluran aman.
 2. Impor lewat fitur impor admin (CSV/templat), bukan mengedit kode.
-3. Menghapus semua data berpenanda `is_contoh`.
+3. **Membuat basis data produksi yang baru** (bukan membersihkan basis data demo): `log_audit` bersifat append-only sehingga catatan demo tidak dapat dihapus dan tidak dibawa ke produksi. Basis data demo diarsipkan atau dibuang. Penjaga produksi menolak start bila basis data masih memuat baris `is_contoh`.
 4. Menjalankan penjaga produksi, menonaktifkan mode demo.
 5. Menyusun ulang dokumen berstatus Placeholder (SK, matriks hak akses dengan nama, dll.) dengan data asli.
 6. Uji ulang hak akses dan dasbor dengan data asli.

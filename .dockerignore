@@ -8,6 +8,7 @@ node_modules
 .env.*
 !.env.example
 docs
-data
+data/*
+!data/contoh
 scripts
 *.md

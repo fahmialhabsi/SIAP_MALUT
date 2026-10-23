@@ -1,0 +1,194 @@
+﻿Bukti gate Tahap 1.3a (dijalankan owner lewat patch)
+Waktu: 2026-10-23 16:04:16 +09:00
+Node: v20.20.0  npm: 10.8.2
+------------------------------------------
+[audit] Dokumen: Ada=30, Draf=2, Placeholder=1, Belum=38
+[audit] LOLOS: dokumen berstatus Ada ditemukan dan struktur folder sesuai.
+[gate] npm run lint ...
+
+> siap-malut@0.1.0 lint
+> eslint . && prettier --check . && node scripts/cek-token.mjs
+
+Checking formatting...
+All matched files use Prettier code style!
+[token] LOLOS: tidak ada warna yang ditulis langsung pada apps/web/src.
+[gate] npm run test ...
+
+> siap-malut@0.1.0 test
+> npm run test --workspaces --if-present && node --test scripts/cek-token.test.mjs scripts/alamat-lan.test.mjs
+
+
+> @siap/shared@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/packages/shared
+
+ Γ£ô src/index.test.ts (12 tests) 43ms
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  16:04:26
+   Duration  1.70s (transform 251ms, setup 0ms, import 978ms, tests 43ms, environment 0ms)
+
+
+> @siap/domain@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/packages/domain
+
+ Γ£ô src/data-contoh.test.ts (4 tests) 82ms
+ Γ£ô src/waktu.test.ts (6 tests) 16ms
+ Γ£ô src/status.test.ts (21 tests) 86ms
+ Γ£ô src/bentrok.test.ts (20 tests) 93ms
+
+ Test Files  4 passed (4)
+      Tests  51 passed (51)
+   Start at  16:04:29
+   Duration  1.41s (transform 732ms, setup 0ms, import 1.32s, tests 276ms, environment 1ms)
+
+
+> @siap/api@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/apps/api
+
+ Γ£ô src/db/kamus.test.ts (5 tests) 35ms
+ Γ£ô src/db/sandi.test.ts (6 tests) 1130ms
+     Γ£ô KB-041: sandi benar lolos, sandi salah ditolak  728ms
+ Γ£ô src/layanan/kegiatan.test.ts (9 tests) 19169ms
+     Γ£ô KB-008: memuat model domain dari basis data dengan waktu WIT dan pihak lengkap  15048ms
+     Γ£ô KB-008: bentrok dari basis data sama dengan uji domain (22 Okt: 0, 24 Okt: 1, 26 Okt: 13, total 14)  556ms
+     Γ£ô KB-039: durasi dari pengaturan basis data mengubah hasil (3 jam: 22 Okt bentrok pasti Wagub)  476ms
+     Γ£ô KB-016: perpindahan sah menyimpan status dan mencatat peristiwa di log audit  603ms
+     Γ£ô KB-004: perpindahan tidak sah ditolak; status dan log tidak berubah  452ms
+     Γ£ô KB-004: ditetapkan tanpa pihak ditugaskan ditolak (semua masih diundang)  468ms
+     Γ£ô KB-038: bentrok pasti tanpa alasan ditolak; dengan alasan disimpan dan tercatat  590ms
+     Γ£ô KB-004: ditunda wajib beralasan dan alasan tersimpan di log  558ms
+     Γ£ô KB-004: kegiatan tidak ditemukan dilaporkan  364ms
+ Γ£ô src/db/db.test.ts (19 tests) 21219ms
+     Γ£ô KB-030: migrasi dari kosong membuat sembilan tabel dan dapat diulang  14770ms
+     Γ£ô KB-031: seed membuat data contoh lengkap dan semuanya berpenanda is_contoh  743ms
+     Γ£ô KB-031: semua nama pada data contoh berlabel (CONTOH)  331ms
+     Γ£ô KB-031: seed idempoten (kedua kali tidak mengubah apa pun)  507ms
+     Γ£ô KB-041: kata sandi admin.owner acak muncul sekali dan cocok dengan hash; persona tanpa sandi  816ms
+     Γ£ô KB-041: kata sandi admin dari lingkungan dipakai dan tidak dikembalikan  722ms
+     Γ£ô KB-041: atur ulang sandi admin berhasil dan tercatat di log audit  1124ms
+     Γ£ô KB-034: production menolak start bila ada data contoh  378ms
+     Γ£ô KB-034: demo boleh memuat data contoh  328ms
+     Γ£ô KB-039: durasi bawaan 120 menit (bawaan kode saat belum diatur, dan dari seed)  319ms
+     Γ£ô KB-001: kedudukan pihak tidak sah ditolak  367ms
+ Γ£ô src/app.test.ts (11 tests) 25327ms
+     Γ£ô KB-030: GET /health mengembalikan 200 dan status ok  2112ms
+     Γ£ô KB-030: basis data sehat = 200 dan checks.basisData ok  13829ms
+     Γ£ô KB-030: basis data tidak dapat dijangkau = 503 not_ready  5521ms
+     Γ£ô KB-030: /health tetap 200 walau basis data mati (hanya menandakan proses hidup)  3758ms
+
+ Test Files  5 passed (5)
+      Tests  50 passed (50)
+   Start at  16:04:33
+   Duration  29.32s (transform 3.78s, setup 0ms, import 8.97s, tests 66.88s, environment 7ms)
+
+
+> @siap/web@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/apps/web
+
+ Γ£ô src/App.test.tsx (4 tests) 454ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  16:05:03
+   Duration  3.28s (transform 263ms, setup 0ms, import 945ms, tests 454ms, environment 1.48s)
+
+TAP version 13
+# Subtest: KB-040: alamat Wi-Fi fisik didahulukan, adaptor virtual setelahnya
+ok 1 - KB-040: alamat Wi-Fi fisik didahulukan, adaptor virtual setelahnya
+  ---
+  duration_ms: 2.7112
+  ...
+# Subtest: KB-040: loopback, IPv6, dan alamat non-pribadi diabaikan
+ok 2 - KB-040: loopback, IPv6, dan alamat non-pribadi diabaikan
+  ---
+  duration_ms: 1.1267
+  ...
+# Subtest: KB-020: warna heksadesimal ditolak
+ok 3 - KB-020: warna heksadesimal ditolak
+  ---
+  duration_ms: 3.1545
+  ...
+# Subtest: KB-020: rgb() dan hsl() ditolak
+ok 4 - KB-020: rgb() dan hsl() ditolak
+  ---
+  duration_ms: 1.5309
+  ...
+# Subtest: KB-020: var(--token) diterima
+ok 5 - KB-020: var(--token) diterima
+  ---
+  duration_ms: 0.1883
+  ...
+# Subtest: KB-020: nomor baris dilaporkan
+ok 6 - KB-020: nomor baris dilaporkan
+  ---
+  duration_ms: 0.1936
+  ...
+# Subtest: KB-020: pemeriksa folder menemukan pelanggaran dan mengabaikan berkas uji
+ok 7 - KB-020: pemeriksa folder menemukan pelanggaran dan mengabaikan berkas uji
+  ---
+  duration_ms: 45.3409
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 226.1801
+[gate] npm run build ...
+
+> siap-malut@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @siap/shared@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/domain@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/api@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/web@0.1.0 build
+> tsc -p tsconfig.json --noEmit && vite build
+
+vite v8.3.5 building client environment for production...
+transforming...
+Γ£ô 119 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/registerSW.js                           0.13 kB
+dist/manifest.webmanifest                    0.31 kB
+dist/index.html                              0.63 kB Γöé gzip:  0.36 kB
+dist/assets/Inter-Variable-Dx4kXJAl.woff2   48.25 kB
+dist/assets/index-Cqy7OTVr.css               4.86 kB Γöé gzip:  1.56 kB
+dist/assets/index-BjRdqVcU.js              305.87 kB Γöé gzip: 93.28 kB
+
+Γ£ô built in 473ms
+
+PWA v2.0.0
+mode      generateSW
+precache  6 entries (304.20 KiB)
+files generated
+  dist/sw.js
+  dist/workbox-9c191d2f.js
+[gate] LOLOS: lint, test, build.

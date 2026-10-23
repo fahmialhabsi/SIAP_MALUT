@@ -42,7 +42,7 @@ Setiap kali menyelesaikan tahap, Claude **langsung** memberi owner: (a) nama skr
 - Dilarang memasukkan rahasia (kata sandi, token, kunci API, `.env`), data pribadi nyata, atau meeting ID/sandi rapat ke repo. Contoh data memakai data fiktif.
 - Dilarang `--force`, `--no-verify`, dan menimpa riwayat tanpa izin eksplisit owner.
 - Claude hanya menjalankan commit/push sendiri bila owner memintanya secara eksplisit pada tahap itu.
-- **Pra-verifikasi gate lokal** (tanpa commit/push) oleh Claude diperbolehkan bila disetujui owner di Lembar Tahap (KP-012); Claude hanya melaporkan ringkasan hasil, dan owner tetap menjalankan patch.
+- **Pra-verifikasi lokal** (gate, uji basis data, `docker compose build`; tanpa commit/push) oleh Claude **diperbolehkan sebagai izin tetap untuk semua tahap pembangunan kode** (KP-012, KP-015); Claude hanya melaporkan ringkasan hasil, owner tetap menjalankan patch, dan izin dapat dicabut owner kapan saja.
 - Skrip patch sendiri harus lolos pemeriksaan sintaks sebelum diserahkan; Claude melaporkan bila belum diuji berjalan.
 
 ## Aturan 4: Prinsip dari rancangan
@@ -77,7 +77,7 @@ Konsekuensi yang wajib diikuti:
 
 Sistem harus **siap diaudit Diskominfosan, Inspektorat, dan BPK**. Daftar induknya ada di `docs/audit/DAFTAR_DOKUMEN_AUDIT.md`. Aturan:
 1. **Satu aplikasi, satu kebenaran.** Dokumen tidak boleh menjelaskan sesuatu yang tidak ada di aplikasi. Perubahan kode berarti dokumen terdampak diperbarui **pada tahap yang sama**.
-2. **Hasilkan dari kode bila mungkin** (spesifikasi API, skema/kamus data, SBOM, laporan uji). Jangan menulis tangan yang bisa dihasilkan otomatis.
+2. **Hasilkan dari kode bila mungkin** (spesifikasi API, skema/kamus data, SBOM, laporan uji). Jangan menulis tangan yang bisa dihasilkan otomatis. Perintah pembangkit: `npm run docs:status` (alur status), `npm run docs:data` (kamus data dan inventaris data pribadi; butuh `npm run build` dulu), `npm run sbom`; uji menjaga agar dokumen hasilnya tidak melenceng.
 3. **Keterlusuran.** Setiap kebutuhan baru masuk `docs/audit/MATRIKS_KETERLUSURAN.md` (ID `KB-xxx`); setiap uji menyebut ID-nya.
 4. **Register risiko** (`docs/audit/REGISTER_RISIKO.md`) ditinjau tiap tahap.
 5. **Definisi Selesai tiap tahap:** gate lolos (termasuk `scripts/audit-check.ps1`), handoff dibuat, dokumen audit terdampak diperbarui (centang di handoff), RTM dan register risiko mutakhir, daftar induk diperbarui statusnya.

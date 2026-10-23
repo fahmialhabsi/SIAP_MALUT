@@ -10,7 +10,7 @@ COPY apps/web/package.json apps/web/
 RUN npm ci
 COPY packages packages
 COPY apps/api apps/api
-RUN npm run build -w packages/shared -w apps/api \
+RUN npm run build -w packages/shared -w packages/domain -w apps/api \
  && npm prune --omit=dev
 
 FROM node:22-alpine AS runtime
@@ -20,8 +20,13 @@ COPY --from=build /app/package.json ./
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/packages/shared/package.json ./packages/shared/package.json
 COPY --from=build /app/packages/shared/dist ./packages/shared/dist
+COPY --from=build /app/packages/domain/package.json ./packages/domain/package.json
+COPY --from=build /app/packages/domain/dist ./packages/domain/dist
 COPY --from=build /app/apps/api/package.json ./apps/api/package.json
 COPY --from=build /app/apps/api/dist ./apps/api/dist
+COPY --from=build /app/apps/api/drizzle ./apps/api/drizzle
+# Data contoh hanya dipakai mode demo (seed); produksi tidak memuatnya.
+COPY data/contoh ./data/contoh
 USER node
 EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \

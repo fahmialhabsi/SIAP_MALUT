@@ -102,3 +102,7 @@ Karena Diskominfosan baru terlibat saat peluncuran, semua hal berikut **wajib ad
 
 ## 10. Revisi 1 (Tahap 1.1): Versi yang Dikunci
 Versi dikunci di `package-lock.json` (rilis stabil terbaru yang kompatibel saat Oktober 2026): TypeScript ~5.9 (**bukan 7.x**: `typescript-eslint` 8.72 mendukung TypeScript <6.1), Vite 8, `@vitejs/plugin-react` 6, `vite-plugin-pwa` 2, Vitest **4** (Vitest 5 meminta Node 22+), jsdom 27 (jsdom 30 meminta Node 22+), React 19, Fastify 5, Zod 4, ESLint 10, Prettier 3. Naik ke Vitest 5/jsdom 30 menunggu keputusan mengganti Node lokal ke 22 atau 24. Font: Inter variabel (OFL) disimpan di `src/assets/fonts/` beserta lisensinya.
+
+## 11. Revisi 2 (Tahap 1.3a): Basis Data
+Drizzle ORM 0.45 + drizzle-kit 0.31 (migrasi SQL berkas); **PGlite** (`@electric-sql/pglite`) untuk pengembangan dan uji; `pg` (node-postgres) untuk PostgreSQL 16 asli. Kata sandi di-hash dengan scrypt bawaan Node (tanpa dependensi). `npm run dev` memakai PGlite berkas di `data/dev/pgdata`; kontainer/produksi memakai PostgreSQL. Satu skema dan satu rangkaian migrasi untuk keduanya; uji dijalankan di keduanya. Keputusan owner: KP-015.
+

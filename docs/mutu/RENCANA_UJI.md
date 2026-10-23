@@ -34,3 +34,6 @@ Keluaran gate tiap tahap disimpan di `docs/audit/bukti-gate/`. Laporan uji rinci
 ### Kondisi Tahap 1.2
 **76 uji otomatis** lulus (Node 20.20.0): shared 8, **domain 51** (waktu, bentrok dengan agenda fiktif 22/24/26 Okt, tabel status lengkap, syarat, peristiwa, kesesuaian `ALUR_PROSES.md` dengan kode, data contoh tanpa data nyata), api 8, web 4, skrip 5. Uji domain memakai `data/contoh/` sebagai data uji tunggal.
 
+### Kondisi Tahap 1.3a
+**124 uji otomatis** lulus di Node 20.20.0 dan 22.22.0: shared 12, domain 51, **api 50** (basis data, seed, log audit, penjaga, layanan kegiatan, sandi, kamus, kesehatan), web 4, skrip 7. Uji basis data berjalan di **PGlite** dan, bila `SIAP_TEST_DATABASE_URL` diisi, di **PostgreSQL asli** (diverifikasi: 70 uji api lulus di PostgreSQL 16). Verifikasi kontainer penuh (db+api+web), append-only via `psql`, dan penjaga produksi: `docs/audit/bukti-gate/verifikasi-postgres-tahap-1.3a.txt`.
+

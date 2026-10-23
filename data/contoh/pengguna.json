@@ -1,0 +1,53 @@
+{
+  "_catatan": "DATA CONTOH (fiktif): akun persona demo. Persona tidak memiliki kata sandi (hanya dapat diakses admin lewat pindah tampilan di mode demo). Kata sandi admin.owner dari lingkungan atau acak, tidak pernah disimpan di repo.",
+  "pengguna": [
+    { "username": "admin.owner", "nama": "Administrator Owner (CONTOH)", "peran": "admin" },
+    { "username": "demo.kepala-biro", "nama": "Kepala Biro Adpim (CONTOH)", "peran": "kepala_biro" },
+    { "username": "demo.kabag-protokol", "nama": "Kabag Protokol (CONTOH)", "peran": "kabag_protokol" },
+    {
+      "username": "demo.protokol01",
+      "nama": "Petugas Protokol 01 (CONTOH)",
+      "peran": "protokol",
+      "pejabatId": "petugas-protokol-01"
+    },
+    { "username": "demo.ajudan", "nama": "Ajudan Gubernur (CONTOH)", "peran": "ajudan" },
+    {
+      "username": "demo.gubernur",
+      "nama": "Gubernur (CONTOH)",
+      "peran": "pimpinan",
+      "pejabatId": "gubernur"
+    },
+    {
+      "username": "demo.wagub",
+      "nama": "Wakil Gubernur (CONTOH)",
+      "peran": "pimpinan",
+      "pejabatId": "wagub"
+    },
+    { "username": "demo.sekda", "nama": "Sekda (CONTOH)", "peran": "pimpinan", "pejabatId": "sekda" },
+    {
+      "username": "demo.kadis-pendidikan",
+      "nama": "Kepala Dinas Pendidikan (CONTOH)",
+      "peran": "pejabat",
+      "pejabatId": "kadis-pendidikan"
+    },
+    {
+      "username": "demo.karo-kesra",
+      "nama": "Kepala Biro Kesra (CONTOH)",
+      "peran": "pejabat",
+      "pejabatId": "karo-kesra"
+    },
+    {
+      "username": "demo.kadis-pangan",
+      "nama": "Kepala Dinas Pangan (CONTOH)",
+      "peran": "pejabat",
+      "pejabatId": "kadis-pangan"
+    },
+    {
+      "username": "demo.kepala-bpkad",
+      "nama": "Kepala BPKAD (CONTOH)",
+      "peran": "pejabat",
+      "pejabatId": "kepala-bpkad"
+    },
+    { "username": "demo.pemohon", "nama": "Penyelenggara Contoh A (CONTOH)", "peran": "pemohon" }
+  ]
+}

@@ -50,4 +50,34 @@ describe('KB-030: konfigurasi dari lingkungan', () => {
     expect(() => loadApiConfig({ PORT: 'abc' })).toThrow();
     expect(() => loadApiConfig({ LOG_LEVEL: 'berisik' })).toThrow();
   });
+
+  it('KB-030: konfigurasi basis data dan admin dibaca dari lingkungan', () => {
+    const cfg = loadApiConfig({
+      DATABASE_URL: 'postgres://siap:x@db:5432/siap',
+      SIAP_DB_DIR: 'E:/data/dev',
+      SIAP_ADMIN_PASSWORD: 'sandi-admin-panjang',
+    });
+    expect(cfg).toMatchObject({
+      databaseUrl: 'postgres://siap:x@db:5432/siap',
+      dbDir: 'E:/data/dev',
+      adminPassword: 'sandi-admin-panjang',
+    });
+  });
+
+  it('KB-041: kata sandi admin dari lingkungan minimal 12 karakter', () => {
+    expect(() => loadApiConfig({ SIAP_ADMIN_PASSWORD: 'pendek' })).toThrow(/SIAP_ADMIN_PASSWORD/);
+  });
+
+  it('KB-030: kunci basis data tidak ada bila tidak diisi (menggunakan PGlite)', () => {
+    const cfg = loadApiConfig({});
+    expect(cfg.databaseUrl).toBeUndefined();
+    expect(cfg.dbDir).toBeUndefined();
+  });
+
+  it('KB-030: variabel kosong (docker compose ${VAR:-}) dianggap tidak diisi', () => {
+    const cfg = loadApiConfig({ DATABASE_URL: '', SIAP_DB_DIR: ' ', SIAP_ADMIN_PASSWORD: '' });
+    expect(cfg.databaseUrl).toBeUndefined();
+    expect(cfg.dbDir).toBeUndefined();
+    expect(cfg.adminPassword).toBeUndefined();
+  });
 });

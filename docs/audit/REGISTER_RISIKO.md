@@ -32,3 +32,8 @@
 | RS-25 | Build kontainer belum diverifikasi (Docker Desktop tidak aktif saat uji) | S | S | Sedang | Owner | Diverifikasi asisten 23 Okt 2026: build berhasil, kontainer jalan, health ok (`docs/audit/bukti-gate/docker-tahap-1.1.txt`) | Tertutup |
 | RS-26 | Aturan bentrok dan status adalah tafsiran dari dokumen Protokol (pimpinan/pejabat, diundang/ditugaskan, syarat terkonfirmasi) | S | S | Sedang | Owner | Dibuat sebagai data/konfigurasi dan diuji; pertanyaan di `ATURAN_BISNIS.md` bagian 5 untuk Kabag (KT-03) | Terbuka |
 | RS-27 | Port pengembangan bentrok dengan proyek lain di komputer owner (3000 dan 5173 dipakai proyek lain) | T | R | Rendah | Pembangun | `npm run dev` memakai port khusus 3180 (API) dan 5180 (web) dengan `strictPort`; dapat diubah lewat `SIAP_API_PORT`, `SIAP_WEB_PORT` | Tertutup |
+| RS-28 | Perbedaan perilaku PGlite (dev/uji) dan PostgreSQL (produksi) | S | S | Sedang | Pembangun | Satu skema dan migrasi; seluruh uji basis data dijalankan di keduanya (70 uji lulus di PostgreSQL 16); satu uji ke PostgreSQL asli wajib sebelum tiap rilis | Dimitigasi |
+| RS-29 | Pemilik/superuser basis data dapat menonaktifkan pemicu log audit | S | T | Tinggi | Owner | Akun aplikasi tanpa hak DDL, cadangan terpisah, pemantauan DDL saat serah terima (LOG_AUDIT.md bagian 5) | Terbuka |
+| RS-30 | Kata sandi sementara admin tercetak di terminal/log kontainer | S | S | Sedang | Owner | Tampil sekali; wajib diganti (`npm run admin:sandi`); tidak pernah di repo; hanya mode demo | Terbuka |
+| RS-31 | Server pengembangan lama tetap berjalan di terminal owner (tsx watch memuat kode baru dengan basis data memori) | R | R | Rendah | Owner | Hentikan terminal lama (Ctrl+C) sebelum `npm run dev` baru; port khusus dengan `strictPort` | Terbuka |
+

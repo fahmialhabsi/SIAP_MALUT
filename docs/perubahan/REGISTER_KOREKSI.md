@@ -9,5 +9,6 @@ Semua koreksi atau permintaan tambahan dari **owner** maupun **Kabag Protokol** 
 |---|---|---|---|---|---|---|---|---|
 | KOR-001 | 2026-10-23 | Owner | Antisipasi koreksi tambahan agar tidak merusak struktur folder | D | Struktur folder dibekukan; pedoman cara kerja | 0.6 | Selesai | KP-010, `FOLDER_STRUKTUR.md` |
 | KOR-002 | 2026-10-23 | Owner | Cukup menjalankan `npm run dev` untuk server backend dan frontend Vite sekaligus | C | KB-040; `package.json`, `scripts/dev.mjs`, `apps/api` (tsx), paket (kondisi `development`), `PEMASANGAN.md` | 1.2 | Selesai | Patch 1.2; diverifikasi manual (API `/health` dan web hidup tanpa `dist`) |
+| KOR-003 | 2026-10-23 | Owner (uji ponsel) | Di ponsel, `localhost:5180` ditolak (ERR_CONNECTION_REFUSED) karena `localhost` di ponsel = ponsel itu sendiri; `dev:lan` harus menampilkan alamat IP komputer yang benar | A | KB-040; `scripts/dev.mjs`, `scripts/alamat-lan.mjs` (+ uji), `PEMASANGAN.md` | 1.3 | Selesai | Patch 1.3; dev:lan kini mencetak alamat Wi-Fi/IP (mis. http://192.168.1.63:5180) dan petunjuk Firewall |
 
 *(Tambahkan baris baru di bawah. Jangan menghapus baris lama.)*

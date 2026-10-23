@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { loadApiConfig } from '@siap/shared';
 import { buildApp } from './app.js';
+import { bukaDatabase } from './db/klien.js';
 import { DataContohDiProduksiError, pastikanTanpaDataContoh } from './penjaga.js';
 
 const config = loadApiConfig({});
@@ -59,5 +60,36 @@ describe('KB-034: penjaga produksi', () => {
 
   it('KB-034: demo boleh memuat data contoh', () => {
     expect(() => pastikanTanpaDataContoh('demo', 25)).not.toThrow();
+  });
+});
+
+describe('KB-030: /ready memeriksa basis data', () => {
+  it('KB-030: basis data sehat = 200 dan checks.basisData ok', async () => {
+    const koneksi = await bukaDatabase({});
+    await koneksi.migrasi();
+    const app = buildApp(config, { silent: true, koneksi });
+    const res = await app.inject({ method: 'GET', url: '/ready' });
+    expect(res.statusCode).toBe(200);
+    expect(res.json()).toMatchObject({ status: 'ready', checks: { basisData: 'ok' } });
+    await app.close();
+  });
+
+  it('KB-030: basis data tidak dapat dijangkau = 503 not_ready', async () => {
+    const koneksi = await bukaDatabase({});
+    await koneksi.migrasi();
+    await koneksi.tutup();
+    const app = buildApp(config, { silent: true, koneksi });
+    const res = await app.inject({ method: 'GET', url: '/ready' });
+    expect(res.statusCode).toBe(503);
+    expect(res.json()).toMatchObject({ status: 'not_ready', checks: { basisData: 'gagal' } });
+    await app.close();
+  });
+
+  it('KB-030: /health tetap 200 walau basis data mati (hanya menandakan proses hidup)', async () => {
+    const koneksi = await bukaDatabase({});
+    await koneksi.tutup();
+    const app = buildApp(config, { silent: true, koneksi });
+    expect((await app.inject({ method: 'GET', url: '/health' })).statusCode).toBe(200);
+    await app.close();
   });
 });

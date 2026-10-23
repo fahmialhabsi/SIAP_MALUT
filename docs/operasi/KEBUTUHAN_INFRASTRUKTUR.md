@@ -8,7 +8,7 @@
 | Penyimpanan | 20 GB awal | Foto/PDF undangan menambah; kompresi di sisi klien (maks. 1600 px); rencana kapasitas direvisi di Tahap 1.3 |
 | Sistem operasi | Linux (kontainer) atau Windows dengan Docker | Gambar dasar: `node:22-alpine`, `nginx:1.27-alpine` |
 | Runtime | Node.js 22 LTS (kontainer) | Node 20 sudah melewati akhir dukungan |
-| Basis data | PostgreSQL (Tahap 1.3) | Cadangan harian terjadwal (OP-03) |
+| Basis data | PostgreSQL 16 (layanan `db` di Compose, volume persisten); untuk produksi disarankan server terpisah, akun aplikasi tanpa hak DDL | Cadangan harian terjadwal (OP-03, Tahap 2) |
 | Jaringan | Port 80/443 untuk web; API di belakang proksi; TLS wajib di produksi | Domain go.id dan sertifikat ditangani saat serah terima |
 | Cadangan | Penyimpanan terpisah dari server | Rinci di OP-03 |
 | Pemantauan | `/health`, `/ready`, log JSON | Runbook di OP-05 |

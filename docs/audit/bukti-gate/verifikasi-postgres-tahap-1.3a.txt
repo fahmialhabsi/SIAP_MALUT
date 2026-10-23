@@ -1,0 +1,19 @@
+Bukti verifikasi PostgreSQL asli dan kontainer, Tahap 1.3a (dijalankan asisten, 23 Oktober 2026)
+Dasar: izin pra-verifikasi lokal (KP-012, KP-015). Docker Desktop 28.3.3, postgres:16-alpine.
+------------------------------------------
+1. Uji API terhadap PostgreSQL 16 asli (SIAP_TEST_DATABASE_URL, kontainer sementara; dihapus setelahnya)
+   npm test -w apps/api -> 4 berkas, 70 uji lulus (PGlite dan PostgreSQL), berurutan (fileParallelism dimatikan)
+   Temuan selama uji: awalnya 7 uji gagal karena dua berkas uji memakai satu basis data bersamaan; diperbaiki dengan menjalankan berurutan.
+
+2. Kontainer penuh (docker compose: db + api + web; APP_MODE=demo; port 3290/8290; kata sandi acak sementara)
+   - Temuan: API gagal start karena compose meneruskan SIAP_ADMIN_PASSWORD kosong ("${VAR:-}") dan skema menolaknya; diperbaiki (variabel kosong dianggap tidak diisi) + uji.
+   - /ready -> {"status":"ready","mode":"demo","checks":{"basisData":"ok"}}
+   - Seed otomatis: pejabat 11, pengguna 13, kegiatan 14, kegiatan_pihak 28; kata sandi admin.owner acak tercetak sekali di log
+   - psql: kegiatan=14, is_contoh=14, log_audit=1
+   - Restart API: tidak seed ulang; kegiatan tetap 14 (data tahan restart)
+   - psql "delete from log_audit"  -> ERROR: log_audit bersifat append-only: DELETE ditolak
+   - psql "update log_audit ..."   -> ERROR: log_audit bersifat append-only: UPDATE ditolak
+   - APP_MODE=production pada basis data berisi data contoh -> API menolak: "Mode production menolak mulai: terdapat 38 data contoh (is_contoh)."
+   - docker compose down -v; kontainer dan volume uji dibersihkan
+
+3. Belum diuji: pencadangan/pemulihan, beban, mode production pada basis data bersih dengan admin (butuh pembuatan admin; 1.3b/Tahap P).

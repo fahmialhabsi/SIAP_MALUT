@@ -35,12 +35,14 @@ SIAP_MALUT/
 |   |-- pengguna/             panduan pengguna/admin, pelatihan
 |-- apps/
 |   |-- web/                  antarmuka PWA
-|   |-- api/                  peladen API
+|   |-- api/                  peladen API (src/db: skema Drizzle; drizzle/: migrasi hasil drizzle-kit, jangan diedit tangan)
 |-- packages/
 |   |-- domain/               logika murni (bentrok, pengganti, status)
 |   |-- shared/               skema dan tipe bersama
 |-- data/
 |   |-- contoh/               DATA CONTOH (fiktif): pejabat, peran, agenda, aturan; satu-satunya tempat data seed
+|   |-- dev/                  basis data pengembangan PGlite (diabaikan Git; hapus untuk mengulang dari nol)
+|   |-- unggahan/             lampiran undangan pengembangan (diabaikan Git; Tahap 1.3b)
 |-- src/
 |   |-- styles/               design-tokens.css (sumber token bersama; tidak dipindah)
 |   |-- assets/fonts/

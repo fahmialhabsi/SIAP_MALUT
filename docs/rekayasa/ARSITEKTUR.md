@@ -5,7 +5,7 @@
 ## 1. Konteks
 
 ```
-Pengguna (ponsel/PC) --HTTPS--> [web: PWA statis] --HTTP/JSON--> [api: Fastify] --> [PostgreSQL (rencana, Tahap 1.3)]
+Pengguna (ponsel/PC) --HTTPS--> [web: PWA statis] --HTTP/JSON--> [api: Fastify] --> [PostgreSQL | PGlite (dev/uji)]
                                                                  \--> [FileStore (rencana)]   \--> [Notifier (rencana)]
 ```
 
@@ -16,11 +16,11 @@ Integrasi eksternal (SRIKANDI, e-Office, BSrE, WhatsApp) berstatus **rencana** (
 | Komponen | Folder | Peran | Status Tahap 1.1 |
 |---|---|---|---|
 | Antarmuka | `apps/web` | React 19 + Vite + PWA (manifest, service worker Workbox); memakai token desain; teks UI di `teks-ui.ts` | Ada: halaman awal, spanduk DATA CONTOH |
-| Peladen API | `apps/api` | Fastify 5; `/health`, `/ready`; log JSON dengan ID permintaan; penjaga produksi | Ada |
+| Peladen API | `apps/api` | Fastify 5; `/health`, `/ready` (memeriksa basis data); log JSON dengan ID permintaan; lapisan data dan layanan kegiatan; penjaga produksi | Ada (API bisnis dan autentikasi di 1.3b) |
 | Konfigurasi bersama | `packages/shared` | Skema Zod: `APP_MODE`, port, host, tingkat log; satu sumber untuk web dan api | Ada |
 | Logika domain | `packages/domain` | Logika murni tanpa basis data/jaringan: model kegiatan, waktu (ISO 8601 + zona), deteksi bentrok, aturan status dan peristiwa | Ada (Tahap 1.2); aturan: `ATURAN_BISNIS.md`, diagram: `ALUR_PROSES.md` |
 | Token desain | `src/styles/design-tokens.css` | Sumber tunggal warna, font, jarak (terang/gelap) | Ada |
-| Basis data | (rencana) | PostgreSQL + Drizzle, migrasi | Tahap 1.3 |
+| Basis data | `apps/api/src/db`, `apps/api/drizzle` | Drizzle ORM; PostgreSQL asli (kontainer/produksi) atau PGlite (dev/uji); 9 tabel; migrasi berkas SQL; log audit append-only dengan pemicu; seed data contoh | Ada (1.3a); kamus: `KAMUS_DATA.md` |
 
 ## 3. Aturan Ketergantungan
 
