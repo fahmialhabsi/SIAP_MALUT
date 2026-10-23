@@ -1,0 +1,167 @@
+/*
+ * SIAP MALUT: Design Tokens (sumber tunggal)
+ * Standar: docs/standar/STANDAR_DESAIN.md
+ * ATURAN: dilarang menulis warna, ukuran font, atau jarak langsung di komponen.
+ * Selalu pakai token di bawah ini (var(--...)).
+ * Semua pasangan warna teks/latar sudah diuji kontras WCAG AA (lihat standar, bagian 3.4).
+ */
+
+/* Font: self-hosted (tanpa CDN) agar jalan luring pada PWA.
+   Berkas ditaruh di src/assets/fonts/ (Inter, lisensi OFL). */
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Tipografi */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
+
+  --fs-xs: 0.8125rem;   /* 13px: keterangan, hanya teks pendukung */
+  --fs-sm: 0.875rem;    /* 14px */
+  --fs-md: 1rem;        /* 16px: teks isi (minimum untuk isi di ponsel) */
+  --fs-lg: 1.125rem;    /* 18px */
+  --fs-xl: 1.375rem;    /* 22px: judul bagian */
+  --fs-2xl: 1.75rem;    /* 28px: judul halaman */
+  --lh-tight: 1.25;
+  --lh-normal: 1.5;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* Warna merek (mode terang) */
+  --color-primary: #0b4a6f;        /* Biru Laut */
+  --color-primary-strong: #082f47; /* Biru Laut Tua: hover/pressed */
+  --color-primary-soft: #e3eff6;   /* latar lembut */
+  --color-on-primary: #ffffff;
+  --color-accent: #c8962e;         /* Emas Cengkih: aksen, penanda penting */
+  --color-on-accent: #1b2733;
+  --color-accent-text: #8a6212;    /* emas versi teks di latar putih */
+
+  /* Netral */
+  --color-bg: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-surface-2: #eef2f6;
+  --color-border: #c9d3dd;
+  --color-text: #1b2733;
+  --color-text-muted: #52606d;
+  --color-focus: #1565a8;
+
+  /* Semantik */
+  --color-success: #1e7b4f;
+  --color-warning: #8a5300;
+  --color-danger: #b3261e;
+  --color-info: #1565a8;
+  --color-on-semantic: #ffffff;
+
+  /* Status agenda (selalu dipasangkan dengan ikon + teks, bukan warna saja) */
+  --status-baru: #52606d;
+  --status-menunggu: #8a5300;
+  --status-ditetapkan: #1565a8;
+  --status-terkonfirmasi: #1e7b4f;
+  --status-berlangsung: #0b4a6f;
+  --status-selesai: #52606d;
+  --status-batal: #b3261e;
+  --status-bentrok: #b3261e;
+
+  /* Jarak (skala 4px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --page-gutter: var(--space-4);
+
+  /* Bentuk */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgb(15 26 36 / 12%);
+  --shadow-md: 0 4px 12px rgb(15 26 36 / 16%);
+
+  /* Sentuh */
+  --touch-min: 48px;   /* target sentuh minimum */
+  --focus-ring: 3px solid var(--color-focus);
+}
+
+/* Mode gelap: otomatis mengikuti sistem, atau paksa lewat data-theme */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-primary: #7fc3ea;
+    --color-primary-strong: #a9d9f3;
+    --color-primary-soft: #16303f;
+    --color-on-primary: #0f1a24;
+    --color-accent: #e0b04f;
+    --color-on-accent: #0f1a24;
+    --color-accent-text: #e0b04f;
+    --color-bg: #0f1a24;
+    --color-surface: #16232f;
+    --color-surface-2: #1d2d3b;
+    --color-border: #31465a;
+    --color-text: #e6edf3;
+    --color-text-muted: #9aa9b8;
+    --color-focus: #7fc3ea;
+    --color-success: #6fd0a0;
+    --color-warning: #f2b25c;
+    --color-danger: #ff9c94;
+    --color-info: #7fc3ea;
+    --color-on-semantic: #0f1a24;
+    --status-baru: #9aa9b8;
+    --status-menunggu: #f2b25c;
+    --status-ditetapkan: #7fc3ea;
+    --status-terkonfirmasi: #6fd0a0;
+    --status-berlangsung: #7fc3ea;
+    --status-selesai: #9aa9b8;
+    --status-batal: #ff9c94;
+    --status-bentrok: #ff9c94;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-primary: #7fc3ea;
+  --color-primary-strong: #a9d9f3;
+  --color-primary-soft: #16303f;
+  --color-on-primary: #0f1a24;
+  --color-accent: #e0b04f;
+  --color-on-accent: #0f1a24;
+  --color-accent-text: #e0b04f;
+  --color-bg: #0f1a24;
+  --color-surface: #16232f;
+  --color-surface-2: #1d2d3b;
+  --color-border: #31465a;
+  --color-text: #e6edf3;
+  --color-text-muted: #9aa9b8;
+  --color-focus: #7fc3ea;
+  --color-success: #6fd0a0;
+  --color-warning: #f2b25c;
+  --color-danger: #ff9c94;
+  --color-info: #7fc3ea;
+  --color-on-semantic: #0f1a24;
+  --status-baru: #9aa9b8;
+  --status-menunggu: #f2b25c;
+  --status-ditetapkan: #7fc3ea;
+  --status-terkonfirmasi: #6fd0a0;
+  --status-berlangsung: #7fc3ea;
+  --status-selesai: #9aa9b8;
+  --status-batal: #ff9c94;
+  --status-bentrok: #ff9c94;
+}
+
+/* Dasar */
+html { font-family: var(--font-sans); font-size: 100%; }
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--fs-md);
+  line-height: var(--lh-normal);
+}
+:focus-visible { outline: var(--focus-ring); outline-offset: 2px; }
+.tabular { font-variant-numeric: tabular-nums; } /* jam, tanggal, nomor tiket */
