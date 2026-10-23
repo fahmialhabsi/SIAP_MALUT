@@ -68,7 +68,7 @@ Catatan jujur: penggabungan SRIKANDI dan e-Office pada handoff Tahap 0.1 dan pen
 
 ## 9. Langkah berikutnya
 1. Owner menjalankan patch 0.4.
-2. Tahap 0.5 (usulan): konsultasi dengan Diskominfosan (server, domain, tumpukan) dan jawaban 11.10 dari Kabag Protokol.
+2. ~~Tahap 0.5 (usulan): konsultasi dengan Diskominfosan~~ **Dibatalkan oleh keputusan owner di Tahap 0.5** (jangan konsultasi ke Diskominfosan sebelum peluncuran). Yang tetap berlaku: jawaban 11.10 dari Kabag Protokol.
 3. Tahap 1.1: kerangka repo dan gate npm pertama.
 
 ## 10. Cara melanjutkan

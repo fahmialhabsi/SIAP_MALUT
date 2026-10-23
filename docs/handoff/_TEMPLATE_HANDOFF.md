@@ -31,6 +31,14 @@
 | Daftar periksa standar desain (bagian 8) | Lolos / Tidak berlaku / Gagal: ... |
 | Pengujian lain | ... |
 
+### Dokumen audit terdampak (Aturan 9)
+- [ ] `DAFTAR_DOKUMEN_AUDIT.md` status/berkas diperbarui
+- [ ] `MATRIKS_KETERLUSURAN.md` (kebutuhan baru, uji, status)
+- [ ] `REGISTER_RISIKO.md` ditinjau
+- [ ] Dokumen yang dihasilkan dari kode sudah dibangkitkan ulang (API, kamus data, SBOM, laporan uji)
+- [ ] `scripts/audit-check.ps1` lolos
+- [ ] Dokumen berstatus Belum yang tahapnya sudah terlewati: ...
+
 ## 7. Belum selesai / belum diverifikasi
 - ...
 

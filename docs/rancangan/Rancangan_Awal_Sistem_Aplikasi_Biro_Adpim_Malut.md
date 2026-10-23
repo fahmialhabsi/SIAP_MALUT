@@ -332,6 +332,8 @@ Integrasi kanal notifikasi berprioritas tertinggi karena paling menentukan adops
 
 ### 6.1 Struktur Tata Kelola
 
+> **Keputusan owner v1.2 (Bab XII).** Poin kemitraan dengan Diskominfosan sejak perencanaan di bawah **ditunda sampai peluncuran**; sistem dibangun mandiri lalu diserahterimakan.
+
 Kegagalan sistem informasi pemerintahan lebih sering disebabkan tata kelola daripada teknis. Sebelum kode pertama ditulis, struktur tanggung jawab perlu ditetapkan melalui keputusan resmi.
 
 | Peran | Pengisi | Tanggung Jawab |
@@ -427,6 +429,8 @@ Enam langkah yang dapat dimulai dalam 30 hari tanpa anggaran khusus:
 3. Menyusun dan mengesahkan **standar prosedur layanan** biro, termasuk tenggat minimal pengajuan tiap jenis permohonan, lalu memublikasikannya di situs resmi.
 4. **Membenahi situs saat ini**: mengisi halaman struktur organisasi, daftar layanan, daftar pegawai, dan agenda, serta memperbaiki tautan survei kepuasan yang mengarah ke unit lain.
 5. **Kunjungan atau pertemuan pembelajaran** dengan Biro Administrasi Pimpinan Kalimantan Tengah.
+> **Keputusan owner v1.2 (Bab XII):** langkah 6 **ditunda sampai serah terima saat peluncuran**.
+
 6. **Berkoordinasi dengan Diskominfosan** agar SIAP MALUT masuk Arsitektur SPBE Pemprov Maluku Utara pada tahun anggaran berikutnya.
 
 Langkah keempat perlu penekanan: pekerjaannya sederhana tetapi berdampak simbolis dan praktis besar, sekaligus memaksa organisasi mulai mengumpulkan data yang nantinya menjadi isi awal sistem.
@@ -618,6 +622,25 @@ Permintaan Kabag Protokol bersifat mendesak dan tidak perlu menunggu seluruh pla
 5. Apakah ada format agenda baku (seperti pesan WhatsApp saat ini) yang ingin dipertahankan persis?
 6. Apakah undangan juga akan diteruskan dari SRIKANDI/e-Office, atau sebagian besar masuk lewat WhatsApp dan fisik?
 7. Berapa lama batas minimal undangan agar bisa diproses (aturan H-berapa), dan apa perlakuan undangan mendadak?
+
+
+---
+
+## Bab XII (Tambahan v1.2). Strategi Pelaksanaan: Bangun Mandiri, Serah Terima Saat Peluncuran, dan Kesiapan Audit
+
+### 12.1 Keputusan
+Keputusan owner: **untuk saat ini tidak berkonsultasi atau mengonfirmasi ke Diskominfosan.** Model sistem ditetapkan dan dibangun sesuai rancangan ini oleh tim pembangun; semua hal teknis disiapkan dari awal; sistem dirancang, dibangun, dan diuji sampai **siap**; baru saat **peluncuran** diserahterimakan ke Diskominfosan.
+
+Pengaruh pada bab sebelumnya: kemitraan dengan Diskominfosan sejak perencanaan (6.1) dan koordinasi pendaftaran Arsitektur SPBE (Bab IX langkah 6, 2.5) **ditunda ke saat serah terima**. Risiko yang ditimbulkan (penolakan, aplikasi tak terdaftar, kepemilikan kode) dicatat di `docs/audit/REGISTER_RISIKO.md` (RS-14 sampai RS-16) dan dimitigasi lewat paket serah terima yang dibangun sejak awal.
+
+### 12.2 Siap Serah Terima Sejak Hari Pertama
+Syarat teknis yang dibangun sejak Tahap 1.1: pemasangan berbasis kontainer, konfigurasi lingkungan, migrasi dan data awal, titik kesehatan, log terstruktur, log audit append-only, cadangan dan pemulihan, SBOM dan laporan uji, antarmuka penyimpanan dan notifikasi yang dapat diganti, serta ekspor data format terbuka. Daftar periksa paket serah terima: `docs/audit/PAKET_SERAH_TERIMA.md`.
+
+### 12.3 Kesiapan Audit (Diskominfosan, Inspektorat, BPK)
+Disiapkan **dokumen hidup** yang dijaga selaras dengan aplikasi (Aturan 9 di `CLAUDE.md`): daftar induk 65 dokumen (tata kelola, rekayasa, mutu, keamanan dan PDP, operasi, pengguna, aset dan keuangan, peluncuran, pemantauan), matriks keterlusuran kebutuhan, register risiko, dan skrip pemeriksa `scripts/audit-check.ps1` pada gate. Daftar dan peta tahapnya: `docs/audit/DAFTAR_DOKUMEN_AUDIT.md`.
+
+### 12.4 Pengaruh pada Peta Jalan
+Peta jalan Bab VII tidak berubah urutannya. Perubahan: (a) Tahap 0 tidak lagi memuat konsultasi/pendaftaran SPBE; (b) Tahap 4 (peluncuran) menjadi saat **serah terima ke Diskominfosan** dan pendaftaran Arsitektur SPBE; (c) tiap tahap memuat keluaran dokumen audit sesuai peta di daftar induk.
 
 ---
 

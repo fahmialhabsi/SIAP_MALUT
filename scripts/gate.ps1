@@ -4,6 +4,8 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 Set-Location $root
 
+& (Join-Path $root 'scripts\audit-check.ps1')
+
 if (-not (Test-Path (Join-Path $root 'package.json'))) {
     Write-Host '[gate] package.json belum ada (Tahap 0): gate npm DILEWATI.' -ForegroundColor Yellow
     return

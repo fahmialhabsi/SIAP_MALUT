@@ -11,6 +11,7 @@ Repo: `fahmialhabsi/SIAP_MALUT`. Bahasa dokumen dan antarmuka: Bahasa Indonesia 
 | `docs/standar/` | Standar wajib (desain, dan standar lain yang menyusul) |
 | `docs/sop/` | Draf dan SOP layanan biro |
 | `scripts/` | `gate.ps1` (gate npm) dan `scripts/patch/tahap-<nomor>.ps1` (patch per tahap) |
+| `docs/audit/` | Daftar dokumen audit, RTM, register risiko, paket serah terima (siap audit Diskominfosan, Inspektorat, BPK) |
 | `docs/handoff/` | Catatan serah terima per tahap (`HANDOFF_TAHAP-<nomor>_<judul>.md`) |
 | `src/styles/` | `design-tokens.css`: sumber tunggal token desain |
 | `src/` | Kode aplikasi (menyusul pada Tahap 1) |
@@ -62,3 +63,25 @@ Jawaban ringkas, tanpa mengulang isi berkas yang sudah disimpan. Satu perintah P
 ## Aturan 7: Keputusan yang bukan milik pengembang
 
 Aturan kewenangan mewakili, siapa yang memegang akun, dan kegiatan yang tayang publik ditetapkan Biro bersama Sekda, bukan ditebak. Tulis sebagai asumsi di handoff bila belum dikonfirmasi.
+
+## Aturan 8: Strategi pelaksanaan: bangun mandiri, serah terima saat peluncuran
+
+**Keputusan owner (Tahap 0.5).** Untuk saat ini **jangan berkonsultasi dan jangan mengonfirmasi apa pun ke Diskominfosan** (server, domain, tumpukan, pendaftaran SPBE). Kita sendiri yang menetapkan model sistem, merancang, membangun, dan menguji sampai **siap**. Baru saat **peluncuran** sistem diserahterimakan ke Diskominfosan.
+
+Konsekuensi yang wajib diikuti:
+- Semua hal teknis (kontainer, konfigurasi, migrasi, cadangan/pemulihan, log, kesehatan sistem, keamanan) **kita siapkan dari awal**, mengikuti `docs/audit/PAKET_SERAH_TERIMA.md` bagian 2, agar pada serah terima tinggal dilampirkan.
+- Jangan menulis rencana kerja yang bergantung pada persetujuan, data, atau server Diskominfosan sebelum peluncuran. Pertanyaan untuk Diskominfosan dicatat di handoff sebagai bahan serah terima, tidak diajukan sekarang.
+- Jangan memakai data nyata di lingkungan produksi sebelum serah terima. Data fiktif sampai UAT; data nyata hanya di lingkungan UAT terkendali dengan persetujuan owner.
+- Risiko strategi ini sudah dicatat di `docs/audit/REGISTER_RISIKO.md` (RS-14, RS-15, RS-16).
+
+## Aturan 9: Dokumen audit adalah dokumen hidup
+
+Sistem harus **siap diaudit Diskominfosan, Inspektorat, dan BPK**. Daftar induknya ada di `docs/audit/DAFTAR_DOKUMEN_AUDIT.md`. Aturan:
+1. **Satu aplikasi, satu kebenaran.** Dokumen tidak boleh menjelaskan sesuatu yang tidak ada di aplikasi. Perubahan kode berarti dokumen terdampak diperbarui **pada tahap yang sama**.
+2. **Hasilkan dari kode bila mungkin** (spesifikasi API, skema/kamus data, SBOM, laporan uji). Jangan menulis tangan yang bisa dihasilkan otomatis.
+3. **Keterlusuran.** Setiap kebutuhan baru masuk `docs/audit/MATRIKS_KETERLUSURAN.md` (ID `KB-xxx`); setiap uji menyebut ID-nya.
+4. **Register risiko** (`docs/audit/REGISTER_RISIKO.md`) ditinjau tiap tahap.
+5. **Definisi Selesai tiap tahap:** gate lolos (termasuk `scripts/audit-check.ps1`), handoff dibuat, dokumen audit terdampak diperbarui (centang di handoff), RTM dan register risiko mutakhir, daftar induk diperbarui statusnya.
+6. **Jujur tentang status** dokumen: Ada, Draf, atau Belum. Dilarang menandai Ada bila berkasnya belum ada atau belum sesuai aplikasi.
+7. Jangan menyimpan rahasia atau data pribadi nyata di dokumen audit; cukup letak dan prosedurnya.
+8. Rujukan regulasi dalam dokumen wajib diverifikasi di JDIH sebelum dikutip sebagai dasar resmi.
