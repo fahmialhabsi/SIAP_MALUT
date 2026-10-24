@@ -7,7 +7,7 @@
 | Lembar Tahap | `docs/handoff/LEMBAR_TAHAP-1.3_API-Data-Akun.md` (disetujui, KP-015) |
 | Commit | dibuat saat owner menjalankan `scripts/patch/tahap-1.3a.ps1` |
 | Penyusun | Claude (Sonnet 5.5) |
-| Status | Selesai dan diverifikasi lokal (termasuk PostgreSQL asli dan kontainer); commit/push menunggu owner |
+| Status | Selesai; **sudah di-push** (commit `f2e9a80`, 23 Okt 2026); perbaikan skrip patch menyusul di Tahap 1.3a.1 |
 
 ## 1. Tujuan
 Menyimpan data agenda secara permanen dengan skema dan migrasi yang dapat dipasang ulang, mengisi data contoh berlabel, menjadikan penjaga produksi sungguhan, dan memastikan log audit tidak dapat diubah. API/akun/hak akses/lampiran/OpenAPI ada di 1.3b.
@@ -36,7 +36,7 @@ Menyimpan data agenda secara permanen dengan skema dan migrasi yang dapat dipasa
 | `npm run dev` (PGlite berkas, port 3190/5190 agar tidak mengganggu server Anda) | Start pertama: seed + kata sandi sementara tercetak; `/ready` basisData ok; restart: tidak seed ulang; `npm run admin:sandi` berfungsi |
 | `gate.ps1` (PowerShell) | Lolos; `docs/audit/bukti-gate/gate-tahap-1.3a-asisten.txt` |
 | Bukti PG asli dan kontainer | `docs/audit/bukti-gate/verifikasi-postgres-tahap-1.3a.txt` |
-| `patch/tahap-1.3a.ps1` dijalankan | Belum (dijalankan owner) |
+| `patch/tahap-1.3a.ps1` dijalankan | **Ya, oleh owner** (commit `f2e9a80`; bukti `gate-tahap-1.3a-owner.txt`: LOLOS) |
 
 ### Dokumen audit terdampak (Aturan 9)
 - [x] `DAFTAR_DOKUMEN_AUDIT.md`: RK-02, KM-02, KM-09 menjadi Ada
@@ -63,7 +63,14 @@ Menyimpan data agenda secara permanen dengan skema dan migrasi yang dapat dipasa
 ## 6. Risiko
 RS-28 (perbedaan PGlite dan PostgreSQL: dimitigasi), RS-29 (superuser dapat menonaktifkan pemicu), RS-30 (kata sandi sementara tercetak), RS-31 (server dev lama di terminal Anda).
 
-## 7. Yang perlu Anda lakukan sebelum patch
+## 6a. Pembaruan 24 Okt 2026: patch dijalankan, dan satu galat palsu di jalankan ulang (KOR-004)
+- **Patch 1.3a pertama kali berhasil** (23 Okt 16.04 WIT): commit `f2e9a80` di-push; bukti gate milik owner berakhir dengan `[gate] LOLOS`.
+- **Dijalankan ulang 24 Okt 10.01:** `gate.ps1` berhenti di build dengan `NativeCommandError`; tidak ada commit baru (patch berhenti, aman). Penyebab: Vite menulis `[PLUGIN_TIMINGS] JavaScript callbacks ran for 47.0s...` ke stderr (build di komputer owner 47 detik pada tahap callback PWA; di komputer pengembang 0,4 detik, kemungkinan pemindaian antivirus atau beban lain), dan **Windows PowerShell 5.1** (`powershell -ExecutionPolicy Bypass`) menganggap stderr sebagai galat bila `ErrorActionPreference=Stop` dan keluaran dialihkan. Direproduksi persis di 5.1; PowerShell 7 tidak terkena. Build sendiri sukses; ini galat palsu yang muncul **hanya bila ada peringatan di stderr**, jadi bisa mengenai patch mana pun kapan saja.
+- **Perbaikan (patch 1.3a.1):** `scripts/native.ps1` (`Invoke-Native`: stderr dicetak, **kode keluar** yang menentukan); `gate.ps1` memakainya; skrip patch baru tidak lagi mengandalkan `$?` melainkan penanda `[gate] LOLOS` pada keluaran gate, sehingga commit hanya terjadi bila gate benar-benar lolos. Verifikasi: gate penuh lolos **di Windows PowerShell 5.1** (cara patch memanggilnya) dan di PowerShell 7; uji sintetis stderr dan kode keluar 3 di kedua versi.
+- Lambatnya build (47 detik) tidak ditekan; bila sering terjadi, periksa pengecualian antivirus untuk folder proyek dan matikan sementara aplikasi berat saat patch.
+- Aturan baru di `CLAUDE.md` Aturan 3: semua patch memakai `Invoke-Native` dan diuji di 5.1 dan 7.
+
+## 7. Catatan untuk owner
 Hentikan terminal `npm run dev` / `npm run dev:lan` lama (Ctrl+C). Server lama (mulai 14.10 dan 14.21) memuat ulang otomatis dengan kode baru tetapi tanpa basis data berkas, dan memegang port 3180/5180.
 
 ## 8. Langkah berikutnya

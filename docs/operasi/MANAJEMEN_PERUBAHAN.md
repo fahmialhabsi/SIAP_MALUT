@@ -19,6 +19,8 @@
 5. Handoff dan `STATUS.md` diperbarui; dokumen audit terdampak dicentang di handoff.
 6. Riwayat Git (commit per tahap) menjadi jejak persetujuan dan perubahan.
 
+Catatan teknis: skrip patch memanggil perintah eksternal lewat `scripts/native.ps1` (`Invoke-Native`) agar peringatan di stderr tidak dianggap galat di Windows PowerShell 5.1; kode keluar yang menentukan (KOR-004).
+
 ## 3. Pembatalan (Rollback)
 Pulihkan ke commit/tag sebelumnya dengan `git revert` (bukan menulis ulang riwayat); jalankan gate; catat di handoff. Dilarang `--force` dan menimpa riwayat tanpa izin owner.
 

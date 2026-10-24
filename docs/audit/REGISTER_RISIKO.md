@@ -36,4 +36,4 @@
 | RS-29 | Pemilik/superuser basis data dapat menonaktifkan pemicu log audit | S | T | Tinggi | Owner | Akun aplikasi tanpa hak DDL, cadangan terpisah, pemantauan DDL saat serah terima (LOG_AUDIT.md bagian 5) | Terbuka |
 | RS-30 | Kata sandi sementara admin tercetak di terminal/log kontainer | S | S | Sedang | Owner | Tampil sekali; wajib diganti (`npm run admin:sandi`); tidak pernah di repo; hanya mode demo | Terbuka |
 | RS-31 | Server pengembangan lama tetap berjalan di terminal owner (tsx watch memuat kode baru dengan basis data memori) | R | R | Rendah | Owner | Hentikan terminal lama (Ctrl+C) sebelum `npm run dev` baru; port khusus dengan `strictPort` | Terbuka |
-
+| RS-32 | Skrip patch/gate gagal palsu di Windows PowerShell 5.1 karena stderr perintah eksternal (peringatan npm/Vite/git) dianggap galat; juga `$?` setelah pipeline tidak dapat diandalkan sebagai penentu lolosnya gate | T | S | Sedang | Pembangun | `scripts/native.ps1` (Invoke-Native): kode keluar yang menentukan; patch memeriksa penanda `[gate] LOLOS`; diuji di 5.1 dan 7 (patch 1.3a.1) | Tertutup setelah patch 1.3a.1 dijalankan |

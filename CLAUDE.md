@@ -44,6 +44,7 @@ Setiap kali menyelesaikan tahap, Claude **langsung** memberi owner: (a) nama skr
 - Claude hanya menjalankan commit/push sendiri bila owner memintanya secara eksplisit pada tahap itu.
 - **Pra-verifikasi lokal** (gate, uji basis data, `docker compose build`; tanpa commit/push) oleh Claude **diperbolehkan sebagai izin tetap untuk semua tahap pembangunan kode** (KP-012, KP-015); Claude hanya melaporkan ringkasan hasil, owner tetap menjalankan patch, dan izin dapat dicabut owner kapan saja.
 - Skrip patch sendiri harus lolos pemeriksaan sintaks sebelum diserahkan; Claude melaporkan bila belum diuji berjalan.
+- Skrip patch **wajib memanggil perintah eksternal (npm, node, git, docker) lewat `Invoke-Native`** (`scripts/native.ps1`), bukan langsung: Windows PowerShell 5.1 (yang dijalankan `powershell -ExecutionPolicy Bypass`) menganggap setiap baris stderr (peringatan Vite/npm/git) sebagai galat bila `$ErrorActionPreference='Stop'` (KOR-004, RS-32). Skrip diuji di PowerShell 5.1 **dan** 7 sebelum diserahkan.
 
 ## Aturan 4: Prinsip dari rancangan
 

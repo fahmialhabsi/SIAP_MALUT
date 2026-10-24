@@ -1,12 +1,13 @@
 # STATUS SIAP MALUT
 
-**Diperbarui:** 23 Oktober 2026, Tahap 1.3a
+**Diperbarui:** 24 Oktober 2026, Tahap 1.3a
 **Baca dahulu:** `CLAUDE.md`, lalu berkas ini. Perintah lanjut: `LANJUT`.
 
 ## Posisi sekarang
 - **Fase:** Tahap 1 (pembangunan). Tahap 0.1 sampai 1.2 sudah di-push (commit `47321cc`).
-- **Tahap 1.3a (lapisan data) selesai dibangun dan diverifikasi lokal; menunggu owner menjalankan `scripts/patch/tahap-1.3a.ps1`.** Ikut: KOR-003 (`dev:lan` mencetak IP). Lembar Tahap 1.3 sudah disetujui (KP-015).
-- **Berikutnya:** **Tahap 1.3b** (API + autentikasi + hak akses + lampiran + OpenAPI). Mulai dengan `LANJUT` atau `TAHAP 1.3b` setelah patch 1.3a dijalankan.
+- **Tahap 1.3a (lapisan data) sudah di-push** (commit `f2e9a80`). Ikut KOR-003.
+- **Tahap 1.3a.1 (perbaikan skrip patch, KOR-004) selesai dibuat; menunggu owner menjalankan `scripts/patch/tahap-1.3a1.ps1`.** Pemicu: menjalankan ulang patch 1.3a memunculkan galat palsu `NativeCommandError` di Windows PowerShell 5.1 (peringatan stderr Vite); build sebenarnya sukses.
+- **Berikutnya:** **Tahap 1.3b** (API + autentikasi + hak akses + lampiran + OpenAPI). Mulai dengan `LANJUT` atau `TAHAP 1.3b` (boleh langsung; patch 1.3a.1 tidak menghalangi).
 
 ## Cara menjalankan (pengembangan)
 ```powershell
@@ -51,4 +52,4 @@ Tidak ada. KOR-002 (`npm run dev`) dan KOR-003 (alamat IP `dev:lan`) selesai.
 1.3a (ini) → **1.3b** API + autentikasi + hak akses + lampiran + OpenAPI → 1.4 antarmuka ponsel + dasbor peran + mode demo → 1.5 notifikasi/ekspor/luring → 1.6 evaluasi mandiri → 2 M2+pengganti+bentrok perjalanan+dokumen operasi → 3 perluasan+uji keamanan (naik Node 24) → **P** penggantian data contoh (basis data produksi baru) → 4 peluncuran dan serah terima.
 
 ## Riwayat patch
-0.1 sampai 1.2 sudah di-push. **Patch 1.3a menunggu dijalankan owner.**
+0.1 sampai 1.3a sudah di-push (terakhir `f2e9a80`). **Patch 1.3a.1 menunggu dijalankan owner.**
