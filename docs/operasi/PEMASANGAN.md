@@ -83,5 +83,10 @@ powershell -ExecutionPolicy Bypass -File scripts\gate.ps1
 - Lampiran: `data/unggahan/` (dev, diabaikan Git) atau volume `siap_unggahan` (kontainer). Hanya PDF, JPG, PNG hingga 10 MB.
 - Pengujian cepat dengan `curl` memerlukan header `Origin` yang sama dengan `Host` pada permintaan pengubah (POST/PUT/PATCH/DELETE) bila Origin dikirim.
 
+## 6c. Uji Ponsel (Tahap 1.4a)
+- Sekali: `npx playwright install chromium` (±150 MB). Lalu `npm run test:e2e` (dari akar). Uji menjalankan aplikasi nyata (`scripts/dev.mjs`, port 3191/5191, PGlite di folder sementara, mode demo) dan memeriksa lebar 360 px terang dan 412 px gelap termasuk axe; start pertama ±60 detik. Tangkapan layar tersimpan di `docs/audit/bukti-gate/tangkapan-1.4a/`.
+- Uji ini di luar `scripts/gate.ps1` agar gate tetap cepat; dijalankan pada pra-verifikasi tahap antarmuka (RS-38).
+- Tipe API antarmuka: `npm run api:tipe` setelah `npm run docs:api` mengubah `openapi.json`; `apps/web/src/api/tipe.test.ts` menjaga kesesuaiannya.
+
 ## 7. Batasan Tahap 1.1
 Belum ada basis data, akun, dan data; cadangan/pemulihan (OP-03) menyusul. Pemasangan dengan kontainer **diverifikasi 23 Okt 2026** (build, jalan, health, web) pada Docker Desktop 28.3.3; bukti: `docs/audit/bukti-gate/docker-tahap-1.1.txt`. Pemasangan dari nol oleh pihak ketiga belum dicoba.

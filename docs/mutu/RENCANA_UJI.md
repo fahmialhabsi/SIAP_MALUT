@@ -15,15 +15,15 @@
 | Integrasi API | Vitest + Fastify `inject` | Rute, ID permintaan, penjaga | 1.1 |
 | Komponen web | Vitest + Testing Library (jsdom) | Spanduk, alur status, teks UI | 1.1 |
 | Skrip | `node --test` | Pemeriksa token | 1.1 |
-| Alur utama ponsel (360 px) | Playwright | Input undangan, penetapan kehadiran | 1.4 |
-| Aksesibilitas dan standar desain | Daftar periksa `STANDAR_DESAIN.md` bagian 8 + otomatis | Kontras, target sentuh, status ikon+teks | 1.4 |
+| Alur utama ponsel (360 px dan 412 px, terang dan gelap) | Playwright (`npm run test:e2e`, di luar gate) | 1.4a: masuk, beranda, agenda, rincian, bentrok, akun, persona; 1.4b: undangan, keputusan kehadiran | 1.4a |
+| Aksesibilitas dan standar desain | Daftar periksa `STANDAR_DESAIN.md` bagian 8 + axe + pemeriksa kustom di e2e | Kontras, target sentuh, teks 16 px, tanpa gulir horizontal, status ikon+teks | 1.4a |
 | Keamanan | Pindai kerentanan, uji penetrasi | Seluruh | 3 |
 | Kinerja/luring | Uji beban, simulasi jaringan lemah | Seluruh | 3 |
 | Penerimaan (UAT) | Skenario dari SOP dan RTM | Seluruh fitur | 1.6 |
 
 ## 3. Kondisi Tahap 1.1 (dilanjutkan di bawah untuk 1.2)
 
-26 uji otomatis lulus pada Node 20.20.0 dan 22.22.0: konfigurasi/`APP_MODE` (shared), status agenda (domain), `/health` `/ready` ID permintaan penjaga produksi (api), spanduk dan alur status (web), pemeriksa token (skrip). Pengukuran manual di peramban pada lebar 360 px (tanpa gulir horizontal, font 16 px, target sentuh 48 px, font Inter termuat). Uji otomatis ponsel menyusul di Tahap 1.4.
+26 uji otomatis lulus pada Node 20.20.0 dan 22.22.0: konfigurasi/`APP_MODE` (shared), status agenda (domain), `/health` `/ready` ID permintaan penjaga produksi (api), spanduk dan alur status (web), pemeriksa token (skrip). Pengukuran manual di peramban pada lebar 360 px (tanpa gulir horizontal, font 16 px, target sentuh 48 px, font Inter termuat). Uji otomatis ponsel dikerjakan di Tahap 1.4a (lihat `UJI_AKSESIBILITAS.md`).
 
 ## 4. Kriteria Lulus
 Seluruh gate lolos (lint, test, build, audit-check); tidak ada kebutuhan tahap berjalan tanpa uji; cacat terbuka dicatat di `docs/mutu/DAFTAR_CACAT.md` (menyusul).

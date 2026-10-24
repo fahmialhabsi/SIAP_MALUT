@@ -14,6 +14,6 @@ Semua hal yang masih berupa **placeholder/data contoh** dicatat di sini (lihat `
 | PH-08 | Aturan kewenangan mewakili (nilai awal) | `data/contoh/`, `docs/standar/ATURAN_KEWENANGAN_MEWAKILI_DRAF.md` | Disahkan Sekda | P | Draf |
 | PH-09 | Tabel waktu tempuh antarlokasi/pulau (nilai awal) | `data/contoh/` | Diisi Protokol | P | Direncanakan |
 | PH-10 | Nomor telepon, nomor surat contoh | `data/contoh/` | Data asli | P | Direncanakan |
-| PH-11 | Dasbor pejabat dan dasbor staf (tampilan dengan data contoh) | `apps/web/` | Tampilan yang sama dengan data asli | P | Direncanakan |
+| PH-11 | Dasbor pejabat dan dasbor staf (susunan per peran, data contoh) | `apps/web/src/konfigurasi.ts` (`DASBOR_PER_PERAN`), `apps/web/src/halaman/beranda.tsx` | Susunan disahkan Kabag Protokol; data asli | P | Terisi (usulan, perlu tinjauan Kabag) |
 | PH-12 | Penandatangan dokumen audit | `docs/audit/` | Pejabat berwenang | P | Direncanakan |
 | PH-13 | Ikon aplikasi sementara (tulisan SIAP di atas biru) | `apps/web/public/icon.svg` | Logo resmi Pemprov/Biro | P | Sementara |

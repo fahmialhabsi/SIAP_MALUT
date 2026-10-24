@@ -16,6 +16,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['icon.svg'],
+      // Navigasi ke /api, /health, /ready (unduhan lampiran, pemeriksaan kesehatan) tidak boleh dijawab index.html.
+      workbox: { navigateFallbackDenylist: [/^\/api\//, /^\/health/, /^\/ready/] },
       manifest: {
         name: 'SIAP MALUT',
         short_name: 'SIAP MALUT',
@@ -41,10 +43,11 @@ export default defineConfig({
         : {},
   },
   // Panggilan /api diteruskan ke API (satu asal bagi peramban: kuki sesi SameSite=Strict berfungsi tanpa CORS).
-  server: { proxy: { '/api': apiTarget } },
-  preview: { proxy: { '/api': apiTarget } },
+  server: { proxy: { '/api': apiTarget, '/health': apiTarget, '/ready': apiTarget } },
+  preview: { proxy: { '/api': apiTarget, '/health': apiTarget, '/ready': apiTarget } },
   test: {
     environment: 'jsdom',
     globals: false,
+    exclude: ['e2e/**', 'node_modules/**', 'dist/**'],
   },
 });

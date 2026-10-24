@@ -35,6 +35,9 @@ Integrasi eksternal (SRIKANDI, e-Office, BSrE, WhatsApp) berstatus **rencana** (
 ## 3b. Rute dan Keamanan (Tahap 1.3b)
 Setiap rute dideklarasikan sekali di registri (`apps/api/src/rute/*.ts`: metode, jalur, izin, skema Zod params/query/body/respons). Registri yang sama dipakai untuk memasang rute di Fastify, menguji hak akses lintas peran, dan menghasilkan `openapi.json` serta `MATRIKS_HAK_AKSES.md`. Rincian pertahanan: `DESAIN_KEAMANAN.md`. Peramban selalu berbicara ke satu asal (proksi Vite saat dev, nginx pada kontainer).
 
+## 3c. Antarmuka Web (Tahap 1.4a)
+`apps/web/src`: `api/` (klien `fetch` kecil dan **tipe dihasilkan dari `openapi.json`** lewat `npm run api:tipe`; dilarang menulis tipe respons dengan tangan), `sesi.tsx` (konteks sesi: profil, izin, masuk/keluar, 401 kembali ke Masuk), `pakai-data.ts` (pemuatan GET; dimuat ulang saat persona berganti), `halaman/` (Masuk, kerangka dengan navigasi bawah menurut izin dan pita persona, Beranda, Agenda, Rincian, Bentrok, Akun), `komponen/` (kartu kegiatan, lencana status/bentrok ikon+teks), `konfigurasi.ts` (susunan dasbor per peran sebagai **data**), `teks-ui.ts` (semua teks), `waktu.ts` (format WIT), `ikon.tsx` (SVG sendiri), `tema.ts` (terang/gelap/ikuti perangkat). Router sisi klien `react-router`; layanan pekerja PWA tidak menjawab `/api`, `/health`, `/ready` dengan halaman aplikasi. Hak akses di antarmuka hanya menyembunyikan pilihan; API tetap pemegang keputusan.
+
 ## 4. Mode Aplikasi
 
 `APP_MODE` ∈ {`demo`, `production`}; kosong menjadi `production`; nilai lain menggagalkan start. `demo` menampilkan spanduk DATA CONTOH di web. Di `production`, penjaga (`apps/api/src/penjaga.ts`) menolak mulai bila ada data contoh (sambungan ke basis data di Tahap 1.3). Rujukan: `docs/standar/STANDAR_DATA_CONTOH.md`.

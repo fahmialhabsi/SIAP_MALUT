@@ -1,0 +1,21 @@
+Bukti uji ponsel Playwright + axe, Tahap 1.4a (dijalankan asisten, 24 Oktober 2026)
+Perintah: npm run test:e2e (apps/web); Chromium emulasi ponsel; aplikasi nyata (API + web, PGlite sementara, mode demo)
+Proyek: ponsel-360-terang (360x740, terang), ponsel-412-gelap (412x915, gelap)
+Catatan: kata sandi admin pada uji adalah nilai uji untuk basis data sementara lokal.
+------------------------------------------
+
+Running 10 tests using 1 worker
+
+  ok  1 [ponsel-360-terang] › e2e\ponsel.spec.ts:5:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › layar Masuk memenuhi standar ponsel dan menolak sandi salah dengan pesan jelas (3.2s)
+  ok  2 [ponsel-360-terang] › e2e\ponsel.spec.ts:19:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › alur admin: Beranda, Agenda 26 Oktober dengan bentrok, rincian, halaman Bentrok, Akun (12.0s)
+  ok  3 [ponsel-360-terang] › e2e\ponsel.spec.ts:54:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › KB-032: persona demo mengubah dasbor dan navigasi; kembali ke akun asli; keluar (3.6s)
+  ok  4 [ponsel-360-terang] › e2e\ponsel.spec.ts:86:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › KB-020: tema gelap dan terang lolos kontras pada halaman Akun (3.2s)
+  ok  5 [ponsel-360-terang] › e2e\ponsel.spec.ts:95:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › /api dan /health tidak dijawab dengan halaman aplikasi (service worker) (1.0s)
+  ok  6 [ponsel-412-gelap] › e2e\ponsel.spec.ts:5:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › layar Masuk memenuhi standar ponsel dan menolak sandi salah dengan pesan jelas (4.0s)
+  ok  7 [ponsel-412-gelap] › e2e\ponsel.spec.ts:19:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › alur admin: Beranda, Agenda 26 Oktober dengan bentrok, rincian, halaman Bentrok, Akun (9.9s)
+  ok  8 [ponsel-412-gelap] › e2e\ponsel.spec.ts:54:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › KB-032: persona demo mengubah dasbor dan navigasi; kembali ke akun asli; keluar (3.2s)
+  ok  9 [ponsel-412-gelap] › e2e\ponsel.spec.ts:86:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › KB-020: tema gelap dan terang lolos kontras pada halaman Akun (3.1s)
+  ok 10 [ponsel-412-gelap] › e2e\ponsel.spec.ts:95:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › /api dan /health tidak dijawab dengan halaman aplikasi (service worker) (1.0s)
+
+  10 passed (1.2m)
+selesai

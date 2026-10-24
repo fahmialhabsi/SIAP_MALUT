@@ -11,3 +11,5 @@ coverage/
 *.tsbuildinfo
 data/dev/
 data/unggahan/
+apps/web/test-results/
+apps/web/playwright-report/

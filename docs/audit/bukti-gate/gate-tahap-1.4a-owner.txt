@@ -1,0 +1,256 @@
+﻿Bukti gate Tahap 1.4a (dijalankan owner lewat patch)
+Waktu: 2026-10-24 13:28:04 +09:00
+Node: v20.20.0  npm: 10.8.2  PowerShell: 5.1.26100.9711
+------------------------------------------
+[audit] Dokumen: Ada=34, Draf=5, Placeholder=2, Belum=30
+[audit] LOLOS: dokumen berstatus Ada ditemukan dan struktur folder sesuai.
+[gate] npm run lint ...
+
+> siap-malut@0.1.0 lint
+> eslint . && prettier --check . && node scripts/cek-token.mjs
+
+Checking formatting...
+All matched files use Prettier code style!
+[token] LOLOS: tidak ada warna yang ditulis langsung pada apps/web/src.
+[gate] npm run test ...
+
+> siap-malut@0.1.0 test
+> npm run test --workspaces --if-present && node --test scripts/cek-token.test.mjs scripts/alamat-lan.test.mjs
+
+
+> @siap/shared@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/packages/shared
+
+ Γ£ô src/index.test.ts (12 tests) 25ms
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  13:28:19
+   Duration  788ms (transform 108ms, setup 0ms, import 363ms, tests 25ms, environment 0ms)
+
+
+> @siap/domain@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/packages/domain
+
+ Γ£ô src/waktu.test.ts (6 tests) 17ms
+ Γ£ô src/data-contoh.test.ts (4 tests) 68ms
+ Γ£ô src/bentrok.test.ts (20 tests) 70ms
+ Γ£ô src/status.test.ts (21 tests) 76ms
+
+ Test Files  4 passed (4)
+      Tests  51 passed (51)
+   Start at  13:28:21
+   Duration  901ms (transform 404ms, setup 0ms, import 885ms, tests 231ms, environment 1ms)
+
+
+> @siap/api@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/apps/api
+
+ Γ£ô src/app.test.ts (11 tests) 22284ms
+     Γ£ô KB-030: GET /health mengembalikan 200 dan status ok  795ms
+     Γ£ô KB-030: basis data sehat = 200 dan checks.basisData ok  8951ms
+     Γ£ô KB-030: basis data tidak dapat dijangkau = 503 not_ready  4964ms
+     Γ£ô KB-030: /health tetap 200 walau basis data mati (hanya menandakan proses hidup)  7458ms
+ Γ£ô src/kegiatan-api.test.ts (16 tests) 23546ms
+     Γ£ô KB-006: daftar menurut tanggal WIT dan status; skema terpenuhi  10194ms
+     Γ£ô KB-001: membuat kegiatan baru berstatus Baru, berlabel contoh, lengkap dengan pihak dan PIC  1002ms
+     Γ£ô KB-003: PIC protokol dan PIC pengundang tersimpan (kontak termasuk data pribadi, tidak di log ringkas)  799ms
+     Γ£ô KB-001: masukan tidak valid ditolak dengan rincian (waktu tanpa zona, selesai sebelum mulai, pihak asing, judul kosong)  601ms
+     Γ£ô KB-034: pada mode production kegiatan baru tidak berpenanda contoh  522ms
+     Γ£ô KB-001: mengubah data kegiatan tercatat sebelum-sesudah; tidak mengubah status  500ms
+     Γ£ô KB-001: ubah ditolak untuk isi kosong, waktu terbalik, dan kegiatan tak ada; status terkunci = 409  534ms
+     Γ£ô KB-005: protokol menugaskan pihak, pejabat menerima penugasan dirinya, dan tidak dapat menugaskan pihak lain  791ms
+     Γ£ô KB-005: menghapus pihak dari kegiatan tercatat; pejabat tidak berizin  723ms
+     Γ£ô KB-004: pindah status sah menghasilkan peristiwa dan tercatat; skema respons terpenuhi  633ms
+     Γ£ô KB-004: perpindahan ditolak aturan = 422 dengan rincian; status dan log tidak berubah; tidak ada = 404; pejabat = 403  966ms
+     Γ£ô KB-038: bentrok pasti menuntut alasan; dengan alasan diizinkan dan masuk log audit  1325ms
+     Γ£ô KB-008 dan KB-010: endpoint bentrok = hasil domain (14 total; 26 Okt: 13); 400 untuk tanggal salah; pejabat 403  1081ms
+     Γ£ô KB-036 dan KB-039: pengaturan dapat dibaca; hanya admin mengubah; nilai tidak valid ditolak; mengubah hasil bentrok  1370ms
+     Γ£ô KB-016: log audit dapat dibaca admin dan kepala biro saja, terbaru lebih dulu, sesuai skema  1401ms
+     Γ£ô KB-029: direktori pejabat dan matriks hak akses mengikuti data  1029ms
+ Γ£ô src/auth.test.ts (17 tests) 29232ms
+     Γ£ô KB-041: masuk berhasil mengembalikan profil sesuai skema dan kuki httpOnly SameSite=Strict  10162ms
+     Γ£ô KB-041: pada mode production kuki bertanda Secure  898ms
+     Γ£ô KB-041: kuki hasil masuk dapat dipakai; hanya hash token tersimpan di basis data  959ms
+     Γ£ô KB-041: kata sandi salah dan pengguna tak dikenal menghasilkan pesan yang sama (401)  1064ms
+     Γ£ô KB-041: persona tanpa kata sandi tidak dapat masuk  708ms
+     Γ£ô KB-041: lima kegagalan beruntun mengunci akun; sandi benar pun ditolak (423) sampai waktu lewat  2199ms
+     Γ£ô KB-041: masuk berhasil mengatur ulang hitungan gagal  2837ms
+     Γ£ô KB-041: keluar mengakhiri sesi dan menghapus kuki  978ms
+     Γ£ô KB-041: sesi kedaluwarsa ditolak (401)  1157ms
+     Γ£ô KB-041: tanpa kuki atau kuki palsu ditolak (401)  1054ms
+     Γ£ô KB-041: akun yang dinonaktifkan tidak dapat memakai sesi lamanya  1007ms
+     Γ£ô KB-016: masuk dan keluar tercatat; kata sandi tidak pernah masuk log audit  1460ms
+     Γ£ô KB-041: masukan tidak valid ditolak (400) dengan rincian  740ms
+     Γ£ô KB-041: permintaan pengubah dari asal berbeda ditolak (403)  878ms
+     Γ£ô KB-041: permintaan satu asal (Origin = Host) diterima  1667ms
+     Γ£ô KB-041: header keamanan dan ID permintaan hadir pada respons  1275ms
+ Γ£ô src/lampiran.test.ts (7 tests) 24158ms
+     Γ£ô KB-042: unggah PDF berhasil; metadata, hash, dan isi tersimpan; log audit tanpa isi berkas  16768ms
+     Γ£ô KB-042: jenis dikenali dari isi, bukan dari nama atau tipe kiriman (teks bernama .pdf ditolak 415)  1329ms
+     Γ£ô KB-042: berkas melebihi batas ditolak (413) dan tidak tersimpan  1218ms
+     Γ£ô KB-042: nama berkas dibersihkan dari jalur dan karakter berbahaya  1159ms
+     Γ£ô KB-042: permintaan bukan multipart ditolak; kegiatan tidak ada = 404  1137ms
+     Γ£ô KB-042: daftar dan unduh oleh yang berhak; unduhan berupa lampiran dengan header aman  1133ms
+     Γ£ô KB-042: pembatasan akses: pejabat tidak dapat mengunggah; hanya terkait yang melihat; pemohon dan publik ditolak  1368ms
+ Γ£ô src/rbac.test.ts (11 tests) 27568ms
+     Γ£ô KB-029: tabel peran_izin hasil seed sama persis dengan hak-akses.json  17040ms
+     Γ£ô KB-029: tanpa kuki, setiap rute non-publik menjawab 401  1202ms
+     Γ£ô KB-029: lintas peran x rute: 403 tepat bila peran tidak punya satu pun izin yang disyaratkan  4993ms
+     Γ£ô KB-029: pimpinan melihat semua kegiatan; pejabat hanya yang memuat dirinya; publik dan pemohon ditolak  1185ms
+     Γ£ô KB-029: pejabat tidak dapat membuka kegiatan yang bukan miliknya (404, bukan 403)  962ms
+     Γ£ô KB-019: tautan rapat hanya terlihat oleh yang ditugaskan dan peran Protokol  1155ms
+     Γ£ô KB-019: tautan rapat tidak tersimpan terbuka di log audit (disamarkan)  952ms
+ Γ£ô src/demo.test.ts (5 tests) 20525ms
+     Γ£ô KB-032: admin berpindah ke persona, melihat dengan hak persona, lalu kembali  15836ms
+     Γ£ô KB-032: perpindahan persona dan kembalinya tercatat; tindakan sebagai persona mencatat admin dan persona  1305ms
+     Γ£ô KB-032: persona tidak dikenal atau akun sendiri ditolak (400); sesi lain admin tidak terpengaruh  1247ms
+     Γ£ô KB-032: peran selain admin tidak dapat memakai fitur persona (403)  1038ms
+     Γ£ô KB-034: pada mode production fitur persona tidak ada (404) walau admin  1074ms
+ Γ£ô src/db/sandi.test.ts (6 tests) 910ms
+     Γ£ô KB-041: sandi benar lolos, sandi salah ditolak  502ms
+ Γ£ô src/openapi.test.ts (6 tests) 58ms
+ Γ£ô src/db/kamus.test.ts (5 tests) 30ms
+ Γ£ô src/db/db.test.ts (19 tests) 17698ms
+     Γ£ô KB-030: migrasi dari kosong membuat sembilan tabel dan dapat diulang  9651ms
+     Γ£ô KB-031: seed membuat data contoh lengkap dan semuanya berpenanda is_contoh  560ms
+     Γ£ô KB-031: semua nama pada data contoh berlabel (CONTOH)  521ms
+     Γ£ô KB-031: seed idempoten (kedua kali tidak mengubah apa pun)  603ms
+     Γ£ô KB-041: kata sandi admin.owner acak muncul sekali dan cocok dengan hash; persona tanpa sandi  979ms
+     Γ£ô KB-041: kata sandi admin dari lingkungan dipakai dan tidak dikembalikan  871ms
+     Γ£ô KB-041: atur ulang sandi admin berhasil dan tercatat di log audit  1267ms
+     Γ£ô KB-034: production menolak start bila ada data contoh  633ms
+     Γ£ô KB-034: demo boleh memuat data contoh  505ms
+     Γ£ô KB-039: durasi bawaan 120 menit (bawaan kode saat belum diatur, dan dari seed)  612ms
+     Γ£ô KB-036: pengaturan dapat diubah admin (disimpan sebagai data)  472ms
+     Γ£ô KB-001: kedudukan pihak tidak sah ditolak  486ms
+ Γ£ô src/layanan/kegiatan.test.ts (9 tests) 14699ms
+     Γ£ô KB-008: memuat model domain dari basis data dengan waktu WIT dan pihak lengkap  10232ms
+     Γ£ô KB-008: bentrok dari basis data sama dengan uji domain (22 Okt: 0, 24 Okt: 1, 26 Okt: 13, total 14)  691ms
+     Γ£ô KB-039: durasi dari pengaturan basis data mengubah hasil (3 jam: 22 Okt bentrok pasti Wagub)  616ms
+     Γ£ô KB-016: perpindahan sah menyimpan status dan mencatat peristiwa di log audit  578ms
+     Γ£ô KB-004: perpindahan tidak sah ditolak; status dan log tidak berubah  554ms
+     Γ£ô KB-004: ditetapkan tanpa pihak ditugaskan ditolak (semua masih diundang)  436ms
+     Γ£ô KB-038: bentrok pasti tanpa alasan ditolak; dengan alasan disimpan dan tercatat  604ms
+     Γ£ô KB-004: ditunda wajib beralasan dan alasan tersimpan di log  550ms
+     Γ£ô KB-004: kegiatan tidak ditemukan dilaporkan  403ms
+
+ Test Files  11 passed (11)
+      Tests  112 passed (112)
+   Start at  13:28:23
+   Duration  71.28s (transform 2.01s, setup 0ms, import 12.87s, tests 180.71s, environment 3ms)
+
+
+> @siap/web@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/apps/web
+
+ Γ£ô src/api/tipe.test.ts (1 test) 13ms
+ Γ£ô src/waktu.test.ts (4 tests) 8ms
+ Γ£ô src/App.test.tsx (18 tests) 2414ms
+     Γ£ô KB-033: layar Masuk memuat spanduk pada mode demo  449ms
+     Γ£ô KB-020: status dan bentrok selalu berupa teks (bersama ikon), bukan warna saja  301ms
+
+ Test Files  3 passed (3)
+      Tests  23 passed (23)
+   Start at  13:29:36
+   Duration  6.57s (transform 624ms, setup 0ms, import 2.03s, tests 2.43s, environment 5.81s)
+
+TAP version 13
+# Subtest: KB-040: alamat Wi-Fi fisik didahulukan, adaptor virtual setelahnya
+ok 1 - KB-040: alamat Wi-Fi fisik didahulukan, adaptor virtual setelahnya
+  ---
+  duration_ms: 4.0752
+  ...
+# Subtest: KB-040: loopback, IPv6, dan alamat non-pribadi diabaikan
+ok 2 - KB-040: loopback, IPv6, dan alamat non-pribadi diabaikan
+  ---
+  duration_ms: 1.5605
+  ...
+# Subtest: KB-020: warna heksadesimal ditolak
+ok 3 - KB-020: warna heksadesimal ditolak
+  ---
+  duration_ms: 5.1197
+  ...
+# Subtest: KB-020: rgb() dan hsl() ditolak
+ok 4 - KB-020: rgb() dan hsl() ditolak
+  ---
+  duration_ms: 7.2982
+  ...
+# Subtest: KB-020: var(--token) diterima
+ok 5 - KB-020: var(--token) diterima
+  ---
+  duration_ms: 0.4851
+  ...
+# Subtest: KB-020: nomor baris dilaporkan
+ok 6 - KB-020: nomor baris dilaporkan
+  ---
+  duration_ms: 0.3545
+  ...
+# Subtest: KB-020: pemeriksa folder menemukan pelanggaran dan mengabaikan berkas uji
+ok 7 - KB-020: pemeriksa folder menemukan pelanggaran dan mengabaikan berkas uji
+  ---
+  duration_ms: 20.9238
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 262.6005
+[gate] npm run build ...
+
+> siap-malut@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @siap/shared@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/domain@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/api@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/web@0.1.0 build
+> tsc -p tsconfig.json --noEmit && vite build
+
+vite v8.3.5 building client environment for production...
+transforming...
+Γ£ô 141 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/registerSW.js                           0.13 kB
+dist/manifest.webmanifest                    0.31 kB
+dist/index.html                              0.63 kB Γöé gzip:   0.36 kB
+dist/assets/Inter-Variable-Dx4kXJAl.woff2   48.25 kB
+dist/assets/index-BpDtfjef.css              11.04 kB Γöé gzip:   2.75 kB
+dist/assets/index-DiXQ0Tvm.js              376.58 kB Γöé gzip: 115.76 kB
+
+Γ£ô built in 618ms
+
+PWA v2.0.0
+mode      generateSW
+precache  6 entries (379.29 KiB)
+files generated
+  dist/sw.js
+  dist/workbox-9c191d2f.js
+[gate] LOLOS: lint, test, build.

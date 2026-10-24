@@ -85,7 +85,7 @@ Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. 
 | MU-05 | Kasus uji dan laporan uji (unit, integrasi, E2E, ponsel 360 px) | D I B | 1.x | **Laporan dari Vitest/Playwright** | Belum | `docs/mutu/laporan-uji/` |
 | MU-06 | Uji penerimaan pengguna (UAT) dan berita acara | D I B | 1.6 | Skenario dari SOP dan RTM | Belum | `docs/mutu/UAT/` |
 | MU-07 | Uji kinerja dan ketahanan jaringan lemah/luring | D | 3 | Hasil uji beban | Belum | `docs/mutu/UJI_KINERJA.md` |
-| MU-08 | Uji aksesibilitas dan kepatuhan standar desain | I | 1.4 | Daftar periksa standar bagian 8 | Belum | `docs/mutu/UJI_AKSESIBILITAS.md` |
+| MU-08 | Uji aksesibilitas dan kepatuhan standar desain | I | 1.4 | Daftar periksa standar bagian 8 | Draf | `docs/mutu/UJI_AKSESIBILITAS.md` |
 | MU-09 | Daftar komponen perangkat lunak (SBOM) dan lisensi | D B | 1.1 | **Dihasilkan `npm sbom` tiap rilis** | Ada | `docs/audit/sbom/` |
 | MU-10 | Daftar cacat, status perbaikan, dan pengecualian yang diterima | D I | 1.x | Isu di repo | Belum | `docs/mutu/DAFTAR_CACAT.md` |
 
@@ -120,8 +120,8 @@ Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. 
 
 | ID | Dokumen | Diminta | Dibuat | Sinkron lewat | Status | Berkas |
 |---|---|---|---|---|---|---|
-| PG-01 | Panduan pengguna per peran (pimpinan, protokol, pengganti, pemohon) | I | 1.6 | Tangkapan layar dari versi rilis | Belum | `docs/pengguna/PANDUAN_PENGGUNA.md` |
-| PG-02 | Panduan administrator | D I | 1.6 | Dicoba oleh orang di luar penyusun | Belum | `docs/pengguna/PANDUAN_ADMIN.md` |
+| PG-01 | Panduan pengguna per peran (pimpinan, protokol, pengganti, pemohon) | I | 1.6 | Tangkapan layar dari versi rilis | Draf | `docs/pengguna/PANDUAN_PENGGUNA.md` |
+| PG-02 | Panduan administrator | D I | 1.6 | Dicoba oleh orang di luar penyusun | Draf | `docs/pengguna/PANDUAN_ADMIN.md` |
 | PG-03 | Materi bimtek, daftar hadir, dan evaluasi pelatihan | I B | 2 | Arsip bukti | Belum | `docs/pengguna/pelatihan/` |
 | PG-04 | Pertanyaan umum dan panduan video singkat | I | 2 | Versi rilis | Belum | `docs/pengguna/FAQ.md` |
 

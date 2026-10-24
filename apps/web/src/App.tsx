@@ -1,46 +1,90 @@
-import { ALUR_UTAMA, LABEL_STATUS_AGENDA } from '@siap/domain';
+import { useEffect } from 'react';
+import { Link, Navigate, Route, Routes } from 'react-router';
 import { parseAppMode, type AppMode } from '@siap/shared';
+import { Akun } from './halaman/akun';
+import { Agenda } from './halaman/agenda';
+import { Beranda } from './halaman/beranda';
+import { HalamanBentrok } from './halaman/bentrok';
+import { Kerangka } from './halaman/kerangka';
+import { Masuk } from './halaman/masuk';
+import { Rincian } from './halaman/rincian';
+import { Memuat } from './komponen/komponen';
+import { SesiProvider, useSesi } from './sesi';
+import { bacaTema, terapkanTema } from './tema';
 import { TEKS_UI } from './teks-ui';
 
 export interface AppProps {
-  /** Mode aplikasi; bawaan dari VITE_APP_MODE (kosong = production). */
+  /** Mode saat belum masuk; bawaan dari VITE_APP_MODE (kosong = production). Setelah masuk, mode dari server. */
   mode?: AppMode;
 }
 
-export function App({ mode = parseAppMode(import.meta.env.VITE_APP_MODE) }: AppProps) {
+function TidakAda() {
   return (
     <>
-      {mode === 'demo' && (
-        <div className="spanduk-contoh" role="status">
-          {TEKS_UI.spandukContoh}
-        </div>
-      )}
-      <header className="kepala">
-        <h1 className="judul">{TEKS_UI.namaAplikasi}</h1>
-        <p className="subjudul">{TEKS_UI.subjudul}</p>
-      </header>
-      <main className="isi">
-        <section className="kartu" aria-labelledby="judul-alur">
-          <h2 id="judul-alur" className="judul-bagian">
-            {TEKS_UI.judulAlur}
-          </h2>
-          <p className="teks-pendukung">{TEKS_UI.keteranganAlur}</p>
-          <ol className="alur">
-            {ALUR_UTAMA.map((status, indeks) => (
-              <li key={status} className="langkah">
-                <span className="nomor tabular" aria-hidden="true">
-                  {indeks + 1}
-                </span>
-                <span>
-                  <span className="sr-saja">{TEKS_UI.langkah} </span>
-                  {LABEL_STATUS_AGENDA[status]}
-                </span>
-              </li>
-            ))}
-          </ol>
-        </section>
-        <p className="teks-pendukung">{TEKS_UI.tahap}</p>
-      </main>
+      <h1 className="judul-halaman">{TEKS_UI.galat.halamanTidakAda}</h1>
+      <Link className="tombol" to="/">
+        {TEKS_UI.galat.keBeranda}
+      </Link>
     </>
+  );
+}
+
+/** Rute yang butuh izin; tanpa izin dialihkan ke Beranda (API tetap menolak bila dipaksa). */
+function Dijaga({
+  izin,
+  anak,
+}: {
+  izin: Parameters<ReturnType<typeof useSesi>['punya']>[0][];
+  anak: React.ReactNode;
+}) {
+  const { punya } = useSesi();
+  return izin.some(punya) ? <>{anak}</> : <Navigate to="/" replace />;
+}
+
+function Isi({ mode }: { mode: AppMode }) {
+  const { status } = useSesi();
+  if (status === 'memuat') {
+    return (
+      <main className="isi" id="isi-utama">
+        <Memuat />
+      </main>
+    );
+  }
+  if (status === 'keluar') return <Masuk mode={mode} />;
+  return (
+    <Routes>
+      <Route element={<Kerangka />}>
+        <Route index element={<Beranda />} />
+        <Route
+          path="agenda"
+          element={
+            <Dijaga izin={['kegiatan.baca_semua', 'kegiatan.baca_terkait']} anak={<Agenda />} />
+          }
+        />
+        <Route
+          path="kegiatan/:id"
+          element={
+            <Dijaga izin={['kegiatan.baca_semua', 'kegiatan.baca_terkait']} anak={<Rincian />} />
+          }
+        />
+        <Route
+          path="bentrok"
+          element={<Dijaga izin={['bentrok.baca']} anak={<HalamanBentrok />} />}
+        />
+        <Route path="akun" element={<Akun />} />
+        <Route path="*" element={<TidakAda />} />
+      </Route>
+    </Routes>
+  );
+}
+
+export function App({ mode = parseAppMode(import.meta.env.VITE_APP_MODE) }: AppProps) {
+  useEffect(() => {
+    terapkanTema(bacaTema());
+  }, []);
+  return (
+    <SesiProvider>
+      <Isi mode={mode} />
+    </SesiProvider>
   );
 }

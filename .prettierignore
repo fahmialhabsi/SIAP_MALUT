@@ -12,3 +12,5 @@ apps/web/public
 .claude
 .git
 apps/api/drizzle
+apps/web/src/api/skema.d.ts
+apps/web/test-results
