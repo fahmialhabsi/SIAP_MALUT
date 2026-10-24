@@ -12,6 +12,10 @@ import { alamatLan } from './alamat-lan.mjs';
 
 const lan = process.argv.includes('--lan');
 const tunnel = process.argv.includes('--tunnel');
+// Lokasi cloudflared: bawaan dari PATH; atau isi SIAP_CLOUDFLARED dengan jalur lengkap berkas .exe.
+const cloudflared = process.env.SIAP_CLOUDFLARED
+  ? `"${process.env.SIAP_CLOUDFLARED}"`
+  : 'cloudflared';
 const mode = process.env.APP_MODE ?? 'demo';
 // Port khusus SIAP MALUT agar tidak bentrok dengan proyek lain (3000/5173 sering terpakai).
 // Basis data pengembangan: PGlite (PostgreSQL dalam proses) di data/dev/ (diabaikan Git). Hapus folder itu untuk mengulang dari nol.
@@ -23,12 +27,15 @@ const portApi = process.env.SIAP_API_PORT ?? '3180';
 const portWeb = process.env.SIAP_WEB_PORT ?? '5180';
 
 if (tunnel) {
-  const cek = spawnSync('cloudflared', ['--version'], { shell: true, stdio: 'ignore' });
+  const cek = spawnSync(cloudflared, ['--version'], { shell: true, stdio: 'ignore' });
   if (cek.status !== 0) {
     process.stderr.write(
       [
-        '[tunel] cloudflared belum terpasang. Pasang sekali (PowerShell), tutup dan buka lagi terminal, lalu ulangi:',
-        '          winget install --id Cloudflare.cloudflared',
+        '[tunel] cloudflared tidak ditemukan. Pasang salah satu cara (sekali):',
+        '          a) winget install --id Cloudflare.cloudflared   (bila winget ada), lalu tutup-buka terminal',
+        '          b) unduh cloudflared-windows-amd64.exe dari https://github.com/cloudflare/cloudflared/releases/latest,',
+        '             simpan (mis. C:/Alat/cloudflared.exe), lalu di terminal ini:',
+        '             $env:SIAP_CLOUDFLARED = "C:/Alat/cloudflared.exe"; npm run dev:tunnel',
         '',
       ].join('\n'),
     );
@@ -106,7 +113,7 @@ const { result } = concurrently(
       ? [
           {
             name: 'tunel',
-            command: `cloudflared tunnel --url http://127.0.0.1:${portWeb}`,
+            command: `${cloudflared} tunnel --url http://127.0.0.1:${portWeb}`,
             prefixColor: 'magenta',
           },
         ]

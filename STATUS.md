@@ -4,9 +4,9 @@
 **Baca dahulu:** `CLAUDE.md`, lalu berkas ini. Perintah lanjut: `LANJUT`.
 
 ## Posisi sekarang
-- **Fase:** Tahap 1 (pembangunan). Tahap 0.1 sampai **1.4a sudah di-push**.
-- **Sekarang:** Tahap **1.4b** (tindakan di ponsel) selesai dan **1.4c** (akses peninjau jarak jauh) selesai; keduanya terverifikasi lokal. **Patch yang dijalankan owner: `scripts/patch/tahap-1.4c.ps1`** (memuat 1.4b juga bila `tahap-1.4b.ps1` belum dijalankan). Handoff: `HANDOFF_TAHAP-1.4b_Tindakan-Ponsel.md`, `HANDOFF_TAHAP-1.4c_Akses-Peninjau.md`.
-- **Berikutnya:** Pak Kabag meninjau lewat `npm run akun:sandi -- demo.kabag-protokol` dan `npm run dev:tunnel` (PEMASANGAN bagian 6e); koreksi dicatat dengan `KOREKSI:`; lalu `TAHAP 1.5`.
+- **Fase:** Tahap 1 (pembangunan). Tahap 0.1 sampai **1.4c sudah di-push** (terakhir `a55b943`: tindakan di ponsel 1.4b + akses peninjau jarak jauh 1.4c).
+- **Sekarang:** Pak Kabag meninjau lewat terowongan sementara (`npm run dev:tunnel`, akun `demo.kabag-protokol`; PEMASANGAN bagian 6e). Tersisa 3 perubahan kecil belum di-commit (dukungan `SIAP_CLOUDFLARED`, petunjuk, pengabaian lint e2e): `scripts/patch/tahap-1.4d.ps1` (jalankan setelah peninjauan, karena gate membangun ulang `apps/web/dist` yang sedang dilayani terowongan).
+- **Berikutnya:** catat koreksi Kabag dengan `KOREKSI:`; lalu `TAHAP 1.5` (notifikasi dan teks WhatsApp, ekspor, mode luring).
 
 ## Cara menjalankan (pengembangan)
 ```powershell
@@ -57,7 +57,7 @@ Tanpa pembatasan laju per IP (RS-33), tanpa pemindaian virus lampiran (RS-34), b
 Tidak ada. KOR-002 (`npm run dev`), KOR-003 (IP `dev:lan`), KOR-004 (stderr PowerShell 5.1) selesai.
 
 ## Urutan tahap ke depan
-1.4a dan 1.4b (ini) → **1.5** notifikasi/ekspor/luring → 1.6 evaluasi mandiri → 2 M2 + pengganti + bentrok perjalanan + dokumen operasi + admin akun → 3 perluasan + uji keamanan (naik Node 24) → **P** penggantian data contoh (basis data produksi baru) → 4 peluncuran dan serah terima.
+1.4a, 1.4b, 1.4c (selesai) → **1.5** notifikasi/ekspor/luring → 1.6 evaluasi mandiri → 2 M2 + pengganti + bentrok perjalanan + dokumen operasi + admin akun → 3 perluasan + uji keamanan (naik Node 24) → **P** penggantian data contoh (basis data produksi baru) → 4 peluncuran dan serah terima.
 
 ## Riwayat patch
-0.1 sampai 1.3b sudah di-push (terakhir `2d4c683`). 1.4a sudah di-push; patch 1.4b siap, menunggu dijalankan owner.
+0.1 sampai 1.3b sudah di-push (terakhir `2d4c683`). 1.4a, 1.4b+1.4c sudah di-push (`a55b943`). Patch 1.4d (penyesuaian kecil) siap.

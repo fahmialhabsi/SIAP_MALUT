@@ -427,7 +427,7 @@ describe('KB-001 dan KB-003: form undangan', () => {
     fireEvent.change(screen.getByLabelText(TEKS_UI.form.lokasi), {
       target: { value: 'Lokasi Contoh Z' },
     });
-    fireEvent.change(screen.getByLabelText(TEKS_UI.form.picProtokol), {
+    fireEvent.change(await screen.findByLabelText(TEKS_UI.form.picProtokol), {
       target: { value: 'petugas-protokol-01' },
     });
     fireEvent.change(screen.getByLabelText(TEKS_UI.form.picPengundangKontak), {

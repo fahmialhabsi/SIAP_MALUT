@@ -93,7 +93,7 @@ Hentikan `npm run dev`, lalu `npm run admin:sandi` (memakai `data/dev/pgdata`, f
 
 ## 6e. Peninjau Jarak Jauh: Akun Demo dan Terowongan (KOR-006, KOR-007)
 1. **Akun peninjau** (sekali, hentikan `npm run dev` dulu): `npm run akun:sandi -- demo.kabag-protokol`. Kata sandi sendiri: isi `SIAP_AKUN_PASSWORD` (minimal 12 karakter) di terminal itu; bila kosong dicetak kata sandi acak sekali. Akun ini berhak sebagai Kabag Protokol (bukan admin; tanpa "Lihat sebagai" dan Pengaturan). Akun peran lain: ganti nama pengguna.
-2. **Terowongan** (sekali): `winget install --id Cloudflare.cloudflared`, tutup-buka terminal. Lalu `npm run dev:tunnel`: membangun web, menjalankan API dan web (hasil build), dan membuka terowongan; cari baris `[tunel]` berisi `https://....trycloudflare.com` lalu kirim alamatnya ke peninjau. Alamat berubah tiap dijalankan; laptop harus menyala dan terminal tetap terbuka; Ctrl+C mematikan semuanya.
+2. **Terowongan** (sekali): `winget install --id Cloudflare.cloudflared` (tutup-buka terminal) **atau**, bila `winget` tidak ada, unduh `cloudflared-windows-amd64.exe` dari halaman rilis Cloudflare (`https://github.com/cloudflare/cloudflared/releases/latest`), simpan mis. di `C:/Alat/cloudflared.exe`, dan di terminal sebelum `npm run dev:tunnel` isi `$env:SIAP_CLOUDFLARED = "C:/Alat/cloudflared.exe"`. Lalu `npm run dev:tunnel`: membangun web, menjalankan API dan web (hasil build), dan membuka terowongan; cari baris `[tunel]` berisi `https://....trycloudflare.com` lalu kirim alamatnya ke peninjau. Alamat berubah tiap dijalankan; laptop harus menyala dan terminal tetap terbuka; Ctrl+C mematikan semuanya.
 3. Hanya data CONTOH. Jangan membagikan kata sandi `admin.owner`. Lihat RS-40.
 
 ## 7. Batasan Tahap 1.1
