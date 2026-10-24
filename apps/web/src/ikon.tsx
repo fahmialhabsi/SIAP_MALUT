@@ -5,6 +5,8 @@ const JALUR = {
   beranda: 'M3 11 12 3l9 8M5 10v10h14V10',
   agenda: 'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4',
   bentrok: 'M12 3 2 21h20zM12 10v5M12 18v.01',
+  lainnya: 'M5 12h.01M12 12h.01M19 12h.01',
+  tambah: 'M12 5v14M5 12h14',
   akun: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21c0-4 4-6 8-6s8 2 8 6',
   jam: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 2',
   lokasi: 'M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11zM12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',

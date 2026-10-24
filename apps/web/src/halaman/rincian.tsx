@@ -1,5 +1,5 @@
-import { useNavigate, useParams } from 'react-router';
-import type { Bentrok, EntriAudit, Kegiatan, Lampiran } from '../api/tipe';
+import { Link, useNavigate, useParams } from 'react-router';
+import type { Bentrok, EntriAudit, Kegiatan, Lampiran, Pejabat } from '../api/tipe';
 import { Ikon } from '../ikon';
 import { LencanaBentrok, LencanaStatus, Memuat, TampilanGalat } from '../komponen/komponen';
 import { usePakaiData } from '../pakai-data';
@@ -12,6 +12,12 @@ import {
   formatTanggalPanjang,
   kunciTanggalWit,
 } from '../waktu';
+import {
+  PanelKeputusan,
+  PanelKonfirmasiSaya,
+  PanelLampiran,
+  PanelStatus,
+} from '../komponen/tindakan';
 import { KeteranganBentrok } from './bentrok';
 
 function Baris({ label, children }: { label: string; children: React.ReactNode }) {
@@ -35,7 +41,12 @@ export function Rincian() {
   const { punya } = useSesi();
   const k = usePakaiData<Kegiatan>(`/api/kegiatan/${id}`);
   const bentrok = usePakaiData<Bentrok[]>(punya('bentrok.baca') ? '/api/bentrok' : null);
-  const semua = usePakaiData<Kegiatan[]>(punya('bentrok.baca') ? '/api/kegiatan' : null);
+  const semua = usePakaiData<Kegiatan[]>(
+    punya('bentrok.baca') || punya('pihak.kelola') ? '/api/kegiatan' : null,
+  );
+  const direktori = usePakaiData<Pejabat[]>(
+    punya('pihak.kelola') && punya('pejabat.baca') ? '/api/pejabat' : null,
+  );
   const lampiran = usePakaiData<Lampiran[]>(
     punya('lampiran.baca') ? `/api/kegiatan/${id}/lampiran` : null,
   );
@@ -43,6 +54,14 @@ export function Rincian() {
     entitasId: id,
     batas: '20',
   });
+
+  const muatUlangSemua = () => {
+    k.muatUlang();
+    bentrok.muatUlang();
+    semua.muatUlang();
+    lampiran.muatUlang();
+    riwayat.muatUlang();
+  };
 
   const kembali = (
     <button type="button" className="tombol tombol-sekunder" onClick={() => void navigasi(-1)}>
@@ -88,6 +107,23 @@ export function Rincian() {
         )}
         {keg.isContoh && <span className="penanda-contoh">{TEKS_UI.kegiatan.contoh}</span>}
       </p>
+
+      <PanelKonfirmasiSaya kegiatan={keg} saatSelesai={muatUlangSemua} />
+      <PanelKeputusan
+        kegiatan={keg}
+        bentrok={milikku}
+        semuaKegiatan={semua.data ?? []}
+        pejabat={direktori.data ?? []}
+        saatSelesai={muatUlangSemua}
+      />
+      <PanelStatus kegiatan={keg} bentrok={milikku} saatSelesai={muatUlangSemua} />
+      {punya('kegiatan.ubah') && !['berlangsung', 'selesai', 'dibatalkan'].includes(keg.status) && (
+        <p>
+          <Link className="tombol tombol-sekunder" to={`/kegiatan/${keg.id}/ubah`}>
+            {TEKS_UI.form.ubah}
+          </Link>
+        </p>
+      )}
 
       <dl className="kartu data-kegiatan">
         <Baris label={TEKS_UI.kegiatan.waktu}>
@@ -165,6 +201,7 @@ export function Rincian() {
           <h2 className="judul-bagian" id="r-lampiran">
             {TEKS_UI.kegiatan.lampiran}
           </h2>
+          <PanelLampiran kegiatanId={keg.id} saatSelesai={muatUlangSemua} />
           {(lampiran.data ?? []).length === 0 ? (
             <p className="teks-pendukung">{TEKS_UI.kegiatan.tanpaLampiran}</p>
           ) : (
@@ -193,7 +230,7 @@ export function Rincian() {
             <ul className="daftar-pihak">
               {(riwayat.data ?? []).map((e) => (
                 <li key={e.id} className="kartu pihak">
-                  <span className="pihak-nama">{e.aksi}</span>
+                  <span className="pihak-nama">{TEKS_UI.audit.aksi[e.aksi] ?? e.aksi}</span>
                   <span className="teks-pendukung tabular">
                     {formatTanggalJam(e.waktu)} oleh {e.aktor}
                     {e.alasan ? `: ${e.alasan}` : ''}

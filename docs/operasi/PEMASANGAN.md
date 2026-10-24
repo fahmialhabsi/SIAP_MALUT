@@ -88,5 +88,13 @@ powershell -ExecutionPolicy Bypass -File scripts\gate.ps1
 - Uji ini di luar `scripts/gate.ps1` agar gate tetap cepat; dijalankan pada pra-verifikasi tahap antarmuka (RS-38).
 - Tipe API antarmuka: `npm run api:tipe` setelah `npm run docs:api` mengubah `openapi.json`; `apps/web/src/api/tipe.test.ts` menjaga kesesuaiannya.
 
+## 6d. Atur Ulang Kata Sandi Admin (pengembangan)
+Hentikan `npm run dev`, lalu `npm run admin:sandi` (memakai `data/dev/pgdata`, folder yang sama dengan `npm run dev`; `scripts/admin-sandi.mjs`). Kata sandi sendiri: isi `SIAP_ADMIN_PASSWORD` (minimal 12 karakter) di terminal itu sebelum menjalankan; bila kosong, dicetak kata sandi acak sekali.
+
+## 6e. Peninjau Jarak Jauh: Akun Demo dan Terowongan (KOR-006, KOR-007)
+1. **Akun peninjau** (sekali, hentikan `npm run dev` dulu): `npm run akun:sandi -- demo.kabag-protokol`. Kata sandi sendiri: isi `SIAP_AKUN_PASSWORD` (minimal 12 karakter) di terminal itu; bila kosong dicetak kata sandi acak sekali. Akun ini berhak sebagai Kabag Protokol (bukan admin; tanpa "Lihat sebagai" dan Pengaturan). Akun peran lain: ganti nama pengguna.
+2. **Terowongan** (sekali): `winget install --id Cloudflare.cloudflared`, tutup-buka terminal. Lalu `npm run dev:tunnel`: membangun web, menjalankan API dan web (hasil build), dan membuka terowongan; cari baris `[tunel]` berisi `https://....trycloudflare.com` lalu kirim alamatnya ke peninjau. Alamat berubah tiap dijalankan; laptop harus menyala dan terminal tetap terbuka; Ctrl+C mematikan semuanya.
+3. Hanya data CONTOH. Jangan membagikan kata sandi `admin.owner`. Lihat RS-40.
+
 ## 7. Batasan Tahap 1.1
 Belum ada basis data, akun, dan data; cadangan/pemulihan (OP-03) menyusul. Pemasangan dengan kontainer **diverifikasi 23 Okt 2026** (build, jalan, health, web) pada Docker Desktop 28.3.3; bukti: `docs/audit/bukti-gate/docker-tahap-1.1.txt`. Pemasangan dari nol oleh pihak ketiga belum dicoba.

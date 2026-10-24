@@ -43,8 +43,15 @@ export default defineConfig({
         : {},
   },
   // Panggilan /api diteruskan ke API (satu asal bagi peramban: kuki sesi SameSite=Strict berfungsi tanpa CORS).
-  server: { proxy: { '/api': apiTarget, '/health': apiTarget, '/ready': apiTarget } },
-  preview: { proxy: { '/api': apiTarget, '/health': apiTarget, '/ready': apiTarget } },
+  // `.trycloudflare.com`: terowongan sementara untuk peninjau jarak jauh (npm run dev:tunnel).
+  server: {
+    allowedHosts: ['.trycloudflare.com'],
+    proxy: { '/api': apiTarget, '/health': apiTarget, '/ready': apiTarget },
+  },
+  preview: {
+    allowedHosts: ['.trycloudflare.com'],
+    proxy: { '/api': apiTarget, '/health': apiTarget, '/ready': apiTarget },
+  },
   test: {
     environment: 'jsdom',
     globals: false,

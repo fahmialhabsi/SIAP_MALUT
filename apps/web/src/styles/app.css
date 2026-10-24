@@ -490,3 +490,54 @@ body {
 .ikon {
   flex: none;
 }
+
+/* Tindakan (1.4b) */
+.tombol-penuh {
+  width: 100%;
+}
+.judul-kecil {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+}
+.pesan-peringatan {
+  margin: 0;
+  color: var(--color-warning);
+  font-weight: var(--fw-semibold);
+}
+.lembar-latar {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.lembar-tutup-latar {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: var(--color-text);
+  opacity: 0.5;
+}
+.lembar {
+  position: relative;
+  width: 100%;
+  max-width: 40rem;
+  max-height: 90vh;
+  padding: var(--space-4) var(--page-gutter) var(--space-5);
+  overflow-y: auto;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+.lembar:focus {
+  outline: none;
+}
+textarea.isian {
+  resize: vertical;
+}
+.pesan-galat ul {
+  margin: var(--space-1) 0 0;
+  padding-left: var(--space-5);
+}

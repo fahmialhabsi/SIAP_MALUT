@@ -1,7 +1,8 @@
-import { useSearchParams } from 'react-router';
+import { Link, useSearchParams } from 'react-router';
 import { Ikon } from '../ikon';
 import { KartuKegiatan, Memuat, TampilanGalat } from '../komponen/komponen';
 import { TANGGAL_CONTOH } from '../konfigurasi';
+import { useSesi } from '../sesi';
 import { TEKS_UI } from '../teks-ui';
 import {
   angkaTanggal,
@@ -18,6 +19,7 @@ const FORMAT_KUNCI = /^\d{4}-\d{2}-\d{2}$/;
 
 export function Agenda() {
   const [params, setParams] = useSearchParams();
+  const { punya } = useSesi();
   const hariIni = hariIniWit();
   const dipilih = FORMAT_KUNCI.test(params.get('tanggal') ?? '')
     ? (params.get('tanggal') as string)
@@ -63,6 +65,15 @@ export function Agenda() {
           <Ikon nama="kanan" />
         </button>
       </div>
+
+      {punya('kegiatan.buat') && (
+        <p>
+          <Link className="tombol" to="/kegiatan/baru">
+            <Ikon nama="tambah" ukuran="var(--icon-sm)" />
+            <span>{TEKS_UI.form.tambah}</span>
+          </Link>
+        </p>
+      )}
 
       <div className="aksi-baris">
         <button type="button" className="tombol tombol-sekunder" onClick={() => ke(hariIni)}>

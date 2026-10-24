@@ -4,2777 +4,2799 @@
  */
 
 export interface paths {
-  '/health': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/health": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Proses hidup */
+        get: operations["get_health"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /** Proses hidup */
-    get: operations['get_health'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/ready': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/ready": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Siap melayani (memeriksa basis data) */
+        get: operations["get_ready"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /** Siap melayani (memeriksa basis data) */
-    get: operations['get_ready'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/audit': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/audit": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Log audit (baca saja, terbaru lebih dulu) */
+        get: operations["get_audit"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /** Log audit (baca saja, terbaru lebih dulu) */
-    get: operations['get_audit'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/bentrok': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/bentrok": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Bentrok jadwal (jam dan sumber daya), seluruhnya atau pada satu tanggal WIT */
+        get: operations["get_bentrok"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /** Bentrok jadwal (jam dan sumber daya), seluruhnya atau pada satu tanggal WIT */
-    get: operations['get_bentrok'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/demo/persona': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/demo/persona": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Daftar persona yang dapat dipakai admin (hanya mode demo) */
+        get: operations["get_demo_persona"];
+        put?: never;
+        /** Berpindah tampilan ke persona (hanya mode demo; tercatat di log audit) */
+        post: operations["post_demo_persona"];
+        /** Kembali ke akun admin asli (hanya mode demo) */
+        delete: operations["delete_demo_persona"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /** Daftar persona yang dapat dipakai admin (hanya mode demo) */
-    get: operations['get_demo_persona'];
-    put?: never;
-    /** Berpindah tampilan ke persona (hanya mode demo; tercatat di log audit) */
-    post: operations['post_demo_persona'];
-    /** Kembali ke akun admin asli (hanya mode demo) */
-    delete: operations['delete_demo_persona'];
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/hak-akses': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/hak-akses": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Matriks hak akses (peran dan izinnya) */
+        get: operations["get_hak-akses"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /** Matriks hak akses (peran dan izinnya) */
-    get: operations['get_hak-akses'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/kegiatan': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/kegiatan": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Daftar kegiatan (menurut tanggal WIT dan status) */
+        get: operations["get_kegiatan"];
+        put?: never;
+        /** Mencatat undangan/kegiatan baru (status Baru) */
+        post: operations["post_kegiatan"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /** Daftar kegiatan (menurut tanggal WIT dan status) */
-    get: operations['get_kegiatan'];
-    put?: never;
-    /** Mencatat undangan/kegiatan baru (status Baru) */
-    post: operations['post_kegiatan'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/kegiatan/{id}': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/kegiatan/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Rincian satu kegiatan */
+        get: operations["get_kegiatan_id"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Mengubah data kegiatan (bukan status dan bukan pihak) */
+        patch: operations["patch_kegiatan_id"];
+        trace?: never;
     };
-    /** Rincian satu kegiatan */
-    get: operations['get_kegiatan_id'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    /** Mengubah data kegiatan (bukan status dan bukan pihak) */
-    patch: operations['patch_kegiatan_id'];
-    trace?: never;
-  };
-  '/api/kegiatan/{id}/lampiran': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/kegiatan/{id}/keputusan-kehadiran": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Keputusan kehadiran pimpinan secara atomik: hadir sendiri, wakilkan, tidak hadir, atau tunda (opsional sekaligus menetapkan) */
+        post: operations["post_kegiatan_id_keputusan-kehadiran"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /** Daftar lampiran sebuah kegiatan */
-    get: operations['get_kegiatan_id_lampiran'];
-    put?: never;
-    /** Mengunggah lampiran undangan (PDF, JPG, PNG; jenis dikenali dari isi berkas) */
-    post: operations['post_kegiatan_id_lampiran'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/kegiatan/{id}/pihak/{pihakId}': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/kegiatan/{id}/lampiran": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Daftar lampiran sebuah kegiatan */
+        get: operations["get_kegiatan_id_lampiran"];
+        put?: never;
+        /** Mengunggah lampiran undangan (PDF, JPG, PNG; jenis dikenali dari isi berkas) */
+        post: operations["post_kegiatan_id_lampiran"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    get?: never;
-    /** Menetapkan kedudukan pihak pada kegiatan (undang, tugaskan, terima, tolak) */
-    put: operations['put_kegiatan_id_pihak_pihakId'];
-    post?: never;
-    /** Menghapus pihak dari kegiatan */
-    delete: operations['delete_kegiatan_id_pihak_pihakId'];
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/kegiatan/{id}/pindah-status': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/kegiatan/{id}/pihak/{pihakId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Menetapkan kedudukan pihak pada kegiatan (undang, tugaskan, terima, tolak) */
+        put: operations["put_kegiatan_id_pihak_pihakId"];
+        post?: never;
+        /** Menghapus pihak dari kegiatan */
+        delete: operations["delete_kegiatan_id_pihak_pihakId"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    get?: never;
-    put?: never;
-    /** Memindahkan status kegiatan (aturan domain; bentrok pasti butuh alasan) */
-    post: operations['post_kegiatan_id_pindah-status'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/lampiran/{id}': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/kegiatan/{id}/pindah-status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Memindahkan status kegiatan (aturan domain; bentrok pasti butuh alasan) */
+        post: operations["post_kegiatan_id_pindah-status"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /** Mengunduh berkas lampiran */
-    get: operations['get_lampiran_id'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/pejabat': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/lampiran/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Mengunduh berkas lampiran */
+        get: operations["get_lampiran_id"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /** Direktori pihak (pimpinan, pejabat, petugas) */
-    get: operations['get_pejabat'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/pengaturan': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/pejabat": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Direktori pihak (pimpinan, pejabat, petugas) */
+        get: operations["get_pejabat"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /** Daftar pengaturan */
-    get: operations['get_pengaturan'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/pengaturan/{kunci}': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/pengaturan": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Daftar pengaturan */
+        get: operations["get_pengaturan"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    get?: never;
-    /** Mengubah pengaturan (mis. durasi bawaan kegiatan tanpa jam selesai) */
-    put: operations['put_pengaturan_kunci'];
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/saya': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/pengaturan/{kunci}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Mengubah pengaturan (mis. durasi bawaan kegiatan tanpa jam selesai) */
+        put: operations["put_pengaturan_kunci"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    /** Profil dan izin pengguna yang sedang masuk */
-    get: operations['get_saya'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/sesi': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
+    "/api/saya": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Profil dan izin pengguna yang sedang masuk */
+        get: operations["get_saya"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    get?: never;
-    put?: never;
-    /** Masuk (membuat sesi) */
-    post: operations['post_sesi'];
-    /** Keluar (mengakhiri sesi) */
-    delete: operations['delete_sesi'];
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
+    "/api/sesi": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Masuk (membuat sesi) */
+        post: operations["post_sesi"];
+        /** Keluar (mengakhiri sesi) */
+        delete: operations["delete_sesi"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
-  schemas: never;
-  responses: never;
-  parameters: never;
-  requestBodies: never;
-  headers: never;
-  pathItems: never;
+    schemas: never;
+    responses: never;
+    parameters: never;
+    requestBodies: never;
+    headers: never;
+    pathItems: never;
 }
 export type $defs = Record<string, never>;
 export interface operations {
-  get_health: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description {"status":"ok"} */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  get_ready: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Siap */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Basis data tidak dapat dijangkau */
-      503: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  get_audit: {
-    parameters: {
-      query?: {
-        entitasId?: string;
-        batas?: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Catatan audit */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            id: number;
-            waktu: string;
-            aktor: string;
-            aktorPeran: string | null;
-            aksi: string;
-            entitas: string | null;
-            entitasId: string | null;
-            sebelum: unknown;
-            sesudah: unknown;
-            alasan: string | null;
-            reqId: string | null;
-            ip: string | null;
-          }[];
-        };
-      };
-      /** @description Parameter tidak valid */
-      400: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-    };
-  };
-  get_bentrok: {
-    parameters: {
-      query?: {
-        tanggal?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Daftar bentrok (peringatan, bukan pemblokiran) */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            pihakId: string;
-            pihakNama: string;
-            /** @enum {string} */
-            golongan: 'pimpinan' | 'pejabat' | 'petugas';
-            /** @enum {string} */
-            jenis: 'langsung' | 'sumber_daya';
-            /** @enum {string} */
-            kepastian: 'pasti' | 'potensi';
-            kegiatanA: string;
-            kegiatanB: string;
-            irisan: {
-              mulai: string;
-              selesai: string;
-            };
-          }[];
-        };
-      };
-      /** @description Parameter tidak valid */
-      400: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-    };
-  };
-  get_demo_persona: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Persona */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            username: string;
-            nama: string;
-            /** @enum {string} */
-            peran:
-              | 'admin'
-              | 'kepala_biro'
-              | 'kabag_protokol'
-              | 'protokol'
-              | 'ajudan'
-              | 'pimpinan'
-              | 'pejabat'
-              | 'pemohon'
-              | 'publik';
-          }[];
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Bukan mode demo */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-    };
-  };
-  post_demo_persona: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': {
-          username: string;
-        };
-      };
-    };
-    responses: {
-      /** @description Profil persona yang kini dipakai */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            username: string;
-            nama: string;
-            /** @enum {string} */
-            peran:
-              | 'admin'
-              | 'kepala_biro'
-              | 'kabag_protokol'
-              | 'protokol'
-              | 'ajudan'
-              | 'pimpinan'
-              | 'pejabat'
-              | 'pemohon'
-              | 'publik';
-            pejabatId: string | null;
-            izin: (
-              | 'kegiatan.baca_semua'
-              | 'kegiatan.baca_terkait'
-              | 'kegiatan.buat'
-              | 'kegiatan.ubah'
-              | 'kegiatan.pindah_status'
-              | 'pihak.kelola'
-              | 'pihak.konfirmasi_sendiri'
-              | 'bentrok.baca'
-              | 'pejabat.baca'
-              | 'lampiran.baca'
-              | 'lampiran.unggah'
-              | 'tautan_rapat.lihat_semua'
-              | 'pengaturan.baca'
-              | 'pengaturan.ubah'
-              | 'audit.baca'
-              | 'hakakses.baca'
-              | 'demo.pindah_persona'
-            )[];
-            /** @enum {string} */
-            mode: 'demo' | 'production';
-            sebagaiPersona: boolean;
-            akunAsli: string | null;
-          };
-        };
-      };
-      /** @description Persona tidak dikenal */
-      400: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Bukan mode demo */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-    };
-  };
-  delete_demo_persona: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Kembali ke akun asli */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Bukan mode demo */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-    };
-  };
-  'get_hak-akses': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Matriks hak akses saat ini */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            izin: (
-              | 'kegiatan.baca_semua'
-              | 'kegiatan.baca_terkait'
-              | 'kegiatan.buat'
-              | 'kegiatan.ubah'
-              | 'kegiatan.pindah_status'
-              | 'pihak.kelola'
-              | 'pihak.konfirmasi_sendiri'
-              | 'bentrok.baca'
-              | 'pejabat.baca'
-              | 'lampiran.baca'
-              | 'lampiran.unggah'
-              | 'tautan_rapat.lihat_semua'
-              | 'pengaturan.baca'
-              | 'pengaturan.ubah'
-              | 'audit.baca'
-              | 'hakakses.baca'
-              | 'demo.pindah_persona'
-            )[];
-            peran: {
-              [key: string]: (
-                | 'kegiatan.baca_semua'
-                | 'kegiatan.baca_terkait'
-                | 'kegiatan.buat'
-                | 'kegiatan.ubah'
-                | 'kegiatan.pindah_status'
-                | 'pihak.kelola'
-                | 'pihak.konfirmasi_sendiri'
-                | 'bentrok.baca'
-                | 'pejabat.baca'
-                | 'lampiran.baca'
-                | 'lampiran.unggah'
-                | 'tautan_rapat.lihat_semua'
-                | 'pengaturan.baca'
-                | 'pengaturan.ubah'
-                | 'audit.baca'
-                | 'hakakses.baca'
-                | 'demo.pindah_persona'
-              )[];
-            };
-          };
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-    };
-  };
-  get_kegiatan: {
-    parameters: {
-      query?: {
-        tanggal?: string;
-        status?:
-          | 'baru'
-          | 'menunggu_arahan'
-          | 'ditetapkan'
-          | 'terkonfirmasi'
-          | 'berlangsung'
-          | 'selesai'
-          | 'dibatalkan'
-          | 'ditunda';
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Daftar kegiatan sesuai hak akses */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            id: string;
-            judul: string;
-            jenis: string | null;
-            mulai: string;
-            selesai: string | null;
-            lokasi: {
-              nama: string;
-              pulau: string | null;
-            } | null;
-            /** @enum {string} */
-            status:
-              | 'baru'
-              | 'menunggu_arahan'
-              | 'ditetapkan'
-              | 'terkonfirmasi'
-              | 'berlangsung'
-              | 'selesai'
-              | 'dibatalkan'
-              | 'ditunda';
-            penyelenggara: string | null;
-            picProtokolId: string | null;
-            picPengundang: {
-              nama: string | null;
-              kontak: string | null;
-            } | null;
-            tautanRapat: string | null;
-            catatan: string | null;
-            isContoh: boolean;
-            pihak: {
-              id: string;
-              nama: string;
-              /** @enum {string} */
-              golongan: 'pimpinan' | 'pejabat' | 'petugas';
-              /** @enum {string} */
-              kedudukan: 'diundang' | 'ditugaskan' | 'diterima' | 'ditolak';
-              peran: ('utama' | 'mewakili' | 'pendamping') | null;
-            }[];
-            dibuat: string;
-            diubah: string;
-          }[];
-        };
-      };
-      /** @description Parameter tidak valid */
-      400: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-    };
-  };
-  post_kegiatan: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': {
-          judul: string;
-          jenis?: string;
-          mulai: string;
-          selesai?: string;
-          lokasi?: {
-            nama: string;
-            pulau?: string;
-          };
-          penyelenggara?: string;
-          picProtokolId?: string;
-          picPengundang?: {
-            nama?: string;
-            kontak?: string;
-          };
-          tautanRapat?: string;
-          catatan?: string;
-          pihak?: {
-            pihakId: string;
-            /**
-             * @default diundang
-             * @enum {string}
-             */
-            kedudukan?: 'diundang' | 'ditugaskan' | 'diterima' | 'ditolak';
-            /** @enum {string} */
-            peran?: 'utama' | 'mewakili' | 'pendamping';
-          }[];
-        };
-      };
-    };
-    responses: {
-      /** @description Kegiatan dibuat */
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            id: string;
-            judul: string;
-            jenis: string | null;
-            mulai: string;
-            selesai: string | null;
-            lokasi: {
-              nama: string;
-              pulau: string | null;
-            } | null;
-            /** @enum {string} */
-            status:
-              | 'baru'
-              | 'menunggu_arahan'
-              | 'ditetapkan'
-              | 'terkonfirmasi'
-              | 'berlangsung'
-              | 'selesai'
-              | 'dibatalkan'
-              | 'ditunda';
-            penyelenggara: string | null;
-            picProtokolId: string | null;
-            picPengundang: {
-              nama: string | null;
-              kontak: string | null;
-            } | null;
-            tautanRapat: string | null;
-            catatan: string | null;
-            isContoh: boolean;
-            pihak: {
-              id: string;
-              nama: string;
-              /** @enum {string} */
-              golongan: 'pimpinan' | 'pejabat' | 'petugas';
-              /** @enum {string} */
-              kedudukan: 'diundang' | 'ditugaskan' | 'diterima' | 'ditolak';
-              peran: ('utama' | 'mewakili' | 'pendamping') | null;
-            }[];
-            dibuat: string;
-            diubah: string;
-          };
-        };
-      };
-      /** @description Data tidak valid */
-      400: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-    };
-  };
-  get_kegiatan_id: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Kegiatan */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            id: string;
-            judul: string;
-            jenis: string | null;
-            mulai: string;
-            selesai: string | null;
-            lokasi: {
-              nama: string;
-              pulau: string | null;
-            } | null;
-            /** @enum {string} */
-            status:
-              | 'baru'
-              | 'menunggu_arahan'
-              | 'ditetapkan'
-              | 'terkonfirmasi'
-              | 'berlangsung'
-              | 'selesai'
-              | 'dibatalkan'
-              | 'ditunda';
-            penyelenggara: string | null;
-            picProtokolId: string | null;
-            picPengundang: {
-              nama: string | null;
-              kontak: string | null;
-            } | null;
-            tautanRapat: string | null;
-            catatan: string | null;
-            isContoh: boolean;
-            pihak: {
-              id: string;
-              nama: string;
-              /** @enum {string} */
-              golongan: 'pimpinan' | 'pejabat' | 'petugas';
-              /** @enum {string} */
-              kedudukan: 'diundang' | 'ditugaskan' | 'diterima' | 'ditolak';
-              peran: ('utama' | 'mewakili' | 'pendamping') | null;
-            }[];
-            dibuat: string;
-            diubah: string;
-          };
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak ditemukan atau di luar hak akses */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-    };
-  };
-  patch_kegiatan_id: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': {
-          judul?: string;
-          jenis?: string | null;
-          mulai?: string;
-          selesai?: string | null;
-          lokasi?: {
-            nama: string;
-            pulau?: string;
-          } | null;
-          penyelenggara?: string | null;
-          picProtokolId?: string | null;
-          picPengundang?: {
-            nama?: string;
-            kontak?: string;
-          } | null;
-          tautanRapat?: string | null;
-          catatan?: string | null;
-        };
-      };
-    };
-    responses: {
-      /** @description Kegiatan setelah diubah */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            id: string;
-            judul: string;
-            jenis: string | null;
-            mulai: string;
-            selesai: string | null;
-            lokasi: {
-              nama: string;
-              pulau: string | null;
-            } | null;
-            /** @enum {string} */
-            status:
-              | 'baru'
-              | 'menunggu_arahan'
-              | 'ditetapkan'
-              | 'terkonfirmasi'
-              | 'berlangsung'
-              | 'selesai'
-              | 'dibatalkan'
-              | 'ditunda';
-            penyelenggara: string | null;
-            picProtokolId: string | null;
-            picPengundang: {
-              nama: string | null;
-              kontak: string | null;
-            } | null;
-            tautanRapat: string | null;
-            catatan: string | null;
-            isContoh: boolean;
-            pihak: {
-              id: string;
-              nama: string;
-              /** @enum {string} */
-              golongan: 'pimpinan' | 'pejabat' | 'petugas';
-              /** @enum {string} */
-              kedudukan: 'diundang' | 'ditugaskan' | 'diterima' | 'ditolak';
-              peran: ('utama' | 'mewakili' | 'pendamping') | null;
-            }[];
-            dibuat: string;
-            diubah: string;
-          };
-        };
-      };
-      /** @description Data tidak valid */
-      400: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak ditemukan */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Status mengunci perubahan (berlangsung/selesai/dibatalkan) */
-      409: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-    };
-  };
-  get_kegiatan_id_lampiran: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Daftar lampiran */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            id: string;
-            kegiatanId: string;
-            namaBerkas: string;
-            tipe: string;
-            ukuran: number;
-            hashIsi: string;
-            dibuat: string;
-          }[];
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Kegiatan tidak ditemukan atau di luar hak akses */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-    };
-  };
-  post_kegiatan_id_lampiran: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'multipart/form-data': {
-          /** Format: binary */
-          berkas: string;
-        };
-      };
-    };
-    responses: {
-      /** @description Lampiran tersimpan */
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            id: string;
-            kegiatanId: string;
-            namaBerkas: string;
-            tipe: string;
-            ukuran: number;
-            hashIsi: string;
-            dibuat: string;
-          };
-        };
-      };
-      /** @description Tidak ada berkas */
-      400: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Kegiatan tidak ditemukan */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Berkas terlalu besar */
-      413: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Jenis berkas tidak didukung */
-      415: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-    };
-  };
-  put_kegiatan_id_pihak_pihakId: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-        pihakId: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @enum {string} */
-          kedudukan: 'diundang' | 'ditugaskan' | 'diterima' | 'ditolak';
-          peran?: ('utama' | 'mewakili' | 'pendamping') | null;
-        };
-      };
-    };
-    responses: {
-      /** @description Kegiatan setelah diubah */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            id: string;
-            judul: string;
-            jenis: string | null;
-            mulai: string;
-            selesai: string | null;
-            lokasi: {
-              nama: string;
-              pulau: string | null;
-            } | null;
-            /** @enum {string} */
-            status:
-              | 'baru'
-              | 'menunggu_arahan'
-              | 'ditetapkan'
-              | 'terkonfirmasi'
-              | 'berlangsung'
-              | 'selesai'
-              | 'dibatalkan'
-              | 'ditunda';
-            penyelenggara: string | null;
-            picProtokolId: string | null;
-            picPengundang: {
-              nama: string | null;
-              kontak: string | null;
-            } | null;
-            tautanRapat: string | null;
-            catatan: string | null;
-            isContoh: boolean;
-            pihak: {
-              id: string;
-              nama: string;
-              /** @enum {string} */
-              golongan: 'pimpinan' | 'pejabat' | 'petugas';
-              /** @enum {string} */
-              kedudukan: 'diundang' | 'ditugaskan' | 'diterima' | 'ditolak';
-              peran: ('utama' | 'mewakili' | 'pendamping') | null;
-            }[];
-            dibuat: string;
-            diubah: string;
-          };
-        };
-      };
-      /** @description Data tidak valid */
-      400: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin (pejabat hanya boleh menerima/menolak penugasan dirinya) */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak ditemukan */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Kegiatan sudah selesai atau dibatalkan */
-      409: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-    };
-  };
-  delete_kegiatan_id_pihak_pihakId: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-        pihakId: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Kegiatan setelah diubah */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            id: string;
-            judul: string;
-            jenis: string | null;
-            mulai: string;
-            selesai: string | null;
-            lokasi: {
-              nama: string;
-              pulau: string | null;
-            } | null;
-            /** @enum {string} */
-            status:
-              | 'baru'
-              | 'menunggu_arahan'
-              | 'ditetapkan'
-              | 'terkonfirmasi'
-              | 'berlangsung'
-              | 'selesai'
-              | 'dibatalkan'
-              | 'ditunda';
-            penyelenggara: string | null;
-            picProtokolId: string | null;
-            picPengundang: {
-              nama: string | null;
-              kontak: string | null;
-            } | null;
-            tautanRapat: string | null;
-            catatan: string | null;
-            isContoh: boolean;
-            pihak: {
-              id: string;
-              nama: string;
-              /** @enum {string} */
-              golongan: 'pimpinan' | 'pejabat' | 'petugas';
-              /** @enum {string} */
-              kedudukan: 'diundang' | 'ditugaskan' | 'diterima' | 'ditolak';
-              peran: ('utama' | 'mewakili' | 'pendamping') | null;
-            }[];
-            dibuat: string;
-            diubah: string;
-          };
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak ditemukan */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Kegiatan sudah selesai atau dibatalkan */
-      409: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-    };
-  };
-  'post_kegiatan_id_pindah-status': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @enum {string} */
-          ke:
-            | 'baru'
-            | 'menunggu_arahan'
-            | 'ditetapkan'
-            | 'terkonfirmasi'
-            | 'berlangsung'
-            | 'selesai'
-            | 'dibatalkan'
-            | 'ditunda';
-          alasan?: string;
-          alasanBentrok?: string;
-        };
-      };
-    };
-    responses: {
-      /** @description Status dipindahkan; peristiwa dan peringatan bentrok */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            kegiatan: {
-              id: string;
-              judul: string;
-              jenis: string | null;
-              mulai: string;
-              selesai: string | null;
-              lokasi: {
-                nama: string;
-                pulau: string | null;
-              } | null;
-              /** @enum {string} */
-              status:
-                | 'baru'
-                | 'menunggu_arahan'
-                | 'ditetapkan'
-                | 'terkonfirmasi'
-                | 'berlangsung'
-                | 'selesai'
-                | 'dibatalkan'
-                | 'ditunda';
-              penyelenggara: string | null;
-              picProtokolId: string | null;
-              picPengundang: {
-                nama: string | null;
-                kontak: string | null;
-              } | null;
-              tautanRapat: string | null;
-              catatan: string | null;
-              isContoh: boolean;
-              pihak: {
-                id: string;
-                nama: string;
-                /** @enum {string} */
-                golongan: 'pimpinan' | 'pejabat' | 'petugas';
-                /** @enum {string} */
-                kedudukan: 'diundang' | 'ditugaskan' | 'diterima' | 'ditolak';
-                peran: ('utama' | 'mewakili' | 'pendamping') | null;
-              }[];
-              dibuat: string;
-              diubah: string;
-            };
-            peristiwa: {
-              kegiatanId: string;
-              /** @enum {string} */
-              dari:
-                | 'baru'
-                | 'menunggu_arahan'
-                | 'ditetapkan'
-                | 'terkonfirmasi'
-                | 'berlangsung'
-                | 'selesai'
-                | 'dibatalkan'
-                | 'ditunda';
-              /** @enum {string} */
-              ke:
-                | 'baru'
-                | 'menunggu_arahan'
-                | 'ditetapkan'
-                | 'terkonfirmasi'
-                | 'berlangsung'
-                | 'selesai'
-                | 'dibatalkan'
-                | 'ditunda';
-              oleh: string;
-              waktu: string;
-              alasan?: string;
-              alasanBentrok?: string;
-              bentrok: {
-                pihakId: string;
-                pihakNama: string;
-                /** @enum {string} */
-                golongan: 'pimpinan' | 'pejabat' | 'petugas';
-                /** @enum {string} */
-                jenis: 'langsung' | 'sumber_daya';
-                /** @enum {string} */
-                kepastian: 'pasti' | 'potensi';
-                kegiatanA: string;
-                kegiatanB: string;
-                irisan: {
-                  mulai: string;
-                  selesai: string;
+    get_health: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description {"status":"ok"} */
+            200: {
+                headers: {
+                    [name: string]: unknown;
                 };
-              }[];
+                content?: never;
             };
-            peringatan: {
-              pihakId: string;
-              pihakNama: string;
-              /** @enum {string} */
-              golongan: 'pimpinan' | 'pejabat' | 'petugas';
-              /** @enum {string} */
-              jenis: 'langsung' | 'sumber_daya';
-              /** @enum {string} */
-              kepastian: 'pasti' | 'potensi';
-              kegiatanA: string;
-              kegiatanB: string;
-              irisan: {
-                mulai: string;
-                selesai: string;
-              };
-            }[];
-          };
         };
-      };
-      /** @description Data tidak valid */
-      400: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Tidak ditemukan */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Status berubah oleh pengguna lain */
-      409: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Perpindahan ditolak aturan (rincian di rincian[]) */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
     };
-  };
-  get_lampiran_id: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Isi berkas (PDF/JPG/PNG), sebagai unduhan */
-      200: {
-        headers: {
-          [name: string]: unknown;
+    get_ready: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-        content: {
-          'application/octet-stream': string;
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
+        requestBody?: never;
+        responses: {
+            /** @description Siap */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
+            /** @description Basis data tidak dapat dijangkau */
+            503: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
-          };
         };
-      };
-      /** @description Tidak ditemukan atau di luar hak akses */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
+    };
+    get_audit: {
+        parameters: {
+            query?: {
+                entitasId?: string;
+                batas?: number;
             };
-          };
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-    };
-  };
-  get_pejabat: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Daftar pihak */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            id: string;
-            nama: string;
-            /** @enum {string} */
-            golongan: 'pimpinan' | 'pejabat' | 'petugas';
-            jabatan: string | null;
-            instansi: string | null;
-            urutanTataTempat: number | null;
-            isContoh: boolean;
-          }[];
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
+        requestBody?: never;
+        responses: {
+            /** @description Catatan audit */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        id: number;
+                        waktu: string;
+                        aktor: string;
+                        aktorPeran: string | null;
+                        aksi: string;
+                        entitas: string | null;
+                        entitasId: string | null;
+                        sebelum: unknown;
+                        sesudah: unknown;
+                        alasan: string | null;
+                        reqId: string | null;
+                        ip: string | null;
+                    }[];
+                };
             };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
+            /** @description Parameter tidak valid */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
             };
-          };
-        };
-      };
-    };
-  };
-  get_pengaturan: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Pengaturan */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            kunci: string;
-            nilai: unknown;
-          }[];
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
             };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
             };
-          };
         };
-      };
     };
-  };
-  put_pengaturan_kunci: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        kunci: 'durasiBawaanMenit';
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': {
-          nilai: number;
-        };
-      };
-    };
-    responses: {
-      /** @description Pengaturan setelah diubah */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            kunci: string;
-            nilai: unknown;
-          };
-        };
-      };
-      /** @description Nilai tidak valid */
-      400: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
+    get_bentrok: {
+        parameters: {
+            query?: {
+                tanggal?: string;
             };
-          };
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
+        requestBody?: never;
+        responses: {
+            /** @description Daftar bentrok (peringatan, bukan pemblokiran) */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        pihakId: string;
+                        pihakNama: string;
+                        /** @enum {string} */
+                        golongan: "pimpinan" | "pejabat" | "petugas";
+                        /** @enum {string} */
+                        jenis: "langsung" | "sumber_daya";
+                        /** @enum {string} */
+                        kepastian: "pasti" | "potensi";
+                        kegiatanA: string;
+                        kegiatanB: string;
+                        irisan: {
+                            mulai: string;
+                            selesai: string;
+                        };
+                    }[];
+                };
             };
-          };
-        };
-      };
-      /** @description Tidak berizin */
-      403: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
+            /** @description Parameter tidak valid */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
             };
-          };
-        };
-      };
-    };
-  };
-  get_saya: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Profil */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            username: string;
-            nama: string;
-            /** @enum {string} */
-            peran:
-              | 'admin'
-              | 'kepala_biro'
-              | 'kabag_protokol'
-              | 'protokol'
-              | 'ajudan'
-              | 'pimpinan'
-              | 'pejabat'
-              | 'pemohon'
-              | 'publik';
-            pejabatId: string | null;
-            izin: (
-              | 'kegiatan.baca_semua'
-              | 'kegiatan.baca_terkait'
-              | 'kegiatan.buat'
-              | 'kegiatan.ubah'
-              | 'kegiatan.pindah_status'
-              | 'pihak.kelola'
-              | 'pihak.konfirmasi_sendiri'
-              | 'bentrok.baca'
-              | 'pejabat.baca'
-              | 'lampiran.baca'
-              | 'lampiran.unggah'
-              | 'tautan_rapat.lihat_semua'
-              | 'pengaturan.baca'
-              | 'pengaturan.ubah'
-              | 'audit.baca'
-              | 'hakakses.baca'
-              | 'demo.pindah_persona'
-            )[];
-            /** @enum {string} */
-            mode: 'demo' | 'production';
-            sebagaiPersona: boolean;
-            akunAsli: string | null;
-          };
-        };
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
             };
-          };
-        };
-      };
-    };
-  };
-  post_sesi: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': {
-          username: string;
-          sandi: string;
-        };
-      };
-    };
-    responses: {
-      /** @description Berhasil masuk; kuki sesi httpOnly dikirim */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            username: string;
-            nama: string;
-            /** @enum {string} */
-            peran:
-              | 'admin'
-              | 'kepala_biro'
-              | 'kabag_protokol'
-              | 'protokol'
-              | 'ajudan'
-              | 'pimpinan'
-              | 'pejabat'
-              | 'pemohon'
-              | 'publik';
-            pejabatId: string | null;
-            izin: (
-              | 'kegiatan.baca_semua'
-              | 'kegiatan.baca_terkait'
-              | 'kegiatan.buat'
-              | 'kegiatan.ubah'
-              | 'kegiatan.pindah_status'
-              | 'pihak.kelola'
-              | 'pihak.konfirmasi_sendiri'
-              | 'bentrok.baca'
-              | 'pejabat.baca'
-              | 'lampiran.baca'
-              | 'lampiran.unggah'
-              | 'tautan_rapat.lihat_semua'
-              | 'pengaturan.baca'
-              | 'pengaturan.ubah'
-              | 'audit.baca'
-              | 'hakakses.baca'
-              | 'demo.pindah_persona'
-            )[];
-            /** @enum {string} */
-            mode: 'demo' | 'production';
-            sebagaiPersona: boolean;
-            akunAsli: string | null;
-          };
-        };
-      };
-      /** @description Data tidak valid */
-      400: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
             };
-          };
         };
-      };
-      /** @description Nama pengguna atau kata sandi salah */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
-      /** @description Akun dikunci sementara setelah percobaan gagal berulang */
-      423: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
-            };
-          };
-        };
-      };
     };
-  };
-  delete_sesi: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Sesi diakhiri */
-      204: {
-        headers: {
-          [name: string]: unknown;
+    get_demo_persona: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-        content?: never;
-      };
-      /** @description Belum masuk */
-      401: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': {
-            galat: {
-              kode: string;
-              pesan: string;
-              rincian?: {
-                jalur: string;
-                pesan: string;
-              }[];
+        requestBody?: never;
+        responses: {
+            /** @description Persona */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        username: string;
+                        nama: string;
+                        /** @enum {string} */
+                        peran: "admin" | "kepala_biro" | "kabag_protokol" | "protokol" | "ajudan" | "pimpinan" | "pejabat" | "pemohon" | "publik";
+                    }[];
+                };
             };
-          };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Bukan mode demo */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
         };
-      };
     };
-  };
+    post_demo_persona: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    username: string;
+                };
+            };
+        };
+        responses: {
+            /** @description Profil persona yang kini dipakai */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        username: string;
+                        nama: string;
+                        /** @enum {string} */
+                        peran: "admin" | "kepala_biro" | "kabag_protokol" | "protokol" | "ajudan" | "pimpinan" | "pejabat" | "pemohon" | "publik";
+                        pejabatId: string | null;
+                        izin: ("kegiatan.baca_semua" | "kegiatan.baca_terkait" | "kegiatan.buat" | "kegiatan.ubah" | "kegiatan.pindah_status" | "pihak.kelola" | "pihak.konfirmasi_sendiri" | "bentrok.baca" | "pejabat.baca" | "lampiran.baca" | "lampiran.unggah" | "tautan_rapat.lihat_semua" | "pengaturan.baca" | "pengaturan.ubah" | "audit.baca" | "hakakses.baca" | "demo.pindah_persona")[];
+                        /** @enum {string} */
+                        mode: "demo" | "production";
+                        sebagaiPersona: boolean;
+                        akunAsli: string | null;
+                    };
+                };
+            };
+            /** @description Persona tidak dikenal */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Bukan mode demo */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    delete_demo_persona: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Kembali ke akun asli */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Bukan mode demo */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    "get_hak-akses": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Matriks hak akses saat ini */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        izin: ("kegiatan.baca_semua" | "kegiatan.baca_terkait" | "kegiatan.buat" | "kegiatan.ubah" | "kegiatan.pindah_status" | "pihak.kelola" | "pihak.konfirmasi_sendiri" | "bentrok.baca" | "pejabat.baca" | "lampiran.baca" | "lampiran.unggah" | "tautan_rapat.lihat_semua" | "pengaturan.baca" | "pengaturan.ubah" | "audit.baca" | "hakakses.baca" | "demo.pindah_persona")[];
+                        peran: {
+                            [key: string]: ("kegiatan.baca_semua" | "kegiatan.baca_terkait" | "kegiatan.buat" | "kegiatan.ubah" | "kegiatan.pindah_status" | "pihak.kelola" | "pihak.konfirmasi_sendiri" | "bentrok.baca" | "pejabat.baca" | "lampiran.baca" | "lampiran.unggah" | "tautan_rapat.lihat_semua" | "pengaturan.baca" | "pengaturan.ubah" | "audit.baca" | "hakakses.baca" | "demo.pindah_persona")[];
+                        };
+                    };
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    get_kegiatan: {
+        parameters: {
+            query?: {
+                tanggal?: string;
+                status?: "baru" | "menunggu_arahan" | "ditetapkan" | "terkonfirmasi" | "berlangsung" | "selesai" | "dibatalkan" | "ditunda";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Daftar kegiatan sesuai hak akses */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        id: string;
+                        judul: string;
+                        jenis: string | null;
+                        mulai: string;
+                        selesai: string | null;
+                        lokasi: {
+                            nama: string;
+                            pulau: string | null;
+                        } | null;
+                        /** @enum {string} */
+                        status: "baru" | "menunggu_arahan" | "ditetapkan" | "terkonfirmasi" | "berlangsung" | "selesai" | "dibatalkan" | "ditunda";
+                        penyelenggara: string | null;
+                        picProtokolId: string | null;
+                        picPengundang: {
+                            nama: string | null;
+                            kontak: string | null;
+                        } | null;
+                        tautanRapat: string | null;
+                        catatan: string | null;
+                        isContoh: boolean;
+                        pihak: {
+                            id: string;
+                            nama: string;
+                            /** @enum {string} */
+                            golongan: "pimpinan" | "pejabat" | "petugas";
+                            /** @enum {string} */
+                            kedudukan: "diundang" | "ditugaskan" | "diterima" | "ditolak";
+                            peran: ("utama" | "mewakili" | "pendamping") | null;
+                        }[];
+                        dibuat: string;
+                        diubah: string;
+                    }[];
+                };
+            };
+            /** @description Parameter tidak valid */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    post_kegiatan: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    judul: string;
+                    jenis?: string;
+                    mulai: string;
+                    selesai?: string;
+                    lokasi?: {
+                        nama: string;
+                        pulau?: string;
+                    };
+                    penyelenggara?: string;
+                    picProtokolId?: string;
+                    picPengundang?: {
+                        nama?: string;
+                        kontak?: string;
+                    };
+                    tautanRapat?: string;
+                    catatan?: string;
+                    pihak?: {
+                        pihakId: string;
+                        /**
+                         * @default diundang
+                         * @enum {string}
+                         */
+                        kedudukan?: "diundang" | "ditugaskan" | "diterima" | "ditolak";
+                        /** @enum {string} */
+                        peran?: "utama" | "mewakili" | "pendamping";
+                    }[];
+                };
+            };
+        };
+        responses: {
+            /** @description Kegiatan dibuat */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        id: string;
+                        judul: string;
+                        jenis: string | null;
+                        mulai: string;
+                        selesai: string | null;
+                        lokasi: {
+                            nama: string;
+                            pulau: string | null;
+                        } | null;
+                        /** @enum {string} */
+                        status: "baru" | "menunggu_arahan" | "ditetapkan" | "terkonfirmasi" | "berlangsung" | "selesai" | "dibatalkan" | "ditunda";
+                        penyelenggara: string | null;
+                        picProtokolId: string | null;
+                        picPengundang: {
+                            nama: string | null;
+                            kontak: string | null;
+                        } | null;
+                        tautanRapat: string | null;
+                        catatan: string | null;
+                        isContoh: boolean;
+                        pihak: {
+                            id: string;
+                            nama: string;
+                            /** @enum {string} */
+                            golongan: "pimpinan" | "pejabat" | "petugas";
+                            /** @enum {string} */
+                            kedudukan: "diundang" | "ditugaskan" | "diterima" | "ditolak";
+                            peran: ("utama" | "mewakili" | "pendamping") | null;
+                        }[];
+                        dibuat: string;
+                        diubah: string;
+                    };
+                };
+            };
+            /** @description Data tidak valid */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    get_kegiatan_id: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Kegiatan */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        id: string;
+                        judul: string;
+                        jenis: string | null;
+                        mulai: string;
+                        selesai: string | null;
+                        lokasi: {
+                            nama: string;
+                            pulau: string | null;
+                        } | null;
+                        /** @enum {string} */
+                        status: "baru" | "menunggu_arahan" | "ditetapkan" | "terkonfirmasi" | "berlangsung" | "selesai" | "dibatalkan" | "ditunda";
+                        penyelenggara: string | null;
+                        picProtokolId: string | null;
+                        picPengundang: {
+                            nama: string | null;
+                            kontak: string | null;
+                        } | null;
+                        tautanRapat: string | null;
+                        catatan: string | null;
+                        isContoh: boolean;
+                        pihak: {
+                            id: string;
+                            nama: string;
+                            /** @enum {string} */
+                            golongan: "pimpinan" | "pejabat" | "petugas";
+                            /** @enum {string} */
+                            kedudukan: "diundang" | "ditugaskan" | "diterima" | "ditolak";
+                            peran: ("utama" | "mewakili" | "pendamping") | null;
+                        }[];
+                        dibuat: string;
+                        diubah: string;
+                    };
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak ditemukan atau di luar hak akses */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    patch_kegiatan_id: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    judul?: string;
+                    jenis?: string | null;
+                    mulai?: string;
+                    selesai?: string | null;
+                    lokasi?: {
+                        nama: string;
+                        pulau?: string;
+                    } | null;
+                    penyelenggara?: string | null;
+                    picProtokolId?: string | null;
+                    picPengundang?: {
+                        nama?: string;
+                        kontak?: string;
+                    } | null;
+                    tautanRapat?: string | null;
+                    catatan?: string | null;
+                };
+            };
+        };
+        responses: {
+            /** @description Kegiatan setelah diubah */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        id: string;
+                        judul: string;
+                        jenis: string | null;
+                        mulai: string;
+                        selesai: string | null;
+                        lokasi: {
+                            nama: string;
+                            pulau: string | null;
+                        } | null;
+                        /** @enum {string} */
+                        status: "baru" | "menunggu_arahan" | "ditetapkan" | "terkonfirmasi" | "berlangsung" | "selesai" | "dibatalkan" | "ditunda";
+                        penyelenggara: string | null;
+                        picProtokolId: string | null;
+                        picPengundang: {
+                            nama: string | null;
+                            kontak: string | null;
+                        } | null;
+                        tautanRapat: string | null;
+                        catatan: string | null;
+                        isContoh: boolean;
+                        pihak: {
+                            id: string;
+                            nama: string;
+                            /** @enum {string} */
+                            golongan: "pimpinan" | "pejabat" | "petugas";
+                            /** @enum {string} */
+                            kedudukan: "diundang" | "ditugaskan" | "diterima" | "ditolak";
+                            peran: ("utama" | "mewakili" | "pendamping") | null;
+                        }[];
+                        dibuat: string;
+                        diubah: string;
+                    };
+                };
+            };
+            /** @description Data tidak valid */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak ditemukan */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Status mengunci perubahan (berlangsung/selesai/dibatalkan) */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    "post_kegiatan_id_keputusan-kehadiran": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    pimpinanId: string;
+                    /** @enum {string} */
+                    keputusan: "hadir_sendiri" | "wakilkan" | "tidak_hadir" | "tunda";
+                    penggantiId?: string;
+                    alasan?: string;
+                    tetapkan?: boolean;
+                    alasanBentrok?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description Keputusan tersimpan; kegiatan, peristiwa status, peringatan bentrok */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        kegiatan: {
+                            id: string;
+                            judul: string;
+                            jenis: string | null;
+                            mulai: string;
+                            selesai: string | null;
+                            lokasi: {
+                                nama: string;
+                                pulau: string | null;
+                            } | null;
+                            /** @enum {string} */
+                            status: "baru" | "menunggu_arahan" | "ditetapkan" | "terkonfirmasi" | "berlangsung" | "selesai" | "dibatalkan" | "ditunda";
+                            penyelenggara: string | null;
+                            picProtokolId: string | null;
+                            picPengundang: {
+                                nama: string | null;
+                                kontak: string | null;
+                            } | null;
+                            tautanRapat: string | null;
+                            catatan: string | null;
+                            isContoh: boolean;
+                            pihak: {
+                                id: string;
+                                nama: string;
+                                /** @enum {string} */
+                                golongan: "pimpinan" | "pejabat" | "petugas";
+                                /** @enum {string} */
+                                kedudukan: "diundang" | "ditugaskan" | "diterima" | "ditolak";
+                                peran: ("utama" | "mewakili" | "pendamping") | null;
+                            }[];
+                            dibuat: string;
+                            diubah: string;
+                        };
+                        peristiwa: {
+                            kegiatanId: string;
+                            /** @enum {string} */
+                            dari: "baru" | "menunggu_arahan" | "ditetapkan" | "terkonfirmasi" | "berlangsung" | "selesai" | "dibatalkan" | "ditunda";
+                            /** @enum {string} */
+                            ke: "baru" | "menunggu_arahan" | "ditetapkan" | "terkonfirmasi" | "berlangsung" | "selesai" | "dibatalkan" | "ditunda";
+                            oleh: string;
+                            waktu: string;
+                            alasan?: string;
+                            alasanBentrok?: string;
+                            bentrok: {
+                                pihakId: string;
+                                pihakNama: string;
+                                /** @enum {string} */
+                                golongan: "pimpinan" | "pejabat" | "petugas";
+                                /** @enum {string} */
+                                jenis: "langsung" | "sumber_daya";
+                                /** @enum {string} */
+                                kepastian: "pasti" | "potensi";
+                                kegiatanA: string;
+                                kegiatanB: string;
+                                irisan: {
+                                    mulai: string;
+                                    selesai: string;
+                                };
+                            }[];
+                        } | null;
+                        peringatan: {
+                            pihakId: string;
+                            pihakNama: string;
+                            /** @enum {string} */
+                            golongan: "pimpinan" | "pejabat" | "petugas";
+                            /** @enum {string} */
+                            jenis: "langsung" | "sumber_daya";
+                            /** @enum {string} */
+                            kepastian: "pasti" | "potensi";
+                            kegiatanA: string;
+                            kegiatanB: string;
+                            irisan: {
+                                mulai: string;
+                                selesai: string;
+                            };
+                        }[];
+                    };
+                };
+            };
+            /** @description Data tidak valid */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak ditemukan atau di luar hak akses */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Status mengunci perubahan atau berubah bersamaan */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Ditolak aturan (tidak ada perubahan yang tersimpan) */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    get_kegiatan_id_lampiran: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Daftar lampiran */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        id: string;
+                        kegiatanId: string;
+                        namaBerkas: string;
+                        tipe: string;
+                        ukuran: number;
+                        hashIsi: string;
+                        dibuat: string;
+                    }[];
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Kegiatan tidak ditemukan atau di luar hak akses */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    post_kegiatan_id_lampiran: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "multipart/form-data": {
+                    /** Format: binary */
+                    berkas: string;
+                };
+            };
+        };
+        responses: {
+            /** @description Lampiran tersimpan */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        id: string;
+                        kegiatanId: string;
+                        namaBerkas: string;
+                        tipe: string;
+                        ukuran: number;
+                        hashIsi: string;
+                        dibuat: string;
+                    };
+                };
+            };
+            /** @description Tidak ada berkas */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Kegiatan tidak ditemukan */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Berkas terlalu besar */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Jenis berkas tidak didukung */
+            415: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    put_kegiatan_id_pihak_pihakId: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+                pihakId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @enum {string} */
+                    kedudukan: "diundang" | "ditugaskan" | "diterima" | "ditolak";
+                    peran?: ("utama" | "mewakili" | "pendamping") | null;
+                };
+            };
+        };
+        responses: {
+            /** @description Kegiatan setelah diubah */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        id: string;
+                        judul: string;
+                        jenis: string | null;
+                        mulai: string;
+                        selesai: string | null;
+                        lokasi: {
+                            nama: string;
+                            pulau: string | null;
+                        } | null;
+                        /** @enum {string} */
+                        status: "baru" | "menunggu_arahan" | "ditetapkan" | "terkonfirmasi" | "berlangsung" | "selesai" | "dibatalkan" | "ditunda";
+                        penyelenggara: string | null;
+                        picProtokolId: string | null;
+                        picPengundang: {
+                            nama: string | null;
+                            kontak: string | null;
+                        } | null;
+                        tautanRapat: string | null;
+                        catatan: string | null;
+                        isContoh: boolean;
+                        pihak: {
+                            id: string;
+                            nama: string;
+                            /** @enum {string} */
+                            golongan: "pimpinan" | "pejabat" | "petugas";
+                            /** @enum {string} */
+                            kedudukan: "diundang" | "ditugaskan" | "diterima" | "ditolak";
+                            peran: ("utama" | "mewakili" | "pendamping") | null;
+                        }[];
+                        dibuat: string;
+                        diubah: string;
+                    };
+                };
+            };
+            /** @description Data tidak valid */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin (pejabat hanya boleh menerima/menolak penugasan dirinya) */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak ditemukan */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Kegiatan sudah selesai atau dibatalkan */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    delete_kegiatan_id_pihak_pihakId: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+                pihakId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Kegiatan setelah diubah */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        id: string;
+                        judul: string;
+                        jenis: string | null;
+                        mulai: string;
+                        selesai: string | null;
+                        lokasi: {
+                            nama: string;
+                            pulau: string | null;
+                        } | null;
+                        /** @enum {string} */
+                        status: "baru" | "menunggu_arahan" | "ditetapkan" | "terkonfirmasi" | "berlangsung" | "selesai" | "dibatalkan" | "ditunda";
+                        penyelenggara: string | null;
+                        picProtokolId: string | null;
+                        picPengundang: {
+                            nama: string | null;
+                            kontak: string | null;
+                        } | null;
+                        tautanRapat: string | null;
+                        catatan: string | null;
+                        isContoh: boolean;
+                        pihak: {
+                            id: string;
+                            nama: string;
+                            /** @enum {string} */
+                            golongan: "pimpinan" | "pejabat" | "petugas";
+                            /** @enum {string} */
+                            kedudukan: "diundang" | "ditugaskan" | "diterima" | "ditolak";
+                            peran: ("utama" | "mewakili" | "pendamping") | null;
+                        }[];
+                        dibuat: string;
+                        diubah: string;
+                    };
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak ditemukan */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Kegiatan sudah selesai atau dibatalkan */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    "post_kegiatan_id_pindah-status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @enum {string} */
+                    ke: "baru" | "menunggu_arahan" | "ditetapkan" | "terkonfirmasi" | "berlangsung" | "selesai" | "dibatalkan" | "ditunda";
+                    alasan?: string;
+                    alasanBentrok?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description Status dipindahkan; peristiwa dan peringatan bentrok */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        kegiatan: {
+                            id: string;
+                            judul: string;
+                            jenis: string | null;
+                            mulai: string;
+                            selesai: string | null;
+                            lokasi: {
+                                nama: string;
+                                pulau: string | null;
+                            } | null;
+                            /** @enum {string} */
+                            status: "baru" | "menunggu_arahan" | "ditetapkan" | "terkonfirmasi" | "berlangsung" | "selesai" | "dibatalkan" | "ditunda";
+                            penyelenggara: string | null;
+                            picProtokolId: string | null;
+                            picPengundang: {
+                                nama: string | null;
+                                kontak: string | null;
+                            } | null;
+                            tautanRapat: string | null;
+                            catatan: string | null;
+                            isContoh: boolean;
+                            pihak: {
+                                id: string;
+                                nama: string;
+                                /** @enum {string} */
+                                golongan: "pimpinan" | "pejabat" | "petugas";
+                                /** @enum {string} */
+                                kedudukan: "diundang" | "ditugaskan" | "diterima" | "ditolak";
+                                peran: ("utama" | "mewakili" | "pendamping") | null;
+                            }[];
+                            dibuat: string;
+                            diubah: string;
+                        };
+                        peristiwa: {
+                            kegiatanId: string;
+                            /** @enum {string} */
+                            dari: "baru" | "menunggu_arahan" | "ditetapkan" | "terkonfirmasi" | "berlangsung" | "selesai" | "dibatalkan" | "ditunda";
+                            /** @enum {string} */
+                            ke: "baru" | "menunggu_arahan" | "ditetapkan" | "terkonfirmasi" | "berlangsung" | "selesai" | "dibatalkan" | "ditunda";
+                            oleh: string;
+                            waktu: string;
+                            alasan?: string;
+                            alasanBentrok?: string;
+                            bentrok: {
+                                pihakId: string;
+                                pihakNama: string;
+                                /** @enum {string} */
+                                golongan: "pimpinan" | "pejabat" | "petugas";
+                                /** @enum {string} */
+                                jenis: "langsung" | "sumber_daya";
+                                /** @enum {string} */
+                                kepastian: "pasti" | "potensi";
+                                kegiatanA: string;
+                                kegiatanB: string;
+                                irisan: {
+                                    mulai: string;
+                                    selesai: string;
+                                };
+                            }[];
+                        };
+                        peringatan: {
+                            pihakId: string;
+                            pihakNama: string;
+                            /** @enum {string} */
+                            golongan: "pimpinan" | "pejabat" | "petugas";
+                            /** @enum {string} */
+                            jenis: "langsung" | "sumber_daya";
+                            /** @enum {string} */
+                            kepastian: "pasti" | "potensi";
+                            kegiatanA: string;
+                            kegiatanB: string;
+                            irisan: {
+                                mulai: string;
+                                selesai: string;
+                            };
+                        }[];
+                    };
+                };
+            };
+            /** @description Data tidak valid */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak ditemukan */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Status berubah oleh pengguna lain */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Perpindahan ditolak aturan (rincian di rincian[]) */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    get_lampiran_id: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Isi berkas (PDF/JPG/PNG), sebagai unduhan */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/octet-stream": string;
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak ditemukan atau di luar hak akses */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    get_pejabat: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Daftar pihak */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        id: string;
+                        nama: string;
+                        /** @enum {string} */
+                        golongan: "pimpinan" | "pejabat" | "petugas";
+                        jabatan: string | null;
+                        instansi: string | null;
+                        urutanTataTempat: number | null;
+                        isContoh: boolean;
+                    }[];
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    get_pengaturan: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Pengaturan */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        kunci: string;
+                        nilai: unknown;
+                    }[];
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    put_pengaturan_kunci: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                kunci: "durasiBawaanMenit";
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    nilai: number;
+                };
+            };
+        };
+        responses: {
+            /** @description Pengaturan setelah diubah */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        kunci: string;
+                        nilai: unknown;
+                    };
+                };
+            };
+            /** @description Nilai tidak valid */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Tidak berizin */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    get_saya: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Profil */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        username: string;
+                        nama: string;
+                        /** @enum {string} */
+                        peran: "admin" | "kepala_biro" | "kabag_protokol" | "protokol" | "ajudan" | "pimpinan" | "pejabat" | "pemohon" | "publik";
+                        pejabatId: string | null;
+                        izin: ("kegiatan.baca_semua" | "kegiatan.baca_terkait" | "kegiatan.buat" | "kegiatan.ubah" | "kegiatan.pindah_status" | "pihak.kelola" | "pihak.konfirmasi_sendiri" | "bentrok.baca" | "pejabat.baca" | "lampiran.baca" | "lampiran.unggah" | "tautan_rapat.lihat_semua" | "pengaturan.baca" | "pengaturan.ubah" | "audit.baca" | "hakakses.baca" | "demo.pindah_persona")[];
+                        /** @enum {string} */
+                        mode: "demo" | "production";
+                        sebagaiPersona: boolean;
+                        akunAsli: string | null;
+                    };
+                };
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    post_sesi: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    username: string;
+                    sandi: string;
+                };
+            };
+        };
+        responses: {
+            /** @description Berhasil masuk; kuki sesi httpOnly dikirim */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        username: string;
+                        nama: string;
+                        /** @enum {string} */
+                        peran: "admin" | "kepala_biro" | "kabag_protokol" | "protokol" | "ajudan" | "pimpinan" | "pejabat" | "pemohon" | "publik";
+                        pejabatId: string | null;
+                        izin: ("kegiatan.baca_semua" | "kegiatan.baca_terkait" | "kegiatan.buat" | "kegiatan.ubah" | "kegiatan.pindah_status" | "pihak.kelola" | "pihak.konfirmasi_sendiri" | "bentrok.baca" | "pejabat.baca" | "lampiran.baca" | "lampiran.unggah" | "tautan_rapat.lihat_semua" | "pengaturan.baca" | "pengaturan.ubah" | "audit.baca" | "hakakses.baca" | "demo.pindah_persona")[];
+                        /** @enum {string} */
+                        mode: "demo" | "production";
+                        sebagaiPersona: boolean;
+                        akunAsli: string | null;
+                    };
+                };
+            };
+            /** @description Data tidak valid */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Nama pengguna atau kata sandi salah */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description Akun dikunci sementara setelah percobaan gagal berulang */
+            423: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
+    delete_sesi: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Sesi diakhiri */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Belum masuk */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        galat: {
+                            kode: string;
+                            pesan: string;
+                            rincian?: {
+                                jalur: string;
+                                pesan: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+    };
 }

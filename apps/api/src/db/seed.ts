@@ -157,22 +157,43 @@ export async function isiDataContoh(db: Db, opsi: OpsiSeed = {}): Promise<HasilS
   };
 }
 
-/** Mengatur ulang kata sandi admin.owner (CLI). Mengembalikan sandi sementara bila dibuat acak. */
-export async function aturSandiAdmin(db: Db, sandi?: string): Promise<{ sandiSementara?: string }> {
+/**
+ * Mengatur kata sandi satu akun yang sudah ada (CLI), membuka kuncinya, dan mencatat ke log audit.
+ * Mengembalikan sandi sementara bila dibuat acak. Dipakai untuk admin.owner dan akun demo bersandi
+ * (mis. demo.kabag-protokol bagi peninjau dari jarak jauh, KOR-006). Akun contoh ditolak di production oleh penjaga.
+ */
+export async function aturSandiAkun(
+  db: Db,
+  username: string,
+  sandi?: string,
+): Promise<{ sandiSementara?: string }> {
+  if (sandi && sandi.length > 0 && sandi.length < 12) {
+    throw new Error('Kata sandi minimal 12 karakter.');
+  }
   const baru = sandi && sandi.length > 0 ? sandi : buatSandiAcak();
   const hash = await hashSandi(baru);
   const diperbarui = await db
     .update(pengguna)
     .set({ hashSandi: hash, gagalMasuk: 0, terkunciSampai: null })
-    .where(eq(pengguna.username, 'admin.owner'))
+    .where(eq(pengguna.username, username))
     .returning({ id: pengguna.id });
-  if (diperbarui.length === 0)
-    throw new Error('Akun admin.owner belum ada (jalankan seed lebih dulu).');
+  if (diperbarui.length === 0) {
+    throw new Error(
+      username === 'admin.owner'
+        ? 'Akun admin.owner belum ada (jalankan seed lebih dulu).'
+        : `Akun ${username} tidak ditemukan.`,
+    );
+  }
   await catatAudit(db, {
     aktor: 'cli',
     aksi: 'admin.atur_sandi',
     entitas: 'pengguna',
-    entitasId: 'admin.owner',
+    entitasId: username,
   });
   return sandi && sandi.length > 0 ? {} : { sandiSementara: baru };
+}
+
+/** Mengatur ulang kata sandi admin.owner (CLI). Mengembalikan sandi sementara bila dibuat acak. */
+export function aturSandiAdmin(db: Db, sandi?: string): Promise<{ sandiSementara?: string }> {
+  return aturSandiAkun(db, 'admin.owner', sandi);
 }

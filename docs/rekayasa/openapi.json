@@ -3435,6 +3435,807 @@
         ]
       }
     },
+    "/api/kegiatan/{id}/keputusan-kehadiran": {
+      "post": {
+        "tags": [
+          "Kegiatan"
+        ],
+        "summary": "Keputusan kehadiran pimpinan secara atomik: hadir sendiri, wakilkan, tidak hadir, atau tunda (opsional sekaligus menetapkan)",
+        "operationId": "post_kegiatan_id_keputusan-kehadiran",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pimpinanId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "keputusan": {
+                    "type": "string",
+                    "enum": [
+                      "hadir_sendiri",
+                      "wakilkan",
+                      "tidak_hadir",
+                      "tunda"
+                    ]
+                  },
+                  "penggantiId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "alasan": {
+                    "type": "string",
+                    "maxLength": 1000
+                  },
+                  "tetapkan": {
+                    "type": "boolean"
+                  },
+                  "alasanBentrok": {
+                    "type": "string",
+                    "maxLength": 1000
+                  }
+                },
+                "required": [
+                  "pimpinanId",
+                  "keputusan"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Keputusan tersimpan; kegiatan, peristiwa status, peringatan bentrok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "kegiatan": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "judul": {
+                          "type": "string"
+                        },
+                        "jenis": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "mulai": {
+                          "type": "string"
+                        },
+                        "selesai": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "lokasi": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "nama": {
+                                  "type": "string"
+                                },
+                                "pulau": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "nama",
+                                "pulau"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "baru",
+                            "menunggu_arahan",
+                            "ditetapkan",
+                            "terkonfirmasi",
+                            "berlangsung",
+                            "selesai",
+                            "dibatalkan",
+                            "ditunda"
+                          ]
+                        },
+                        "penyelenggara": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "picProtokolId": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "picPengundang": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "nama": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "kontak": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "nama",
+                                "kontak"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "tautanRapat": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "catatan": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "isContoh": {
+                          "type": "boolean"
+                        },
+                        "pihak": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "nama": {
+                                "type": "string"
+                              },
+                              "golongan": {
+                                "type": "string",
+                                "enum": [
+                                  "pimpinan",
+                                  "pejabat",
+                                  "petugas"
+                                ]
+                              },
+                              "kedudukan": {
+                                "type": "string",
+                                "enum": [
+                                  "diundang",
+                                  "ditugaskan",
+                                  "diterima",
+                                  "ditolak"
+                                ]
+                              },
+                              "peran": {
+                                "anyOf": [
+                                  {
+                                    "type": "string",
+                                    "enum": [
+                                      "utama",
+                                      "mewakili",
+                                      "pendamping"
+                                    ]
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "nama",
+                              "golongan",
+                              "kedudukan",
+                              "peran"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "dibuat": {
+                          "type": "string"
+                        },
+                        "diubah": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "judul",
+                        "jenis",
+                        "mulai",
+                        "selesai",
+                        "lokasi",
+                        "status",
+                        "penyelenggara",
+                        "picProtokolId",
+                        "picPengundang",
+                        "tautanRapat",
+                        "catatan",
+                        "isContoh",
+                        "pihak",
+                        "dibuat",
+                        "diubah"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "peristiwa": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kegiatanId": {
+                              "type": "string"
+                            },
+                            "dari": {
+                              "type": "string",
+                              "enum": [
+                                "baru",
+                                "menunggu_arahan",
+                                "ditetapkan",
+                                "terkonfirmasi",
+                                "berlangsung",
+                                "selesai",
+                                "dibatalkan",
+                                "ditunda"
+                              ]
+                            },
+                            "ke": {
+                              "type": "string",
+                              "enum": [
+                                "baru",
+                                "menunggu_arahan",
+                                "ditetapkan",
+                                "terkonfirmasi",
+                                "berlangsung",
+                                "selesai",
+                                "dibatalkan",
+                                "ditunda"
+                              ]
+                            },
+                            "oleh": {
+                              "type": "string"
+                            },
+                            "waktu": {
+                              "type": "string"
+                            },
+                            "alasan": {
+                              "type": "string"
+                            },
+                            "alasanBentrok": {
+                              "type": "string"
+                            },
+                            "bentrok": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "pihakId": {
+                                    "type": "string"
+                                  },
+                                  "pihakNama": {
+                                    "type": "string"
+                                  },
+                                  "golongan": {
+                                    "type": "string",
+                                    "enum": [
+                                      "pimpinan",
+                                      "pejabat",
+                                      "petugas"
+                                    ]
+                                  },
+                                  "jenis": {
+                                    "type": "string",
+                                    "enum": [
+                                      "langsung",
+                                      "sumber_daya"
+                                    ]
+                                  },
+                                  "kepastian": {
+                                    "type": "string",
+                                    "enum": [
+                                      "pasti",
+                                      "potensi"
+                                    ]
+                                  },
+                                  "kegiatanA": {
+                                    "type": "string"
+                                  },
+                                  "kegiatanB": {
+                                    "type": "string"
+                                  },
+                                  "irisan": {
+                                    "type": "object",
+                                    "properties": {
+                                      "mulai": {
+                                        "type": "string"
+                                      },
+                                      "selesai": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "mulai",
+                                      "selesai"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "pihakId",
+                                  "pihakNama",
+                                  "golongan",
+                                  "jenis",
+                                  "kepastian",
+                                  "kegiatanA",
+                                  "kegiatanB",
+                                  "irisan"
+                                ],
+                                "additionalProperties": false
+                              }
+                            }
+                          },
+                          "required": [
+                            "kegiatanId",
+                            "dari",
+                            "ke",
+                            "oleh",
+                            "waktu",
+                            "bentrok"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "peringatan": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "pihakId": {
+                            "type": "string"
+                          },
+                          "pihakNama": {
+                            "type": "string"
+                          },
+                          "golongan": {
+                            "type": "string",
+                            "enum": [
+                              "pimpinan",
+                              "pejabat",
+                              "petugas"
+                            ]
+                          },
+                          "jenis": {
+                            "type": "string",
+                            "enum": [
+                              "langsung",
+                              "sumber_daya"
+                            ]
+                          },
+                          "kepastian": {
+                            "type": "string",
+                            "enum": [
+                              "pasti",
+                              "potensi"
+                            ]
+                          },
+                          "kegiatanA": {
+                            "type": "string"
+                          },
+                          "kegiatanB": {
+                            "type": "string"
+                          },
+                          "irisan": {
+                            "type": "object",
+                            "properties": {
+                              "mulai": {
+                                "type": "string"
+                              },
+                              "selesai": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "mulai",
+                              "selesai"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "pihakId",
+                          "pihakNama",
+                          "golongan",
+                          "jenis",
+                          "kepastian",
+                          "kegiatanA",
+                          "kegiatanB",
+                          "irisan"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "kegiatan",
+                    "peristiwa",
+                    "peringatan"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Data tidak valid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "galat": {
+                      "type": "object",
+                      "properties": {
+                        "kode": {
+                          "type": "string"
+                        },
+                        "pesan": {
+                          "type": "string"
+                        },
+                        "rincian": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "jalur": {
+                                "type": "string"
+                              },
+                              "pesan": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "jalur",
+                              "pesan"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "kode",
+                        "pesan"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "galat"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Belum masuk",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "galat": {
+                      "type": "object",
+                      "properties": {
+                        "kode": {
+                          "type": "string"
+                        },
+                        "pesan": {
+                          "type": "string"
+                        },
+                        "rincian": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "jalur": {
+                                "type": "string"
+                              },
+                              "pesan": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "jalur",
+                              "pesan"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "kode",
+                        "pesan"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "galat"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Tidak berizin",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "galat": {
+                      "type": "object",
+                      "properties": {
+                        "kode": {
+                          "type": "string"
+                        },
+                        "pesan": {
+                          "type": "string"
+                        },
+                        "rincian": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "jalur": {
+                                "type": "string"
+                              },
+                              "pesan": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "jalur",
+                              "pesan"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "kode",
+                        "pesan"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "galat"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tidak ditemukan atau di luar hak akses",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "galat": {
+                      "type": "object",
+                      "properties": {
+                        "kode": {
+                          "type": "string"
+                        },
+                        "pesan": {
+                          "type": "string"
+                        },
+                        "rincian": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "jalur": {
+                                "type": "string"
+                              },
+                              "pesan": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "jalur",
+                              "pesan"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "kode",
+                        "pesan"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "galat"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Status mengunci perubahan atau berubah bersamaan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "galat": {
+                      "type": "object",
+                      "properties": {
+                        "kode": {
+                          "type": "string"
+                        },
+                        "pesan": {
+                          "type": "string"
+                        },
+                        "rincian": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "jalur": {
+                                "type": "string"
+                              },
+                              "pesan": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "jalur",
+                              "pesan"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "kode",
+                        "pesan"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "galat"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Ditolak aturan (tidak ada perubahan yang tersimpan)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "galat": {
+                      "type": "object",
+                      "properties": {
+                        "kode": {
+                          "type": "string"
+                        },
+                        "pesan": {
+                          "type": "string"
+                        },
+                        "rincian": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "jalur": {
+                                "type": "string"
+                              },
+                              "pesan": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "jalur",
+                              "pesan"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "kode",
+                        "pesan"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "galat"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "kuki": []
+          }
+        ],
+        "x-izin": [
+          "pihak.kelola"
+        ]
+      }
+    },
     "/api/kegiatan/{id}/lampiran": {
       "get": {
         "tags": [

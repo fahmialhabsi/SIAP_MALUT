@@ -1,0 +1,24 @@
+Bukti uji ponsel Playwright + axe, Tahap 1.4b (dijalankan asisten, 24 Oktober 2026)
+Perintah: npm run test:e2e (apps/web); 14 uji = 7 skenario x 2 layar (360x740 terang, 412x915 gelap)
+Catatan: kata sandi admin pada uji adalah nilai uji untuk basis data sementara lokal.
+------------------------------------------
+
+Running 14 tests using 1 worker
+
+  ok  1 [ponsel-360-terang] › e2e\ponsel.spec.ts:5:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › layar Masuk memenuhi standar ponsel dan menolak sandi salah dengan pesan jelas (3.7s)
+  ok  2 [ponsel-360-terang] › e2e\ponsel.spec.ts:19:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › alur admin: Beranda, Agenda 26 Oktober dengan bentrok, rincian, halaman Bentrok, Akun (6.2s)
+  ok  3 [ponsel-360-terang] › e2e\ponsel.spec.ts:54:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › KB-032: persona demo mengubah dasbor dan navigasi; kembali ke akun asli; keluar (2.5s)
+  ok  4 [ponsel-360-terang] › e2e\ponsel.spec.ts:86:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › KB-020: tema gelap dan terang lolos kontras pada halaman Akun (2.2s)
+  ok  5 [ponsel-360-terang] › e2e\ponsel.spec.ts:95:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › /api dan /health tidak dijawab dengan halaman aplikasi (service worker) (867ms)
+  ok  6 [ponsel-360-terang] › e2e\tindakan.spec.ts:7:3 › KB-001, KB-002, KB-005, KB-013, KB-047: tindakan pada layar ponsel › alur utama: undangan baru, lampiran, keputusan wakilkan, pejabat menerima, status terkonfirmasi (8.2s)
+  ok  7 [ponsel-360-terang] › e2e\tindakan.spec.ts:86:3 › KB-001, KB-002, KB-005, KB-013, KB-047: tindakan pada layar ponsel › keputusan tunda wajib beralasan; pengaturan dapat diubah admin (2.8s)
+  ok  8 [ponsel-412-gelap] › e2e\ponsel.spec.ts:5:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › layar Masuk memenuhi standar ponsel dan menolak sandi salah dengan pesan jelas (2.4s)
+  ok  9 [ponsel-412-gelap] › e2e\ponsel.spec.ts:19:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › alur admin: Beranda, Agenda 26 Oktober dengan bentrok, rincian, halaman Bentrok, Akun (7.9s)
+  ok 10 [ponsel-412-gelap] › e2e\ponsel.spec.ts:54:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › KB-032: persona demo mengubah dasbor dan navigasi; kembali ke akun asli; keluar (2.5s)
+  ok 11 [ponsel-412-gelap] › e2e\ponsel.spec.ts:86:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › KB-020: tema gelap dan terang lolos kontras pada halaman Akun (2.2s)
+  ok 12 [ponsel-412-gelap] › e2e\ponsel.spec.ts:95:3 › KB-007 dan KB-050: aplikasi pada layar ponsel › /api dan /health tidak dijawab dengan halaman aplikasi (service worker) (938ms)
+  ok 13 [ponsel-412-gelap] › e2e\tindakan.spec.ts:7:3 › KB-001, KB-002, KB-005, KB-013, KB-047: tindakan pada layar ponsel › alur utama: undangan baru, lampiran, keputusan wakilkan, pejabat menerima, status terkonfirmasi (8.4s)
+  ok 14 [ponsel-412-gelap] › e2e\tindakan.spec.ts:86:3 › KB-001, KB-002, KB-005, KB-013, KB-047: tindakan pada layar ponsel › keputusan tunda wajib beralasan; pengaturan dapat diubah admin (3.0s)
+
+  14 passed (1.2m)
+selesai

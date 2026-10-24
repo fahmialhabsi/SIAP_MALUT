@@ -71,9 +71,37 @@ export async function panggil<T>(
   );
 }
 
+/** Unggah berkas multipart (kolom "berkas"); tanpa header Content-Type agar peramban mengisi batas multipart. */
+export async function unggah<T>(jalur: string, berkas: File): Promise<T> {
+  const isi = new FormData();
+  isi.append('berkas', berkas);
+  let res: Response;
+  try {
+    res = await fetch(jalur, { method: 'POST', credentials: 'same-origin', body: isi });
+  } catch {
+    throw new GalatApi(0, 'jaringan', 'Tidak dapat terhubung ke server.');
+  }
+  if (res.ok) return (await res.json()) as T;
+  let badan: Partial<GalatBadan> = {};
+  try {
+    badan = (await res.json()) as Partial<GalatBadan>;
+  } catch {
+    // bukan JSON
+  }
+  if (res.status === 401) saatTidakMasuk?.();
+  throw new GalatApi(
+    res.status,
+    badan.galat?.kode ?? 'galat',
+    badan.galat?.pesan ?? `Permintaan gagal (${res.status}).`,
+    badan.galat?.rincian,
+  );
+}
+
 export const api = {
   get: <T>(jalur: string, query?: OpsiPanggil['query']) => panggil<T>('GET', jalur, { query }),
   post: <T>(jalur: string, badan?: unknown, opsi?: Omit<OpsiPanggil, 'badan'>) =>
     panggil<T>('POST', jalur, { ...opsi, badan }),
+  put: <T>(jalur: string, badan: unknown) => panggil<T>('PUT', jalur, { badan }),
+  patch: <T>(jalur: string, badan: unknown) => panggil<T>('PATCH', jalur, { badan }),
   hapus: <T>(jalur: string) => panggil<T>('DELETE', jalur),
 };

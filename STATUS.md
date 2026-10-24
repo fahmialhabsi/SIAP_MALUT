@@ -1,12 +1,12 @@
 # STATUS SIAP MALUT
 
-**Diperbarui:** 24 Oktober 2026, Tahap 1.4a selesai (patch menunggu owner)
+**Diperbarui:** 24 Oktober 2026, Tahap 1.4b selesai (patch menunggu owner)
 **Baca dahulu:** `CLAUDE.md`, lalu berkas ini. Perintah lanjut: `LANJUT`.
 
 ## Posisi sekarang
-- **Fase:** Tahap 1 (pembangunan). Tahap 0.1 sampai **1.3b sudah di-push** (terakhir `2d4c683`).
-- **Sekarang:** **Tahap 1.4a (antarmuka ponsel bagian baca) selesai dan terverifikasi lokal; patch menunggu dijalankan owner:** `scripts/patch/tahap-1.4a.ps1`. Handoff: `docs/handoff/HANDOFF_TAHAP-1.4a_Antarmuka-Ponsel-Baca.md`. Lembar 1.4 disetujui (KP-016).
-- **Berikutnya:** owner mencoba di ponsel (`npm run dev:lan`) dan mencatat koreksi; lalu **1.4b** (form undangan, keputusan kehadiran atomik KB-047, lampiran, pengaturan, audit).
+- **Fase:** Tahap 1 (pembangunan). Tahap 0.1 sampai **1.4a sudah di-push**.
+- **Sekarang:** Tahap **1.4b** (tindakan di ponsel) selesai dan **1.4c** (akses peninjau jarak jauh) selesai; keduanya terverifikasi lokal. **Patch yang dijalankan owner: `scripts/patch/tahap-1.4c.ps1`** (memuat 1.4b juga bila `tahap-1.4b.ps1` belum dijalankan). Handoff: `HANDOFF_TAHAP-1.4b_Tindakan-Ponsel.md`, `HANDOFF_TAHAP-1.4c_Akses-Peninjau.md`.
+- **Berikutnya:** Pak Kabag meninjau lewat `npm run akun:sandi -- demo.kabag-protokol` dan `npm run dev:tunnel` (PEMASANGAN bagian 6e); koreksi dicatat dengan `KOREKSI:`; lalu `TAHAP 1.5`.
 
 ## Cara menjalankan (pengembangan)
 ```powershell
@@ -14,6 +14,8 @@ npm ci                # sekali
 npm run dev           # web http://localhost:5180 (API di /api, port 3180); mode demo; basis data PGlite di data/dev/
 npm run dev:lan       # idem + mencetak alamat IP komputer untuk ponsel (jangan pakai localhost di ponsel)
 npm run admin:sandi   # atur ulang kata sandi admin.owner (hentikan npm run dev dulu)
+npm run akun:sandi -- demo.kabag-protokol   # kata sandi akun demo (SIAP_AKUN_PASSWORD atau acak)
+npm run dev:tunnel    # terowongan https sementara untuk peninjau jarak jauh (butuh cloudflared)
 ```
 - **Hentikan terminal `npm run dev` lama (Ctrl+C) sebelum menjalankan yang baru** (server lama memegang port).
 - Start pertama (demo): data contoh diisi otomatis; **kata sandi sementara `admin.owner` dicetak SEKALI** di terminal (atau isi `SIAP_ADMIN_PASSWORD`, min. 12 karakter). Mengulang dari nol: hapus folder `data/dev` (lampiran: `data/unggahan`).
@@ -22,13 +24,13 @@ npm run admin:sandi   # atur ulang kata sandi admin.owner (hentikan npm run dev 
 - Gate: `powershell -ExecutionPolicy Bypass -File scripts\gate.ps1`. Dokumentasi API: `docs/rekayasa/openapi.json`; hak akses: `docs/rekayasa/MATRIKS_HAK_AKSES.md`.
 
 ## Yang berjalan sekarang
-- Monorepo: `apps/web` (React 19, Vite 8, PWA, react-router; **antarmuka baca 1.4a**: Masuk, Beranda per peran, Agenda, Rincian, Bentrok, Akun, persona demo, tema; tipe API dari OpenAPI), `apps/api` (Fastify 5 + Drizzle), `packages/shared`, `packages/domain`.
+- Monorepo: `apps/web` (React 19, Vite 8, PWA, react-router; **antarmuka 1.4a+1.4b**: Masuk, Beranda per peran, Agenda, Rincian, Bentrok, Akun, persona demo, tema, form undangan, keputusan kehadiran, pindah status, konfirmasi penugasan, lampiran kamera/galeri, Pengaturan, Log audit; tipe API dari OpenAPI), `apps/api` (Fastify 5 + Drizzle), `packages/shared`, `packages/domain`.
 - **Domain (1.2):** bentrok jam/sumber daya, aturan status.
 - **Data (1.3a):** 9 tabel + migrasi; PGlite/PostgreSQL 16; seed data contoh; penjaga produksi; log audit append-only.
-- **API (1.3b):** 22 rute melalui registri rute; masuk/keluar dengan kuki sesi httpOnly, penguncian akun; **hak akses berbasis peran dari data** (9 peran, 17 izin, 65 baris, **placeholder**); kegiatan (buat, ubah, daftar, rincian), pihak (tetapkan, hapus, pejabat menerima/menolak dirinya), pindah status (aturan domain, bentrok pasti butuh alasan), bentrok, lampiran (PDF/JPG/PNG, 10 MB), pengaturan, log audit, direktori pejabat, matriks hak akses, **mode demo pindah persona**; kendali: Origin = Host (CSRF), header keamanan, tautan rapat dibatasi dan disamarkan di log.
+- **API (1.3b, +1.4b):** 23 rute (1.4b menambah `POST /api/kegiatan/:id/keputusan-kehadiran`, atomik, KB-047) melalui registri rute; masuk/keluar dengan kuki sesi httpOnly, penguncian akun; **hak akses berbasis peran dari data** (9 peran, 17 izin, 65 baris, **placeholder**); kegiatan (buat, ubah, daftar, rincian), pihak (tetapkan, hapus, pejabat menerima/menolak dirinya), pindah status (aturan domain, bentrok pasti butuh alasan), bentrok, lampiran (PDF/JPG/PNG, 10 MB), pengaturan, log audit, direktori pejabat, matriks hak akses, **mode demo pindah persona**; kendali: Origin = Host (CSRF), header keamanan, tautan rapat dibatasi dan disamarkan di log.
 - **Dokumen dihasilkan dari kode:** `ALUR_PROSES.md`, `KAMUS_DATA.md`, `INVENTARIS_DATA_PRIBADI.md`, `openapi.json`, `MATRIKS_HAK_AKSES.md`, SBOM; uji menjaga kesesuaiannya.
 - Uji ponsel: `npm run test:e2e` (Playwright + axe, 360/412 px; Chromium: `npx playwright install chromium`; di luar gate).
-- Gate: lint, **205 uji** (shared 12, domain 51, api 112, web 23, skrip 7), build; lolos di Node 20.20 dan 22.22 dan di Windows PowerShell 5.1; API juga **188 uji di PostgreSQL 16 asli**; alur lengkap diverifikasi lewat proksi dev dan kontainer + nginx (`docs/audit/bukti-gate/verifikasi-api-tahap-1.3b.txt`).
+- Gate: lint, **233 uji** (shared 12, domain 51, api 120, web 43, skrip 7); API juga 204 uji di PostgreSQL 16 asli; e2e ponsel 14 uji, build; lolos di Node 20.20 dan 22.22 dan di Windows PowerShell 5.1; API juga **188 uji di PostgreSQL 16 asli**; alur lengkap diverifikasi lewat proksi dev dan kontainer + nginx (`docs/audit/bukti-gate/verifikasi-api-tahap-1.3b.txt`).
 
 ## Fakta kunci
 - Strategi: bangun mandiri; tidak konsultasi Diskominfosan sebelum peluncuran (KP-004).
@@ -55,7 +57,7 @@ Tanpa pembatasan laju per IP (RS-33), tanpa pemindaian virus lampiran (RS-34), b
 Tidak ada. KOR-002 (`npm run dev`), KOR-003 (IP `dev:lan`), KOR-004 (stderr PowerShell 5.1) selesai.
 
 ## Urutan tahap ke depan
-1.4a (ini, baca) → **1.4b** tindakan (form, keputusan kehadiran, lampiran, pengaturan, audit) → 1.5 notifikasi/ekspor/luring → 1.6 evaluasi mandiri → 2 M2 + pengganti + bentrok perjalanan + dokumen operasi + admin akun → 3 perluasan + uji keamanan (naik Node 24) → **P** penggantian data contoh (basis data produksi baru) → 4 peluncuran dan serah terima.
+1.4a dan 1.4b (ini) → **1.5** notifikasi/ekspor/luring → 1.6 evaluasi mandiri → 2 M2 + pengganti + bentrok perjalanan + dokumen operasi + admin akun → 3 perluasan + uji keamanan (naik Node 24) → **P** penggantian data contoh (basis data produksi baru) → 4 peluncuran dan serah terima.
 
 ## Riwayat patch
-0.1 sampai 1.3b sudah di-push (terakhir `2d4c683`). Patch 1.4a siap, menunggu dijalankan owner.
+0.1 sampai 1.3b sudah di-push (terakhir `2d4c683`). 1.4a sudah di-push; patch 1.4b siap, menunggu dijalankan owner.

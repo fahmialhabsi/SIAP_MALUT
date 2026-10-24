@@ -21,6 +21,9 @@ export type Pejabat = Isi<'get_pejabat', 200>[number];
 export type Persona = Isi<'get_demo_persona', 200>[number];
 export type Lampiran = Isi<'get_kegiatan_id_lampiran', 200>[number];
 export type EntriAudit = Isi<'get_audit', 200>[number];
+export type HasilKeputusan = Isi<'post_kegiatan_id_keputusan-kehadiran', 200>;
+export type Pengaturan = Isi<'get_pengaturan', 200>[number];
+export type KeputusanKehadiran = 'hadir_sendiri' | 'wakilkan' | 'tidak_hadir' | 'tunda';
 export type GalatBadan = {
   galat: { kode: string; pesan: string; rincian?: { jalur: string; pesan: string }[] };
 };

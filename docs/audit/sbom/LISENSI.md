@@ -1,6 +1,6 @@
 # Ringkasan Lisensi Komponen (dihasilkan otomatis)
 
-Sumber: `sbom-tahap-1.4a.cdx.json` (CycloneDX, hanya dependensi produksi). Dibuat oleh `scripts/buat-sbom.mjs`. **Jangan diedit tangan.**
+Sumber: `sbom-tahap-1.4c.cdx.json` (CycloneDX, hanya dependensi produksi). Dibuat oleh `scripts/buat-sbom.mjs`. **Jangan diedit tangan.**
 
 Jumlah komponen pihak ketiga: 65. Paket internal SIAP MALUT: 4.
 

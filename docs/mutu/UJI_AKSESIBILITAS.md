@@ -2,12 +2,12 @@
 
 | | |
 |---|---|
-| Status | **Draf**: mencakup layar Tahap 1.4a (baca). Layar tindakan (1.4b) ditambahkan setelah dibangun. |
+| Status | **Draf**: mencakup layar Tahap 1.4a (baca) dan 1.4b (tindakan). |
 | Daftar induk | MU-08 |
 | Dasar | `docs/standar/STANDAR_DESAIN.md` bagian 6 dan 8; KB-020, KB-050 |
 | Alat | Playwright + axe-core (WCAG 2.0/2.1 A dan AA) + pemeriksa kustom: `apps/web/e2e/` (`npm run test:e2e`) |
 | Perangkat | Chromium emulasi ponsel: 360 × 740 mode terang; 412 × 915 mode gelap; zona waktu Asia/Jayapura |
-| Bukti | `docs/audit/bukti-gate/tangkapan-1.4a/` (tangkapan layar penuh) dan `docs/audit/bukti-gate/e2e-tahap-1.4a-asisten.txt` |
+| Bukti | `docs/audit/bukti-gate/tangkapan-1.4a/` dan `tangkapan-1.4b/` (tangkapan layar penuh); `e2e-tahap-1.4a-asisten.txt` dan `e2e-tahap-1.4b-asisten.txt` |
 
 ## 1. Pemeriksaan otomatis (tiap layar)
 | Pemeriksaan | Ambang | Layar yang diperiksa |
@@ -17,6 +17,8 @@
 | Target sentuh | ≥ 48 × 48 px (tautan, tombol, isian, pilihan; navigasi bawah) | idem |
 | Status dan bentrok | selalu ikon + teks | idem |
 | Aksesibilitas (axe) | tanpa pelanggaran WCAG A/AA, termasuk kontras warna | idem |
+
+Layar 1.4b yang diperiksa dengan pemeriksaan yang sama: form undangan, lembar keputusan kehadiran (dialog modal), rincian setelah keputusan dan setelah Terkonfirmasi, log audit, pengaturan. Kotak centang dan radio diukur pada seluruh baris label (area sentuhnya), bukan pada kotaknya.
 
 Jalur minggu pada Agenda dapat digulir di dalam wadahnya (tujuh butir × 48 px tidak muat di 328 px); halaman tidak bergulir ke samping.
 

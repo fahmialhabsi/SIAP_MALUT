@@ -5,9 +5,13 @@ import { fileURLToPath } from 'node:url';
 
 // Nilai uji untuk basis data sementara lokal (sama dengan playwright.config.ts); bukan rahasia.
 const SANDI_UJI = 'sandi-uji-e2e-lokal-123';
-const FOLDER_BUKTI = fileURLToPath(
-  new URL('../../../docs/audit/bukti-gate/tangkapan-1.4a/', import.meta.url),
-);
+const folderBukti = (nama: string) =>
+  fileURLToPath(
+    new URL(
+      `../../../docs/audit/bukti-gate/tangkapan-${Number.parseInt(nama, 10) >= 10 ? '1.4b' : '1.4a'}/`,
+      import.meta.url,
+    ),
+  );
 
 export async function masukSebagaiAdmin(page: Page): Promise<void> {
   await page.goto('/');
@@ -18,9 +22,10 @@ export async function masukSebagaiAdmin(page: Page): Promise<void> {
 }
 
 export async function tangkap(page: Page, info: TestInfo, nama: string): Promise<void> {
-  mkdirSync(FOLDER_BUKTI, { recursive: true });
+  const folder = folderBukti(nama);
+  mkdirSync(folder, { recursive: true });
   await page.screenshot({
-    path: `${FOLDER_BUKTI}${info.project.name}-${nama}.png`,
+    path: `${folder}${info.project.name}-${nama}.png`,
     fullPage: true,
   });
 }
@@ -45,11 +50,15 @@ export async function periksaStandar(page: Page, nama: string): Promise<void> {
     }
     const sempit: string[] = [];
     const kontrol = document.querySelectorAll(
-      'main a, main button, main input:not([type=radio]), main select, nav a',
+      'main a, main button, main input:not([type=file]), main select, nav a',
     );
     for (const el of kontrol) {
       if (el.closest('.sr-saja') || el.classList.contains('lewati')) continue;
-      const r = el.getBoundingClientRect();
+      // Kotak centang dan radio: seluruh baris label adalah target sentuhnya.
+      const jenisIsian = el instanceof HTMLInputElement ? el.type : '';
+      const target =
+        jenisIsian === 'checkbox' || jenisIsian === 'radio' ? (el.closest('label') ?? el) : el;
+      const r = target.getBoundingClientRect();
       if (r.width === 0 && r.height === 0) continue;
       if (r.height < 47.5 || r.width < 47.5) {
         sempit.push(

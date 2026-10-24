@@ -11,16 +11,19 @@ import {
   daftarKegiatanUntuk,
 } from '../layanan/kegiatan-detail.js';
 import { bentrokAgenda, pindahStatusKegiatan } from '../layanan/kegiatan.js';
+import { putuskanKehadiran } from '../layanan/keputusan-kehadiran.js';
 import { GalatApi, balas, rute, type Deps } from '../rute.js';
 import {
   BentrokSkema,
   BuatKegiatanInput,
   DaftarKegiatanQuery,
   GalatSkema,
+  HasilKeputusanSkema,
   HasilPindahSkema,
   IdParams,
   IdPihakParams,
   KegiatanSkema,
+  KeputusanKehadiranInput,
   PejabatSkema,
   PihakInput,
   PindahStatusInput,
@@ -458,6 +461,74 @@ export function ruteKegiatan(_deps: Deps) {
             'ditolak_aturan',
             'Perpindahan status ditolak.',
             hasil.alasan.map((pesan) => ({ jalur: 'status', pesan })),
+          );
+        }
+        const dto = await ambilKegiatanUntuk(deps.db, pengguna, params.id);
+        return {
+          kegiatan: dto as KegiatanDto,
+          peristiwa: hasil.peristiwa,
+          peringatan: hasil.peringatan,
+        };
+      },
+    }),
+
+    rute({
+      metode: 'post',
+      jalur: '/api/kegiatan/:id/keputusan-kehadiran',
+      ringkasan:
+        'Keputusan kehadiran pimpinan secara atomik: hadir sendiri, wakilkan, tidak hadir, atau tunda (opsional sekaligus menetapkan)',
+      tag: 'Kegiatan',
+      izin: ['pihak.kelola'],
+      params: IdParams,
+      body: KeputusanKehadiranInput,
+      respons: {
+        200: {
+          deskripsi: 'Keputusan tersimpan; kegiatan, peristiwa status, peringatan bentrok',
+          skema: HasilKeputusanSkema,
+        },
+        400: { deskripsi: 'Data tidak valid', skema: GalatSkema },
+        401: { deskripsi: 'Belum masuk', skema: GalatSkema },
+        403: { deskripsi: 'Tidak berizin', skema: GalatSkema },
+        404: { deskripsi: 'Tidak ditemukan atau di luar hak akses', skema: GalatSkema },
+        409: { deskripsi: 'Status mengunci perubahan atau berubah bersamaan', skema: GalatSkema },
+        422: {
+          deskripsi: 'Ditolak aturan (tidak ada perubahan yang tersimpan)',
+          skema: GalatSkema,
+        },
+      },
+      penangan: async ({ req, deps, pengguna, params, body }) => {
+        if (!pengguna) throw tidakDitemukan();
+        const lama = await ambilKegiatanMentah(deps.db, params.id);
+        if (!lama || !bolehBaca(pengguna, lama)) throw tidakDitemukan();
+        const a = aktorAudit(pengguna);
+        const hasil = await putuskanKehadiran(deps.db, {
+          kegiatanId: params.id,
+          pimpinanId: body.pimpinanId,
+          keputusan: body.keputusan,
+          penggantiId: body.penggantiId,
+          alasan: body.alasan,
+          tetapkan: body.tetapkan,
+          alasanBentrok: body.alasanBentrok,
+          oleh: a.aktor,
+          aktorPeran: a.aktorPeran,
+          reqId: req.id,
+          ip: req.ip,
+          sekarang: deps.sekarang(),
+        });
+        if (!hasil.ok) {
+          if (hasil.kode === 'tidak_ditemukan') throw tidakDitemukan();
+          if (hasil.kode === 'terkunci' || hasil.kode === 'berubah_bersamaan') {
+            throw new GalatApi(
+              409,
+              hasil.kode === 'terkunci' ? 'status_terkunci' : 'berubah_bersamaan',
+              hasil.alasan.join(' '),
+            );
+          }
+          throw new GalatApi(
+            422,
+            'ditolak_aturan',
+            'Keputusan ditolak; tidak ada perubahan yang tersimpan.',
+            hasil.alasan.map((pesan) => ({ jalur: 'keputusan', pesan })),
           );
         }
         const dto = await ambilKegiatanUntuk(deps.db, pengguna, params.id);

@@ -23,11 +23,13 @@
     "build": "npm run build --workspaces --if-present",
     "sbom": "node scripts/buat-sbom.mjs",
     "docs:status": "node scripts/buat-diagram-status.mjs",
-    "admin:sandi": "npm run seed -w apps/api -- --atur-sandi-admin",
+    "admin:sandi": "node scripts/admin-sandi.mjs",
     "docs:data": "node scripts/buat-kamus-data.mjs",
     "docs:api": "node scripts/buat-dokumen-api.mjs",
     "test:e2e": "npm run test:e2e -w apps/web",
-    "api:tipe": "npm run api:tipe -w apps/web"
+    "api:tipe": "npm run api:tipe -w apps/web",
+    "akun:sandi": "node scripts/admin-sandi.mjs",
+    "dev:tunnel": "node scripts/dev.mjs --tunnel"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

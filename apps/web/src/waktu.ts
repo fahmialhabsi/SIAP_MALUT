@@ -93,3 +93,14 @@ export function selisihHari(a: string, b: string): number {
   const pb = bagian(b);
   return Math.round((Date.UTC(pb.t, pb.b - 1, pb.h) - Date.UTC(pa.t, pa.b - 1, pa.h)) / 86_400_000);
 }
+
+/** `20:00` untuk isian jam (HH:MM, WIT). */
+export function jamIsian(iso: string): string {
+  const d = new Date(Date.parse(iso) + SELISIH_WIT_MS);
+  return `${dua(d.getUTCHours())}:${dua(d.getUTCMinutes())}`;
+}
+
+/** ISO 8601 WIT dari tanggal kunci dan jam `HH:MM`. */
+export function keIsoWit(kunci: string, jam: string): string {
+  return `${kunci}T${jam}:00+09:00`;
+}

@@ -3,7 +3,9 @@ import { Link, Navigate, Route, Routes } from 'react-router';
 import { parseAppMode, type AppMode } from '@siap/shared';
 import { Akun } from './halaman/akun';
 import { Agenda } from './halaman/agenda';
+import { Lainnya, HalamanAudit, HalamanPengaturan } from './halaman/admin';
 import { Beranda } from './halaman/beranda';
+import { FormKegiatan } from './halaman/form-kegiatan';
 import { HalamanBentrok } from './halaman/bentrok';
 import { Kerangka } from './halaman/kerangka';
 import { Masuk } from './halaman/masuk';
@@ -71,6 +73,23 @@ function Isi({ mode }: { mode: AppMode }) {
           path="bentrok"
           element={<Dijaga izin={['bentrok.baca']} anak={<HalamanBentrok />} />}
         />
+        <Route
+          path="kegiatan/baru"
+          element={<Dijaga izin={['kegiatan.buat']} anak={<FormKegiatan />} />}
+        />
+        <Route
+          path="kegiatan/:id/ubah"
+          element={<Dijaga izin={['kegiatan.ubah']} anak={<FormKegiatan />} />}
+        />
+        <Route
+          path="lainnya"
+          element={<Dijaga izin={['pengaturan.baca', 'audit.baca']} anak={<Lainnya />} />}
+        />
+        <Route
+          path="pengaturan"
+          element={<Dijaga izin={['pengaturan.baca']} anak={<HalamanPengaturan />} />}
+        />
+        <Route path="audit" element={<Dijaga izin={['audit.baca']} anak={<HalamanAudit />} />} />
         <Route path="akun" element={<Akun />} />
         <Route path="*" element={<TidakAda />} />
       </Route>

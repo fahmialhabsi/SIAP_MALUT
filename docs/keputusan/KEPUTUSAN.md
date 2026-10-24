@@ -21,6 +21,7 @@ Format: ID, tanggal, keputusan, dasar/alasan, dampak pada pedoman. Sebagian entr
 | KP-014 | 2026-10-23 | `npm run dev` menjalankan server backend dan frontend Vite sekaligus (KOR-002) | Kemudahan pengembangan | `package.json`, `scripts/dev.mjs`, `PEMASANGAN.md` |
 | KP-015 | 2026-10-23 | Tahap 1.3 SETUJU (rekomendasi): **PGlite** untuk dev/uji, PostgreSQL asli untuk produksi/kontainer; dipecah 1.3a dan 1.3b; kata sandi `admin.owner` dari env atau acak dan dicetak sekali; lampiran undangan di 1.3b; **izin tetap pra-verifikasi lokal oleh asisten untuk semua tahap pembangunan kode** (gate, uji basis data, docker build; hanya melaporkan ringkasan; dapat dicabut kapan saja) | Jawaban owner atas Lembar Tahap 1.3 | `CLAUDE.md` Aturan 3; `LEMBAR_TAHAP-1.3` |
 | KP-016 | 2026-10-24 | Tahap 1.4 SETUJU (rekomendasi): dipecah 1.4a (kerangka, baca, dasbor) dan 1.4b (tindakan); uji ujung ke ujung Playwright + axe di luar gate (`npm run test:e2e`); endpoint atomik `POST /api/kegiatan/:id/keputusan-kehadiran` di 1.4b; Agenda awal = hari ini WIT dengan tombol ke tanggal data contoh | Jawaban owner atas Lembar Tahap 1.4 | `LEMBAR_TAHAP-1.4`, RTM KB-047..050 |
+| KP-017 | 2026-10-24 | Kabag Protokol berada di pulau lain dan ingin melihat hasil sementara lewat ponsel: **dibuatkan akun demo bersandi** (bukan admin) dan **terowongan sementara** (https publik) dari laptop owner | Permintaan owner atas pertanyaan akses ponsel | KOR-006, KOR-007; KB-051, KB-052; RS-40 |
 
 ## Keputusan Terbuka (belum diputuskan)
 

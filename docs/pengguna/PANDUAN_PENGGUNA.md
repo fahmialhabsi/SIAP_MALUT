@@ -1,10 +1,10 @@
-# Panduan Pengguna SIAP MALUT (Draf, Tahap 1.4a)
+# Panduan Pengguna SIAP MALUT (Draf, Tahap 1.4b)
 
 | | |
 |---|---|
-| Status | **Draf**: baru memuat fitur baca (Tahap 1.4a). Fitur tindakan (undangan, keputusan kehadiran, lampiran) ditambahkan setelah Tahap 1.4b. |
+| Status | **Draf**: memuat fitur baca (1.4a) dan tindakan (1.4b: undangan, keputusan kehadiran, status, lampiran, pengaturan, log audit). Notifikasi, ekspor, dan luring menyusul (1.5). |
 | Data | Semua contoh di panduan ini fiktif dan berlabel CONTOH. |
-| Tangkapan layar | `docs/audit/bukti-gate/tangkapan-1.4a/` (dihasilkan uji ponsel otomatis, lebar 360 px dan 412 px, mode terang dan gelap). |
+| Tangkapan layar | `docs/audit/bukti-gate/tangkapan-1.4a/` dan `tangkapan-1.4b/` (dihasilkan uji ponsel otomatis, lebar 360 px dan 412 px, mode terang dan gelap). |
 | Daftar induk | PG-01 |
 
 ## 1. Membuka aplikasi
@@ -45,10 +45,22 @@ Susunan ini **usulan sementara** (placeholder PH-11) dan dapat diubah setelah di
 Memuat waktu (WIT), lokasi, penyelenggara, PIC, pihak yang diundang beserta kedudukannya, peringatan bentrok, lampiran (bila berhak), dan riwayat perubahan (Kepala Biro dan Administrator). Tautan rapat hanya tampil bagi pihak yang ditugaskan atau peran yang berhak.
 
 ## 6. Bentrok
-Daftar dikelompokkan menurut tanggal. **Bentrok pasti** berarti dua kegiatan beririsan pada pihak yang sama; **potensi bentrok** berarti satu sumber daya (mis. kendaraan, ajudan) dipakai dua kegiatan. Bentrok adalah peringatan, bukan larangan: kegiatan tetap dapat ditetapkan dengan alasan tertulis (Tahap 1.4b).
+Daftar dikelompokkan menurut tanggal. **Bentrok pasti** berarti dua kegiatan beririsan pada pihak yang sama; **potensi bentrok** berarti satu sumber daya (mis. kendaraan, ajudan) dipakai dua kegiatan. Bentrok adalah peringatan, bukan larangan: kegiatan tetap dapat ditetapkan dengan alasan tertulis.
 
-## 7. Akun, tema, dan keluar
+## 7. Tindakan (Tahap 1.4b)
+| Tindakan | Cara | Siapa |
+|---|---|---|
+| **Undangan baru** | Agenda → **Tambah undangan**; isi judul, tanggal dan jam (WIT), lokasi, PIC, pihak yang diundang; lampiran dari kamera atau galeri | Yang berizin membuat kegiatan |
+| **Ubah kegiatan** | Rincian → **Ubah** (tidak untuk kegiatan Berlangsung, Selesai, Dibatalkan) | Yang berizin mengubah |
+| **Keputusan kehadiran** | Rincian → **Putuskan kehadiran: (nama pimpinan)** → pilih **Hadir sendiri**, **Wakilkan** (pilih pejabat pengganti; muncul peringatan bila pengganti sudah punya kegiatan pada jam yang sama), **Tidak hadir**, atau **Tunda** (alasan wajib). Pilihan **Sekaligus tetapkan kegiatan** memindahkan status ke Ditetapkan; bila ada bentrok pasti, alasan wajib diisi. Semuanya tersimpan sebagai satu keputusan; bila ditolak aturan, tidak ada yang berubah | Pimpinan, ajudan, protokol, kabag, admin |
+| **Pindah status** | Rincian → **Ubah status** → pilih tujuan yang sah; menunda atau membatalkan wajib beralasan | Yang berizin memindahkan status |
+| **Terima atau tolak penugasan** | Rincian → **Penugasan untuk Anda** → **Terima penugasan** atau **Tidak dapat hadir** | Pejabat yang ditugaskan (hanya untuk dirinya) |
+| **Lampiran** | Rincian → Lampiran → **Ambil foto** atau **Pilih berkas** → **Unggah**; PDF, JPG, PNG, paling besar 10 MB | Yang berizin mengunggah |
+| **Pengaturan** | Lainnya → **Pengaturan** (durasi bawaan kegiatan) | Admin mengubah; Kepala Biro membaca |
+| **Log audit** | Lainnya → **Log audit** (dapat disaring menurut ID kegiatan) | Admin, Kepala Biro |
+
+## 8. Akun, tema, dan keluar
 Pilih tampilan **Ikuti perangkat**, **Terang**, atau **Gelap**. Tombol **Keluar** mengakhiri sesi di server.
 
-## 8. Khusus Administrator pada mode demo
-Pita **Lihat sebagai...** memilih salah satu persona untuk melihat tampilan peran itu. Pita menunjukkan siapa yang sedang dilihat; tombol **Kembali ke akun asli** mengembalikan tampilan. Setiap perpindahan tercatat di log audit.
+## 9. Khusus Administrator pada mode demo
+Pita **Lihat sebagai...** memilih salah satu persona untuk melihat tampilan peran itu; layar kembali ke Beranda setiap kali berpindah. Pita menunjukkan siapa yang sedang dilihat; tombol **Kembali ke akun asli** mengembalikan tampilan. Setiap perpindahan tercatat di log audit.

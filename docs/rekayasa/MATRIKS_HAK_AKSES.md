@@ -40,6 +40,7 @@ Salah satu izin pada daftar rute sudah cukup (any-of). Pembatasan data tambahan:
 | POST | `/api/kegiatan` | `kegiatan.buat` |
 | GET | `/api/kegiatan/:id` | `kegiatan.baca_semua`, `kegiatan.baca_terkait` |
 | PATCH | `/api/kegiatan/:id` | `kegiatan.ubah` |
+| POST | `/api/kegiatan/:id/keputusan-kehadiran` | `pihak.kelola` |
 | GET | `/api/kegiatan/:id/lampiran` | `lampiran.baca` |
 | POST | `/api/kegiatan/:id/lampiran` | `lampiran.unggah` |
 | DELETE | `/api/kegiatan/:id/pihak/:pihakId` | `pihak.kelola` |

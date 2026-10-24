@@ -168,6 +168,34 @@ export const PindahStatusInput = z.object({
   alasanBentrok: z.string().trim().max(1000).optional(),
 });
 
+export const KEPUTUSAN_KEHADIRAN = ['hadir_sendiri', 'wakilkan', 'tidak_hadir', 'tunda'] as const;
+
+/** KB-047: keputusan kehadiran pimpinan, atomik (kedudukan pimpinan, pengganti, dan status sekaligus). */
+export const KeputusanKehadiranInput = z
+  .object({
+    pimpinanId: teksIsi(100),
+    keputusan: z.enum(KEPUTUSAN_KEHADIRAN),
+    penggantiId: teksIsi(100).optional(),
+    alasan: z.string().trim().max(1000).optional(),
+    tetapkan: z.boolean().optional(),
+    alasanBentrok: z.string().trim().max(1000).optional(),
+  })
+  .superRefine((d, ctx) => {
+    if (d.keputusan === 'wakilkan' && !d.penggantiId) {
+      ctx.addIssue({ code: 'custom', path: ['penggantiId'], message: 'Pilih pejabat pengganti' });
+    }
+    if (d.keputusan === 'tunda' && !d.alasan) {
+      ctx.addIssue({ code: 'custom', path: ['alasan'], message: 'Alasan menunda wajib diisi' });
+    }
+    if (d.keputusan === 'tunda' && d.tetapkan) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['tetapkan'],
+        message: 'Menunda tidak dapat digabung dengan menetapkan',
+      });
+    }
+  });
+
 export const BentrokSkema = z.object({
   pihakId: z.string(),
   pihakNama: z.string(),
@@ -248,4 +276,10 @@ export const PersonaSkema = z.object({
   username: z.string(),
   nama: z.string(),
   peran: z.enum(PERAN_PENGGUNA),
+});
+
+export const HasilKeputusanSkema = z.object({
+  kegiatan: KegiatanSkema,
+  peristiwa: PeristiwaSkema.nullable(),
+  peringatan: z.array(BentrokSkema),
 });

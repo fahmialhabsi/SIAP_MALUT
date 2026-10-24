@@ -1,0 +1,165 @@
+Bukti gate Tahap 1.4b (dijalankan asisten, Windows PowerShell 5.1, Node v20.20.0)
+------------------------------------------
+[audit] Dokumen: Ada=34, Draf=5, Placeholder=2, Belum=30
+[audit] LOLOS: dokumen berstatus Ada ditemukan dan struktur folder sesuai.
+[gate] npm run lint ...
+
+> siap-malut@0.1.0 lint
+> eslint . && prettier --check . && node scripts/cek-token.mjs
+
+Checking formatting...
+All matched files use Prettier code style!
+[token] LOLOS: tidak ada warna yang ditulis langsung pada apps/web/src.
+[gate] npm run test ...
+
+> siap-malut@0.1.0 test
+> npm run test --workspaces --if-present && node --test scripts/cek-token.test.mjs scripts/alamat-lan.test.mjs
+
+
+> @siap/shared@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/packages/shared
+
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  14:04:07
+   Duration  792ms (transform 90ms, setup 0ms, import 299ms, tests 23ms, environment 0ms)
+
+
+> @siap/domain@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/packages/domain
+
+
+ Test Files  4 passed (4)
+      Tests  51 passed (51)
+   Start at  14:04:09
+   Duration  1.06s (transform 372ms, setup 0ms, import 824ms, tests 245ms, environment 1ms)
+
+
+> @siap/api@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/apps/api
+
+
+ Test Files  12 passed (12)
+      Tests  120 passed (120)
+   Start at  14:04:11
+   Duration  58.65s (transform 1.73s, setup 0ms, import 15.35s, tests 146.81s, environment 4ms)
+
+
+> @siap/web@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/apps/web
+
+
+ Test Files  4 passed (4)
+      Tests  43 passed (43)
+   Start at  14:05:11
+   Duration  7.10s (transform 1.26s, setup 0ms, import 3.95s, tests 4.81s, environment 8.33s)
+
+TAP version 13
+# Subtest: KB-040: alamat Wi-Fi fisik didahulukan, adaptor virtual setelahnya
+ok 1 - KB-040: alamat Wi-Fi fisik didahulukan, adaptor virtual setelahnya
+  ---
+  duration_ms: 2.0235
+  ...
+# Subtest: KB-040: loopback, IPv6, dan alamat non-pribadi diabaikan
+ok 2 - KB-040: loopback, IPv6, dan alamat non-pribadi diabaikan
+  ---
+  duration_ms: 0.7419
+  ...
+# Subtest: KB-020: warna heksadesimal ditolak
+ok 3 - KB-020: warna heksadesimal ditolak
+  ---
+  duration_ms: 5.2144
+  ...
+# Subtest: KB-020: rgb() dan hsl() ditolak
+ok 4 - KB-020: rgb() dan hsl() ditolak
+  ---
+  duration_ms: 0.9861
+  ...
+# Subtest: KB-020: var(--token) diterima
+ok 5 - KB-020: var(--token) diterima
+  ---
+  duration_ms: 0.1767
+  ...
+# Subtest: KB-020: nomor baris dilaporkan
+ok 6 - KB-020: nomor baris dilaporkan
+  ---
+  duration_ms: 0.1724
+  ...
+# Subtest: KB-020: pemeriksa folder menemukan pelanggaran dan mengabaikan berkas uji
+ok 7 - KB-020: pemeriksa folder menemukan pelanggaran dan mengabaikan berkas uji
+  ---
+  duration_ms: 19.0131
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 188.7232
+[gate] npm run build ...
+
+> siap-malut@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @siap/shared@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/domain@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/api@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/web@0.1.0 build
+> tsc -p tsconfig.json --noEmit && vite build
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 145 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/registerSW.js                           0.13 kB
+dist/manifest.webmanifest                    0.31 kB
+dist/index.html                              0.63 kB │ gzip:   0.37 kB
+dist/assets/Inter-Variable-Dx4kXJAl.woff2   48.25 kB
+dist/assets/index-D2uIQ3_d.css              11.82 kB │ gzip:   2.93 kB
+dist/assets/index-B7hD0XCZ.js              403.51 kB │ gzip: 121.73 kB
+
+✓ built in 4.86s
+
+PWA v2.0.0
+mode      generateSW
+precache  6 entries (406.36 KiB)
+files generated
+  dist/sw.js
+  dist/workbox-9c191d2f.js
+[PLUGIN_TIMINGS] JavaScript callbacks ran for 35.2s. The build took 4.8s. Callbacks such as `closeBundle` run after the build ends, so callback time can be more than build time.
+The slowest callbacks, timed inside each callback (the wait before a callback starts is excluded, the time it awaits is included):
+  - plugin vite-plugin-pwa:build closeBundle (100%, 30.6s, 1 call)
+  - plugin vite:css transform (62%, 3.0s, 2 calls)
+  - plugin vite:css-post renderChunk (27%, 1.3s, 1 call)
+Additional callback time came from callbacks under 1s.
+See https://rolldown.rs/reference/InputOptions.checks#bundlertimings for more details.
+
+[gate] LOLOS: lint, test, build.
+kode=0
