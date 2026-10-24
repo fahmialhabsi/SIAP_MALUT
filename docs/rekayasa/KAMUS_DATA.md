@@ -63,6 +63,7 @@ Sesi masuk; hanya hash token yang disimpan (diisi di Tahap 1.3b).
 |---|---|---|---|---|---|
 | `id_hash` | text | ya |  | PK | rahasia |
 | `pengguna_id` | text | ya |  | FK → pengguna.id | biasa |
+| `persona_id` | text |  |  | FK → pengguna.id | biasa |
 | `dibuat` | timestamp with time zone | ya | ya |  | biasa |
 | `kedaluwarsa` | timestamp with time zone | ya |  |  | biasa |
 | `ip` | text |  |  |  | pribadi |

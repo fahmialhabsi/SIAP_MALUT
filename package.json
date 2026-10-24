@@ -24,7 +24,8 @@
     "sbom": "node scripts/buat-sbom.mjs",
     "docs:status": "node scripts/buat-diagram-status.mjs",
     "admin:sandi": "npm run seed -w apps/api -- --atur-sandi-admin",
-    "docs:data": "node scripts/buat-kamus-data.mjs"
+    "docs:data": "node scripts/buat-kamus-data.mjs",
+    "docs:api": "node scripts/buat-dokumen-api.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

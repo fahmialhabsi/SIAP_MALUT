@@ -106,3 +106,6 @@ Versi dikunci di `package-lock.json` (rilis stabil terbaru yang kompatibel saat 
 ## 11. Revisi 2 (Tahap 1.3a): Basis Data
 Drizzle ORM 0.45 + drizzle-kit 0.31 (migrasi SQL berkas); **PGlite** (`@electric-sql/pglite`) untuk pengembangan dan uji; `pg` (node-postgres) untuk PostgreSQL 16 asli. Kata sandi di-hash dengan scrypt bawaan Node (tanpa dependensi). `npm run dev` memakai PGlite berkas di `data/dev/pgdata`; kontainer/produksi memakai PostgreSQL. Satu skema dan satu rangkaian migrasi untuk keduanya; uji dijalankan di keduanya. Keputusan owner: KP-015.
 
+## 12. Revisi 3 (Tahap 1.3b): API dan Keamanan
+`@fastify/cookie` (sesi httpOnly) dan `@fastify/multipart` (unggahan); Zod 4 untuk validasi **dan** OpenAPI (`z.toJSONSchema`, tanpa paket tambahan); kata sandi scrypt bawaan Node; tidak memakai JWT (sesi di basis data agar dapat dicabut dan diaudit); tidak memakai paket pembatas laju (penguncian per akun di basis data). Kuki sesi bergantung pada **satu asal** (proksi), sehingga CORS tidak diaktifkan.
+

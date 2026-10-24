@@ -34,7 +34,7 @@ Copy-Item .env.example .env      # lalu isi POSTGRES_PASSWORD (wajib); sesuaikan
 docker compose build
 docker compose up -d
 ```
-Web: `http://localhost:8080` (atau `WEB_PORT`). API: `http://localhost:3000` (atau `API_PORT`). Hentikan: `docker compose down`.
+Web: `http://localhost:8080` (atau `WEB_PORT`). API diakses lewat web yang sama: `/api/...`, `/health`, `/ready` (nginx meneruskan ke layanan `api`; API tidak dibuka ke luar). Hentikan: `docker compose down` (tambah `-v` untuk menghapus basis data dan lampiran).
 
 ## 4. Konfigurasi (variabel lingkungan)
 | Variabel | Arti | Bawaan |
@@ -46,7 +46,9 @@ Web: `http://localhost:8080` (atau `WEB_PORT`). API: `http://localhost:3000` (at
 | `SIAP_DB_DIR` | Folder data PGlite (dev). Kosong = di memori (hilang saat berhenti); `npm run dev` mengisinya | kosong |
 | `SIAP_ADMIN_PASSWORD` | Kata sandi awal `admin.owner` (mode demo, minimal 12 karakter). Kosong = acak dan dicetak sekali | kosong |
 | `POSTGRES_PASSWORD` | **Wajib** untuk `docker compose`: kata sandi basis data PostgreSQL (isi di `.env`, huruf/angka, ≥ 16 karakter) | tidak ada |
-| `API_PORT`, `WEB_PORT` | Port yang dibuka di host (Compose) | `3000`, `8080` |
+| `WEB_PORT` | Port web yang dibuka di host (Compose). API tidak dibuka; diakses lewat web (`/api`, `/health`, `/ready`) | `8080` |
+| `SIAP_UNGGAHAN_DIR` | Folder lampiran (kontainer: volume `siap_unggahan`; dev: `data/unggahan`) | `data/unggahan` |
+| `SIAP_TRUST_PROXY` | `true` bila API di belakang proksi tepercaya (Compose menyetelnya); IP asal diambil dari `X-Forwarded-For` | `false` |
 | `VITE_APP_MODE` | Mode saat **build** web (diisi otomatis dari `APP_MODE` di Compose) | `production` |
 
 ## 5. Verifikasi Pemasangan
@@ -73,6 +75,13 @@ powershell -ExecutionPolicy Bypass -File scripts\gate.ps1
 - Mode `production`: **tidak ada data contoh dan belum ada akun**; pembuatan admin produksi dan impor data asli dirancang di Tahap P. API menolak start bila basis data masih berisi data contoh.
 - Migrasi: `apps/api/drizzle/` (dibuat `npm run db:generate -w apps/api`; jangan diedit tangan).
 - Uji ke PostgreSQL asli: jalankan kontainer PostgreSQL sementara lalu `SIAP_TEST_DATABASE_URL=postgres://... npm test -w apps/api` (basis data uji **dikosongkan** tiap uji).
+
+## 6b. API, Masuk, dan Lampiran (Tahap 1.3b)
+- Dokumentasi API dihasilkan dari kode: `docs/rekayasa/openapi.json` (OpenAPI 3.1; `npm run docs:api` setelah build). Hak akses per rute: `docs/rekayasa/MATRIKS_HAK_AKSES.md`.
+- Masuk: `POST /api/sesi` dengan `{username, sandi}`; sesi berupa kuki `siap_sesi` (httpOnly, SameSite=Strict). Peramban memakai satu asal: saat `npm run dev` Vite meneruskan `/api` ke API; di kontainer nginx yang meneruskan.
+- Akun mode demo: `admin.owner` (sandi dari `SIAP_ADMIN_PASSWORD` atau acak tercetak sekali). Akun `demo.*` tidak dapat masuk; admin memakainya lewat `POST /api/demo/persona`.
+- Lampiran: `data/unggahan/` (dev, diabaikan Git) atau volume `siap_unggahan` (kontainer). Hanya PDF, JPG, PNG hingga 10 MB.
+- Pengujian cepat dengan `curl` memerlukan header `Origin` yang sama dengan `Host` pada permintaan pengubah (POST/PUT/PATCH/DELETE) bila Origin dikirim.
 
 ## 7. Batasan Tahap 1.1
 Belum ada basis data, akun, dan data; cadangan/pemulihan (OP-03) menyusul. Pemasangan dengan kontainer **diverifikasi 23 Okt 2026** (build, jalan, health, web) pada Docker Desktop 28.3.3; bukti: `docs/audit/bukti-gate/docker-tahap-1.1.txt`. Pemasangan dari nol oleh pihak ketiga belum dicoba.

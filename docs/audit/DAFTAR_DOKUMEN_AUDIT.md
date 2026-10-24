@@ -67,9 +67,9 @@ Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. 
 |---|---|---|---|---|---|---|
 | RK-01 | Dokumen arsitektur perangkat lunak (konteks, komponen, deployment) | D | 1.1 | Diagram dari kode/konfigurasi; ditinjau tiap tahap | Ada | `docs/rekayasa/ARSITEKTUR.md` |
 | RK-02 | Model dan kamus data (ERD, tipe, makna, sensitivitas) | D I B | 1.3 | **Dihasilkan dari skema Drizzle** | Ada | `docs/rekayasa/KAMUS_DATA.md` |
-| RK-03 | Spesifikasi API | D | 1.3 | **Dihasilkan dari skema Fastify/Zod (OpenAPI)** | Belum | `docs/rekayasa/openapi.json` |
-| RK-04 | Desain keamanan (autentikasi, otorisasi, enkripsi, log) | D I B | 1.3 | Diuji oleh kasus uji keamanan | Belum | `docs/rekayasa/DESAIN_KEAMANAN.md` |
-| RK-05 | Matriks hak akses (peran × fitur × data) | I B | 1.3 | **Uji otomatis membaca matriks yang sama dengan aplikasi** | Belum | `docs/rekayasa/MATRIKS_HAK_AKSES.md` |
+| RK-03 | Spesifikasi API | D | 1.3 | **Dihasilkan dari skema Fastify/Zod (OpenAPI)** | Ada | `docs/rekayasa/openapi.json` |
+| RK-04 | Desain keamanan (autentikasi, otorisasi, enkripsi, log) | D I B | 1.3 | Diuji oleh kasus uji keamanan | Ada | `docs/rekayasa/DESAIN_KEAMANAN.md` |
+| RK-05 | Matriks hak akses (peran × fitur × data) | I B | 1.3 | **Uji otomatis membaca matriks yang sama dengan aplikasi** | Placeholder | `docs/rekayasa/MATRIKS_HAK_AKSES.md` |
 | RK-06 | Desain alur proses dan status (diagram status tiket/agenda) | I | 1.2 | Status di kode = diagram | Ada | `docs/rekayasa/ALUR_PROSES.md` |
 | RK-07 | Aturan bisnis (bentrok, pengganti, tenggat) | I | 1.2 | Uji unit memakai contoh di dokumen | Ada | `docs/rekayasa/ATURAN_BISNIS.md` |
 | RK-08 | Desain integrasi (SRIKANDI, e-Office, notifikasi, BSrE) | D | 2 | Kontrak integrasi diuji | Belum | `docs/rekayasa/INTEGRASI.md` |
@@ -93,11 +93,11 @@ Kolom **Sinkron lewat** menunjukkan cara dokumen dijaga selalu sesuai aplikasi. 
 
 | ID | Dokumen | Diminta | Dibuat | Sinkron lewat | Status | Berkas |
 |---|---|---|---|---|---|---|
-| KM-01 | Kebijakan keamanan informasi aplikasi | D I | 1.3 | Selaras RK-04 | Belum | `docs/keamanan/KEBIJAKAN_KEAMANAN.md` |
+| KM-01 | Kebijakan keamanan informasi aplikasi | D I | 1.3 | Selaras RK-04 | Ada | `docs/keamanan/KEBIJAKAN_KEAMANAN.md` |
 | KM-02 | Klasifikasi data dan inventaris data pribadi (siapa, apa, dasar, lokasi, retensi) | D I B | 1.3 | **Kolom sensitivitas pada kamus data** | Ada | `docs/keamanan/INVENTARIS_DATA_PRIBADI.md` |
 | KM-03 | Penilaian dampak pelindungan data pribadi | D I | 1.6 | Ditinjau tiap fitur data baru | Belum | `docs/keamanan/PENILAIAN_DAMPAK_PDP.md` |
 | KM-04 | Kebijakan retensi dan penghapusan data | I B | 2 | Pekerjaan retensi di aplikasi mengikuti kebijakan | Belum | `docs/keamanan/KEBIJAKAN_RETENSI.md` |
-| KM-05 | Manajemen akun, kata sandi, dan peninjauan akses berkala | I B | 1.3 | Fitur peninjauan akses di aplikasi | Belum | `docs/keamanan/MANAJEMEN_AKSES.md` |
+| KM-05 | Manajemen akun, kata sandi, dan peninjauan akses berkala | I B | 1.3 | Fitur peninjauan akses di aplikasi | Ada | `docs/keamanan/MANAJEMEN_AKSES.md` |
 | KM-06 | Rencana tanggapan insiden keamanan dan formulir pelaporan | D I | 2 | Latihan dan catatan | Belum | `docs/keamanan/TANGGAPAN_INSIDEN.md` |
 | KM-07 | Hasil pindai kerentanan dan uji penetrasi, serta tindak lanjut | D I B | 3 | Diulang tiap rilis besar | Belum | `docs/keamanan/hasil-uji-keamanan/` |
 | KM-08 | Pengelolaan kunci, sertifikat, dan rahasia (prosedur, tanpa nilai) | D I | 2 | Skrip konfigurasi | Belum | `docs/keamanan/PENGELOLAAN_RAHASIA.md` |

@@ -1,0 +1,2 @@
+ALTER TABLE "sesi" ADD COLUMN "persona_id" text;--> statement-breakpoint
+ALTER TABLE "sesi" ADD CONSTRAINT "sesi_persona_id_pengguna_id_fk" FOREIGN KEY ("persona_id") REFERENCES "public"."pengguna"("id") ON DELETE no action ON UPDATE no action;

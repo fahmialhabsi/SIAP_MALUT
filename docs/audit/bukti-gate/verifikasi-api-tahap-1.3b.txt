@@ -1,0 +1,23 @@
+Bukti verifikasi API, PostgreSQL asli, proksi, dan kontainer, Tahap 1.3b (dijalankan asisten, 24 Oktober 2026)
+Dasar: izin pra-verifikasi lokal tetap (KP-012, KP-015). Docker Desktop 28.3.3, postgres:16-alpine, Node 20.20.0 dan 22.22.0, Windows PowerShell 5.1 dan 7.
+------------------------------------------
+1. Uji API terhadap PostgreSQL 16 asli (SIAP_TEST_DATABASE_URL, kontainer sementara; dihapus setelahnya)
+   npm test -w apps/api -> 11 berkas, 188 uji lulus (PGlite dan PostgreSQL), berurutan
+   Pada PGlite saja: 112 uji lulus.
+
+2. Alur nyata lewat proksi pengembangan (npm run dev, PGlite berkas, port 3190/5190; data dev dibersihkan setelahnya)
+   OK tanpa kuki 401; sandi salah 401; masuk 200 + kuki HttpOnly SameSite=Strict; daftar 26 Okt = 4; bentrok 26 Okt = 13;
+   buat kegiatan 201; unggah PDF 201 dan unduh isi sama; pindah persona pejabat; sebagai pejabat hanya 1 kegiatan terkait dan buat kegiatan 403;
+   kembali ke admin 204; log audit memuat masuk.berhasil, kegiatan.buat, lampiran.unggah, demo.pindah_persona, demo.kembali; asal berbeda 403; keluar 204; setelah keluar 401.
+   Temuan: awalnya semua POST lewat proksi Vite ditolak (asal_ditolak) karena proksi mengganti Host; diperbaiki (changeOrigin: false), diverifikasi ulang.
+
+3. Kontainer penuh (docker compose: db + api + web/nginx; APP_MODE=demo; port web 8290; API tidak dibuka ke luar)
+   - /ready dan /health lewat nginx: ok; basisData ok
+   - Alur yang sama seperti butir 2 lewat nginx: seluruhnya OK
+   - Lampiran tersimpan di volume siap_unggahan (pemilik node), tetap ada setelah restart API; 1 lampiran, 15 kegiatan di basis data
+   - log_audit.ip terisi dari X-Forwarded-For (SIAP_TRUST_PROXY=true)
+   - docker compose down -v; kontainer dan volume uji dibersihkan
+
+4. Gate di Windows PowerShell 5.1 (cara patch memanggil): LOLOS (186 uji: shared 12, domain 51, api 112, web 4, skrip 7). Node 22: LOLOS.
+
+5. Belum diuji: uji penetrasi, pembatasan laju, unggahan sangat besar di nginx (batas 12m dikonfigurasi, tidak diuji), pemindaian virus, cadangan/pemulihan, beban.

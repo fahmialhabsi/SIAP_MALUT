@@ -29,6 +29,8 @@ const ApiEnvSchema = z.object({
   LOG_LEVEL: z.enum(LOG_LEVELS).default('info'),
   DATABASE_URL: z.preprocess(kosongJadiTakAda, z.string().min(1).optional()),
   SIAP_DB_DIR: z.preprocess(kosongJadiTakAda, z.string().min(1).optional()),
+  SIAP_UNGGAHAN_DIR: z.preprocess(kosongJadiTakAda, z.string().min(1).optional()),
+  SIAP_TRUST_PROXY: z.preprocess(kosongJadiTakAda, z.enum(['true', 'false']).optional()),
   SIAP_ADMIN_PASSWORD: z.preprocess(
     kosongJadiTakAda,
     z.string().min(12, 'minimal 12 karakter').optional(),
@@ -44,6 +46,10 @@ export interface ApiConfig {
   databaseUrl?: string;
   /** Folder data PGlite (pengembangan). Kosong = di memori. */
   dbDir?: string;
+  /** Percayai header X-Forwarded-* (hanya bila API di belakang proksi tepercaya, mis. nginx pada Compose). */
+  trustProxy?: boolean;
+  /** Folder penyimpanan lampiran. Kosong = data/unggahan di folder kerja. */
+  uploadDir?: string;
   /** Kata sandi awal admin.owner (hanya untuk seed). Jangan dicatat. */
   adminPassword?: string;
 }
@@ -65,6 +71,8 @@ export function loadApiConfig(env: Record<string, string | undefined>): ApiConfi
     logLevel: parsed.LOG_LEVEL,
     ...(parsed.DATABASE_URL ? { databaseUrl: parsed.DATABASE_URL } : {}),
     ...(parsed.SIAP_DB_DIR ? { dbDir: parsed.SIAP_DB_DIR } : {}),
+    ...(parsed.SIAP_UNGGAHAN_DIR ? { uploadDir: parsed.SIAP_UNGGAHAN_DIR } : {}),
+    trustProxy: parsed.SIAP_TRUST_PROXY === 'true',
     ...(parsed.SIAP_ADMIN_PASSWORD ? { adminPassword: parsed.SIAP_ADMIN_PASSWORD } : {}),
   };
 }

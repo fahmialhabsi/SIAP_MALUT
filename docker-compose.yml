@@ -26,11 +26,14 @@ services:
       LOG_LEVEL: ${LOG_LEVEL:-info}
       DATABASE_URL: postgres://siap:${POSTGRES_PASSWORD:?Isi POSTGRES_PASSWORD di berkas .env}@db:5432/siap
       SIAP_ADMIN_PASSWORD: ${SIAP_ADMIN_PASSWORD:-}
+      SIAP_TRUST_PROXY: 'true'
+      SIAP_UNGGAHAN_DIR: /app/data/unggahan
+    volumes:
+      - siap_unggahan:/app/data/unggahan
     depends_on:
       db:
         condition: service_healthy
-    ports:
-      - '${API_PORT:-3000}:3000'
+    # API tidak dibuka ke luar; seluruh akses lewat web (nginx meneruskan /api, /health, /ready).
     restart: unless-stopped
 
   web:
@@ -47,3 +50,4 @@ services:
 
 volumes:
   siap_pgdata:
+  siap_unggahan:

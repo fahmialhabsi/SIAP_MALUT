@@ -1,0 +1,160 @@
+Bukti gate Tahap 1.3b (dijalankan asisten, pra-verifikasi lokal, KP-015)
+Waktu: 2026-10-24 10:53:17 +09:00
+Node: v20.20.0  npm: 10.8.2  PowerShell: Windows PowerShell 5.1 (cara patch memanggil gate)
+Catatan: dijalankan SEBELUM commit; patch owner menyimpan bukti sendiri (gate-tahap-1.3b-owner.txt).
+------------------------------------------
+[audit] Dokumen: Ada=34, Draf=2, Placeholder=2, Belum=33
+[audit] LOLOS: dokumen berstatus Ada ditemukan dan struktur folder sesuai.
+[gate] npm run lint ...
+
+> siap-malut@0.1.0 lint
+> eslint . && prettier --check . && node scripts/cek-token.mjs
+
+Checking formatting...
+All matched files use Prettier code style!
+[token] LOLOS: tidak ada warna yang ditulis langsung pada apps/web/src.
+[gate] npm run test ...
+
+> siap-malut@0.1.0 test
+> npm run test --workspaces --if-present && node --test scripts/cek-token.test.mjs scripts/alamat-lan.test.mjs
+
+
+> @siap/shared@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/packages/shared
+
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  10:53:32
+   Duration  762ms (transform 80ms, setup 0ms, import 329ms, tests 25ms, environment 0ms)
+
+
+> @siap/domain@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/packages/domain
+
+
+ Test Files  4 passed (4)
+      Tests  51 passed (51)
+   Start at  10:53:34
+   Duration  1.11s (transform 505ms, setup 0ms, import 1.07s, tests 302ms, environment 1ms)
+
+
+> @siap/api@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/apps/api
+
+
+ Test Files  11 passed (11)
+      Tests  112 passed (112)
+   Start at  10:53:36
+   Duration  65.22s (transform 1.89s, setup 0ms, import 14.40s, tests 162.45s, environment 4ms)
+
+
+> @siap/web@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 E:/SIAP_MALUT/apps/web
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  10:54:43
+   Duration  5.80s (transform 301ms, setup 0ms, import 1.52s, tests 585ms, environment 3.03s)
+
+TAP version 13
+# Subtest: KB-040: alamat Wi-Fi fisik didahulukan, adaptor virtual setelahnya
+ok 1 - KB-040: alamat Wi-Fi fisik didahulukan, adaptor virtual setelahnya
+  ---
+  duration_ms: 3.6594
+  ...
+# Subtest: KB-040: loopback, IPv6, dan alamat non-pribadi diabaikan
+ok 2 - KB-040: loopback, IPv6, dan alamat non-pribadi diabaikan
+  ---
+  duration_ms: 4.2791
+  ...
+# Subtest: KB-020: warna heksadesimal ditolak
+ok 3 - KB-020: warna heksadesimal ditolak
+  ---
+  duration_ms: 4.9701
+  ...
+# Subtest: KB-020: rgb() dan hsl() ditolak
+ok 4 - KB-020: rgb() dan hsl() ditolak
+  ---
+  duration_ms: 4.6682
+  ...
+# Subtest: KB-020: var(--token) diterima
+ok 5 - KB-020: var(--token) diterima
+  ---
+  duration_ms: 0.3995
+  ...
+# Subtest: KB-020: nomor baris dilaporkan
+ok 6 - KB-020: nomor baris dilaporkan
+  ---
+  duration_ms: 0.3389
+  ...
+# Subtest: KB-020: pemeriksa folder menemukan pelanggaran dan mengabaikan berkas uji
+ok 7 - KB-020: pemeriksa folder menemukan pelanggaran dan mengabaikan berkas uji
+  ---
+  duration_ms: 53.7001
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 375.0969
+[gate] npm run build ...
+
+> siap-malut@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @siap/shared@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/domain@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/api@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @siap/web@0.1.0 build
+> tsc -p tsconfig.json --noEmit && vite build
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 119 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/registerSW.js                           0.13 kB
+dist/manifest.webmanifest                    0.31 kB
+dist/index.html                              0.63 kB │ gzip:  0.36 kB
+dist/assets/Inter-Variable-Dx4kXJAl.woff2   48.25 kB
+dist/assets/index-Cqy7OTVr.css               4.86 kB │ gzip:  1.56 kB
+dist/assets/index-Vkg0XAIC.js              305.97 kB │ gzip: 93.32 kB
+
+✓ built in 564ms
+
+PWA v2.0.0
+mode      generateSW
+precache  6 entries (304.30 KiB)
+files generated
+  dist/sw.js
+  dist/workbox-9c191d2f.js
+[gate] LOLOS: lint, test, build.
+EXIT-GATE-SELESAI

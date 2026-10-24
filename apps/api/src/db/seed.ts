@@ -9,7 +9,7 @@ import { eq, sql } from 'drizzle-orm';
 import { catatAudit } from './audit.js';
 import type { Db } from './klien.js';
 import { hashSandi, buatSandiAcak } from './sandi.js';
-import { kegiatan, kegiatanPihak, pejabat, pengaturan, pengguna } from './schema.js';
+import { kegiatan, kegiatanPihak, pejabat, pengaturan, pengguna, peranIzin } from './schema.js';
 
 /** Folder data contoh bawaan (relatif terhadap apps/api/src|dist/db). */
 export const FOLDER_CONTOH_BAWAAN = fileURLToPath(
@@ -42,7 +42,13 @@ export interface HasilSeed {
   dibuat: boolean;
   /** Hanya terisi bila kata sandi dibuat acak; tampilkan sekali, jangan disimpan. */
   sandiAdminSementara?: string;
-  jumlah?: { pejabat: number; pengguna: number; kegiatan: number; kegiatanPihak: number };
+  jumlah?: {
+    pejabat: number;
+    pengguna: number;
+    kegiatan: number;
+    kegiatanPihak: number;
+    peranIzin: number;
+  };
 }
 
 const baca = <T>(folder: string, nama: string): T =>
@@ -60,6 +66,7 @@ export async function isiDataContoh(db: Db, opsi: OpsiSeed = {}): Promise<HasilS
   const agenda = baca<BerkasAgenda>(folder, 'agenda-uji.json');
   const akun = baca<BerkasPengguna>(folder, 'pengguna.json');
   const aturan = baca<{ durasiBawaanMenit: number }>(folder, 'aturan-awal.json');
+  const hakAkses = baca<{ peran: Record<string, string[]> }>(folder, 'hak-akses.json');
 
   const sandiAdmin =
     opsi.sandiAdmin && opsi.sandiAdmin.length > 0 ? opsi.sandiAdmin : buatSandiAcak();
@@ -111,6 +118,11 @@ export async function isiDataContoh(db: Db, opsi: OpsiSeed = {}): Promise<HasilS
     );
     await tx.insert(kegiatanPihak).values(daftarPihak);
 
+    const daftarIzin = Object.entries(hakAkses.peran).flatMap(([peran, izin]) =>
+      izin.map((i) => ({ peran, izin: i, isContoh: true })),
+    );
+    await tx.insert(peranIzin).values(daftarIzin);
+
     await tx
       .insert(pengaturan)
       .values({ kunci: 'durasiBawaanMenit', nilai: aturan.durasiBawaanMenit as never })
@@ -125,6 +137,7 @@ export async function isiDataContoh(db: Db, opsi: OpsiSeed = {}): Promise<HasilS
         pengguna: daftarPengguna.length,
         kegiatan: agenda.kegiatan.length,
         kegiatanPihak: daftarPihak.length,
+        peranIzin: daftarIzin.length,
       },
     });
 
@@ -133,6 +146,7 @@ export async function isiDataContoh(db: Db, opsi: OpsiSeed = {}): Promise<HasilS
       pengguna: daftarPengguna.length,
       kegiatan: agenda.kegiatan.length,
       kegiatanPihak: daftarPihak.length,
+      peranIzin: daftarIzin.length,
     };
   });
 

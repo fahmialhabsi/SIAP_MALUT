@@ -46,6 +46,7 @@ describe.each(JENIS_UJI)('basis data (%s)', (jenis) => {
       pengguna: 13,
       kegiatan: 14,
       kegiatanPihak: 28,
+      peranIzin: 65,
     });
     const db = koneksi.db;
     for (const tabel of [pejabat, pengguna, kegiatan]) {
@@ -70,7 +71,7 @@ describe.each(JENIS_UJI)('basis data (%s)', (jenis) => {
     const { koneksi } = await siapkan(jenis, true);
     const lagi = await isiDataContoh(koneksi.db);
     expect(lagi.dibuat).toBe(false);
-    expect(await hitungDataContoh(koneksi.db)).toBe(11 + 13 + 14);
+    expect(await hitungDataContoh(koneksi.db)).toBe(11 + 13 + 14 + 65);
   });
 
   it('KB-041: kata sandi admin.owner acak muncul sekali dan cocok dengan hash; persona tanpa sandi', async () => {
@@ -154,12 +155,12 @@ describe.each(JENIS_UJI)('penjaga produksi pada basis data (%s)', (jenis) => {
   it('KB-034: production menolak start bila ada data contoh', async () => {
     const { koneksi } = await siapkan(jenis, true);
     await expect(jagaProduksi(koneksi.db, 'production')).rejects.toThrow(DataContohDiProduksiError);
-    await expect(jagaProduksi(koneksi.db, 'production')).rejects.toThrow(/38 data contoh/);
+    await expect(jagaProduksi(koneksi.db, 'production')).rejects.toThrow(/103 data contoh/);
   });
 
   it('KB-034: demo boleh memuat data contoh', async () => {
     const { koneksi } = await siapkan(jenis, true);
-    expect(await jagaProduksi(koneksi.db, 'demo')).toBe(38);
+    expect(await jagaProduksi(koneksi.db, 'demo')).toBe(103);
   });
 
   it('KB-034: production pada basis data tanpa data contoh diizinkan', async () => {

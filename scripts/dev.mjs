@@ -13,6 +13,8 @@ const mode = process.env.APP_MODE ?? 'demo';
 // Basis data pengembangan: PGlite (PostgreSQL dalam proses) di data/dev/ (diabaikan Git). Hapus folder itu untuk mengulang dari nol.
 const dirDb = process.env.SIAP_DB_DIR ?? join(process.cwd(), 'data', 'dev', 'pgdata');
 mkdirSync(dirDb, { recursive: true });
+const dirUnggah = process.env.SIAP_UNGGAHAN_DIR ?? join(process.cwd(), 'data', 'unggahan');
+mkdirSync(dirUnggah, { recursive: true });
 const portApi = process.env.SIAP_API_PORT ?? '3180';
 const portWeb = process.env.SIAP_WEB_PORT ?? '5180';
 
@@ -55,6 +57,7 @@ const { result } = concurrently(
         APP_MODE: mode,
         PORT: portApi,
         SIAP_DB_DIR: dirDb,
+        SIAP_UNGGAHAN_DIR: dirUnggah,
         HOST: lan ? '0.0.0.0' : '127.0.0.1',
         LOG_LEVEL: process.env.LOG_LEVEL ?? 'info',
       },
@@ -63,7 +66,7 @@ const { result } = concurrently(
       name: 'web',
       command: `npm run dev -w apps/web -- --port ${portWeb} --strictPort${lan ? ' --host' : ''}`,
       prefixColor: 'green',
-      env: { VITE_APP_MODE: mode },
+      env: { VITE_APP_MODE: mode, SIAP_API_PORT: portApi },
     },
   ],
   { prefix: 'name', killOthersOn: ['failure', 'success'], handleInput: false },

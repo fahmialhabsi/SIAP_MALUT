@@ -37,3 +37,6 @@ Keluaran gate tiap tahap disimpan di `docs/audit/bukti-gate/`. Laporan uji rinci
 ### Kondisi Tahap 1.3a
 **124 uji otomatis** lulus di Node 20.20.0 dan 22.22.0: shared 12, domain 51, **api 50** (basis data, seed, log audit, penjaga, layanan kegiatan, sandi, kamus, kesehatan), web 4, skrip 7. Uji basis data berjalan di **PGlite** dan, bila `SIAP_TEST_DATABASE_URL` diisi, di **PostgreSQL asli** (diverifikasi: 70 uji api lulus di PostgreSQL 16). Verifikasi kontainer penuh (db+api+web), append-only via `psql`, dan penjaga produksi: `docs/audit/bukti-gate/verifikasi-postgres-tahap-1.3a.txt`.
 
+### Kondisi Tahap 1.3b
+**186 uji otomatis** lulus pada PGlite (Node 20.20.0 dan 22.22.0; gate dijalankan juga di Windows PowerShell 5.1): shared 12, domain 51, **api 112** (kegiatan-api 16, rbac 11, auth 17, lampiran 7, demo 5, openapi 6, kamus 5, db/layanan/sandi/app), web 4, skrip 7. Di **PostgreSQL 16 asli**: 188 uji api (PGlite + PostgreSQL). Uji lintas peran memeriksa **9 peran × 20 rute = 180 kombinasi** terhadap matriks yang sama dengan aplikasi. Alur lengkap diverifikasi manual lewat proksi dev dan nginx (kontainer): `docs/audit/bukti-gate/verifikasi-api-tahap-1.3b.txt`.
+

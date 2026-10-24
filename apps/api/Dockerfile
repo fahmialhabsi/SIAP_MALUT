@@ -27,6 +27,8 @@ COPY --from=build /app/apps/api/dist ./apps/api/dist
 COPY --from=build /app/apps/api/drizzle ./apps/api/drizzle
 # Data contoh hanya dipakai mode demo (seed); produksi tidak memuatnya.
 COPY data/contoh ./data/contoh
+RUN mkdir -p /app/data/unggahan && chown -R node:node /app/data
+ENV SIAP_UNGGAHAN_DIR=/app/data/unggahan
 USER node
 EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \

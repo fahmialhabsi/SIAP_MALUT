@@ -1,0 +1,81 @@
+{
+  "_catatan": "DATA CONTOH (placeholder): matriks hak akses peran x izin. Sumber tunggal: dibaca seed ke tabel peran_izin, dibaca uji otomatis, dan menghasilkan docs/rekayasa/MATRIKS_HAK_AKSES.md. Disahkan Biro bersama Sekda pada Tahap P (PH-05).",
+  "peran": {
+    "admin": [
+      "kegiatan.baca_semua",
+      "kegiatan.baca_terkait",
+      "kegiatan.buat",
+      "kegiatan.ubah",
+      "kegiatan.pindah_status",
+      "pihak.kelola",
+      "pihak.konfirmasi_sendiri",
+      "bentrok.baca",
+      "pejabat.baca",
+      "lampiran.baca",
+      "lampiran.unggah",
+      "tautan_rapat.lihat_semua",
+      "pengaturan.baca",
+      "pengaturan.ubah",
+      "audit.baca",
+      "hakakses.baca",
+      "demo.pindah_persona"
+    ],
+    "kepala_biro": [
+      "kegiatan.baca_semua",
+      "bentrok.baca",
+      "pejabat.baca",
+      "lampiran.baca",
+      "tautan_rapat.lihat_semua",
+      "pengaturan.baca",
+      "audit.baca",
+      "hakakses.baca"
+    ],
+    "kabag_protokol": [
+      "kegiatan.baca_semua",
+      "kegiatan.buat",
+      "kegiatan.ubah",
+      "kegiatan.pindah_status",
+      "pihak.kelola",
+      "bentrok.baca",
+      "pejabat.baca",
+      "lampiran.baca",
+      "lampiran.unggah",
+      "tautan_rapat.lihat_semua",
+      "pengaturan.baca"
+    ],
+    "protokol": [
+      "kegiatan.baca_semua",
+      "kegiatan.buat",
+      "kegiatan.ubah",
+      "kegiatan.pindah_status",
+      "pihak.kelola",
+      "bentrok.baca",
+      "pejabat.baca",
+      "lampiran.baca",
+      "lampiran.unggah",
+      "tautan_rapat.lihat_semua"
+    ],
+    "ajudan": [
+      "kegiatan.baca_semua",
+      "kegiatan.buat",
+      "kegiatan.ubah",
+      "kegiatan.pindah_status",
+      "pihak.kelola",
+      "bentrok.baca",
+      "pejabat.baca",
+      "lampiran.baca",
+      "lampiran.unggah"
+    ],
+    "pimpinan": [
+      "kegiatan.baca_semua",
+      "kegiatan.pindah_status",
+      "pihak.kelola",
+      "bentrok.baca",
+      "pejabat.baca",
+      "lampiran.baca"
+    ],
+    "pejabat": ["kegiatan.baca_terkait", "pihak.konfirmasi_sendiri", "pejabat.baca", "lampiran.baca"],
+    "pemohon": [],
+    "publik": []
+  }
+}

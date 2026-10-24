@@ -78,7 +78,7 @@ Konsekuensi yang wajib diikuti:
 
 Sistem harus **siap diaudit Diskominfosan, Inspektorat, dan BPK**. Daftar induknya ada di `docs/audit/DAFTAR_DOKUMEN_AUDIT.md`. Aturan:
 1. **Satu aplikasi, satu kebenaran.** Dokumen tidak boleh menjelaskan sesuatu yang tidak ada di aplikasi. Perubahan kode berarti dokumen terdampak diperbarui **pada tahap yang sama**.
-2. **Hasilkan dari kode bila mungkin** (spesifikasi API, skema/kamus data, SBOM, laporan uji). Jangan menulis tangan yang bisa dihasilkan otomatis. Perintah pembangkit: `npm run docs:status` (alur status), `npm run docs:data` (kamus data dan inventaris data pribadi; butuh `npm run build` dulu), `npm run sbom`; uji menjaga agar dokumen hasilnya tidak melenceng.
+2. **Hasilkan dari kode bila mungkin** (spesifikasi API, skema/kamus data, SBOM, laporan uji). Jangan menulis tangan yang bisa dihasilkan otomatis. Perintah pembangkit: `npm run docs:status` (alur status), `npm run docs:data` (kamus data dan inventaris data pribadi) dan `npm run docs:api` (OpenAPI dan matriks hak akses), keduanya butuh `npm run build` dulu, `npm run sbom`; uji menjaga agar dokumen hasilnya tidak melenceng.
 3. **Keterlusuran.** Setiap kebutuhan baru masuk `docs/audit/MATRIKS_KETERLUSURAN.md` (ID `KB-xxx`); setiap uji menyebut ID-nya.
 4. **Register risiko** (`docs/audit/REGISTER_RISIKO.md`) ditinjau tiap tahap.
 5. **Definisi Selesai tiap tahap:** gate lolos (termasuk `scripts/audit-check.ps1`), handoff dibuat, dokumen audit terdampak diperbarui (centang di handoff), RTM dan register risiko mutakhir, daftar induk diperbarui statusnya.

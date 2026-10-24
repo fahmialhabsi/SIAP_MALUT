@@ -103,6 +103,8 @@ export const sesi = pgTable('sesi', {
   penggunaId: text('pengguna_id')
     .notNull()
     .references(() => pengguna.id),
+  /** Persona demo yang sedang dipakai admin (hanya mode demo); kosong = akun asli. */
+  personaId: text('persona_id').references(() => pengguna.id),
   dibuat: waktu('dibuat').notNull().defaultNow(),
   kedaluwarsa: waktu('kedaluwarsa').notNull(),
   ip: text('ip'),
@@ -238,6 +240,7 @@ export const SENSITIVITAS: Readonly<Record<string, Sensitivitas>> = {
   'peran_izin.is_contoh': 'biasa',
   'sesi.id_hash': 'rahasia',
   'sesi.pengguna_id': 'biasa',
+  'sesi.persona_id': 'biasa',
   'sesi.dibuat': 'biasa',
   'sesi.kedaluwarsa': 'biasa',
   'sesi.ip': 'pribadi',

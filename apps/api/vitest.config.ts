@@ -10,8 +10,10 @@ export default defineConfig({
   },
   test: {
     environment: 'node',
-    testTimeout: 30000,
-    hookTimeout: 60000,
+    testTimeout: 120000,
+    hookTimeout: 180000,
+    // Setiap berkas uji membuka PGlite (WASM); terlalu banyak paralel membuat komputer yang lambat kehabisan waktu.
+    maxWorkers: 3,
     // PostgreSQL asli dipakai bersama oleh seluruh berkas uji: jalankan berurutan agar tidak saling menghapus.
     fileParallelism: !process.env.SIAP_TEST_DATABASE_URL,
   },

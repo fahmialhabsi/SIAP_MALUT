@@ -8,7 +8,7 @@ Semua hal yang masih berupa **placeholder/data contoh** dicatat di sini (lihat `
 | PH-02 | Nama staf (Protokol, Materi, ajudan) | `data/contoh/` | Daftar staf asli | P | Direncanakan |
 | PH-03 | Akun pengguna (`demo.*`) | `data/contoh/pengguna.json`; tabel `pengguna` | Akun asli lewat impor admin | P | Terisi (seed demo) |
 | PH-04 | Akun admin (`admin.owner`, dipegang owner) | Tabel `pengguna` | Administrator resmi | P | Aktif (sementara; kata sandi acak/lingkungan, tidak di repo) |
-| PH-05 | Matriks hak akses berbasis jabatan contoh | `docs/rekayasa/MATRIKS_HAK_AKSES.md` | Disahkan dengan pemegang jabatan asli | P | Direncanakan |
+| PH-05 | Matriks hak akses berbasis jabatan contoh | `data/contoh/hak-akses.json`; tabel `peran_izin`; `docs/rekayasa/MATRIKS_HAK_AKSES.md` (dihasilkan) | Disahkan Biro bersama Sekda dengan pemegang jabatan asli | P | Terisi (seed demo; dokumen berstatus Placeholder) |
 | PH-06 | SK kelompok kerja/tim/peran (TG-05) | `docs/audit/arsip/` | SK asli | P | Placeholder |
 | PH-07 | Agenda contoh (bentuk mengikuti agenda Protokol, difiktifkan) | `data/contoh/agenda-uji.json`; tabel `kegiatan` | Agenda nyata (input petugas) | P | Terisi (seed demo) |
 | PH-08 | Aturan kewenangan mewakili (nilai awal) | `data/contoh/`, `docs/standar/ATURAN_KEWENANGAN_MEWAKILI_DRAF.md` | Disahkan Sekda | P | Draf |

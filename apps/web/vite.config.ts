@@ -3,6 +3,11 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vitest/config';
 
+// changeOrigin:false agar header Host tetap asal peramban (pemeriksaan Origin = Host di API; kuki SameSite=Strict).
+const apiTarget = {
+  target: `http://127.0.0.1:${process.env.SIAP_API_PORT ?? '3180'}`,
+  changeOrigin: false,
+};
 const dariSrc = (relatif: string) => fileURLToPath(new URL(relatif, import.meta.url));
 
 export default defineConfig({
@@ -35,6 +40,9 @@ export default defineConfig({
           }
         : {},
   },
+  // Panggilan /api diteruskan ke API (satu asal bagi peramban: kuki sesi SameSite=Strict berfungsi tanpa CORS).
+  server: { proxy: { '/api': apiTarget } },
+  preview: { proxy: { '/api': apiTarget } },
   test: {
     environment: 'jsdom',
     globals: false,

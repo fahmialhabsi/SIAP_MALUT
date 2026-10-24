@@ -32,6 +32,7 @@ describe('KB-030: konfigurasi dari lingkungan', () => {
       port: 3000,
       host: '0.0.0.0',
       logLevel: 'info',
+      trustProxy: false,
     });
   });
 
@@ -42,7 +43,13 @@ describe('KB-030: konfigurasi dari lingkungan', () => {
       HOST: '127.0.0.1',
       LOG_LEVEL: 'warn',
     });
-    expect(cfg).toEqual({ appMode: 'demo', port: 8081, host: '127.0.0.1', logLevel: 'warn' });
+    expect(cfg).toEqual({
+      appMode: 'demo',
+      port: 8081,
+      host: '127.0.0.1',
+      logLevel: 'warn',
+      trustProxy: false,
+    });
   });
 
   it('KB-030: port atau tingkat log tidak valid melempar galat', () => {

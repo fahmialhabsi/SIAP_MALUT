@@ -16,7 +16,7 @@ Integrasi eksternal (SRIKANDI, e-Office, BSrE, WhatsApp) berstatus **rencana** (
 | Komponen | Folder | Peran | Status Tahap 1.1 |
 |---|---|---|---|
 | Antarmuka | `apps/web` | React 19 + Vite + PWA (manifest, service worker Workbox); memakai token desain; teks UI di `teks-ui.ts` | Ada: halaman awal, spanduk DATA CONTOH |
-| Peladen API | `apps/api` | Fastify 5; `/health`, `/ready` (memeriksa basis data); log JSON dengan ID permintaan; lapisan data dan layanan kegiatan; penjaga produksi | Ada (API bisnis dan autentikasi di 1.3b) |
+| Peladen API | `apps/api` | Fastify 5; 22 rute `/api` lewat registri rute (autentikasi → izin → validasi → penangan); sesi kuki; RBAC dari data; lampiran lewat `Penyimpanan`; OpenAPI dihasilkan; `/health`, `/ready`; log JSON ber-`reqId`; penjaga produksi | Ada (Tahap 1.3b) |
 | Konfigurasi bersama | `packages/shared` | Skema Zod: `APP_MODE`, port, host, tingkat log; satu sumber untuk web dan api | Ada |
 | Logika domain | `packages/domain` | Logika murni tanpa basis data/jaringan: model kegiatan, waktu (ISO 8601 + zona), deteksi bentrok, aturan status dan peristiwa | Ada (Tahap 1.2); aturan: `ATURAN_BISNIS.md`, diagram: `ALUR_PROSES.md` |
 | Token desain | `src/styles/design-tokens.css` | Sumber tunggal warna, font, jarak (terang/gelap) | Ada |
@@ -31,6 +31,9 @@ Integrasi eksternal (SRIKANDI, e-Office, BSrE, WhatsApp) berstatus **rencana** (
 
 ## 3a. Pengembangan Lokal
 `npm run dev` menjalankan API (`tsx watch`) dan web (Vite) sekaligus. Paket `@siap/shared` dan `@siap/domain` memiliki kondisi ekspor `development` yang menunjuk ke sumber (`src/index.ts`); build produksi memakai `dist`. Detail: `docs/operasi/PEMASANGAN.md` bagian 2.
+
+## 3b. Rute dan Keamanan (Tahap 1.3b)
+Setiap rute dideklarasikan sekali di registri (`apps/api/src/rute/*.ts`: metode, jalur, izin, skema Zod params/query/body/respons). Registri yang sama dipakai untuk memasang rute di Fastify, menguji hak akses lintas peran, dan menghasilkan `openapi.json` serta `MATRIKS_HAK_AKSES.md`. Rincian pertahanan: `DESAIN_KEAMANAN.md`. Peramban selalu berbicara ke satu asal (proksi Vite saat dev, nginx pada kontainer).
 
 ## 4. Mode Aplikasi
 
